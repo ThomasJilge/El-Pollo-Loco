@@ -64,16 +64,15 @@ class World {
         mo.draw(this.ctx);
         mo.drawFrame(this.ctx);
     
-        
         if(mo.otherDirection) {
             this.flipImageBack(mo);
         }
     }
 
     flipImage(mo) {
-        ctx.save();
-        ctx.translate(this.width, 0);
-        ctx.scale(-1, 1);
+        this.ctx.save();
+        this.ctx.translate(this.width, 0);
+        this.ctx.scale(-1, 1);
         mo.x = mo.x * -1;
     }
 
