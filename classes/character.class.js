@@ -34,6 +34,13 @@ class Character extends MovableObject {
         'img/2_character_pepe/5_dead/D-56.png',
         'img/2_character_pepe/5_dead/D-57.png'
     ];
+
+    imagesHurt = [
+        'img/2_character_pepe/4_hurt/H-41.png',
+        'img/2_character_pepe/4_hurt/H-42.png',
+        'img/2_character_pepe/4_hurt/H-43.png'
+    ];
+
     world;
     walking_sound = new Audio('audio/running.mp3');
 
@@ -42,6 +49,7 @@ class Character extends MovableObject {
         this.loadImages(this.imagesWalking);
         this.loadImages(this.imagesJumping);
         this.loadImages(this.imagesDead);
+        this.loadImages(this.imagesHurt);
         this.applyGravity();
         this.animate();
     }
@@ -71,6 +79,8 @@ class Character extends MovableObject {
         setInterval( () => {
             if(this.isDead()) {
                 this.playAnimation(this.imagesDead);
+            } else if (this.isHurt()) {
+                this.playAnimation(this.imagesHurt);
             } else if (this.isAboveGround()) {
                 this.playAnimation(this.imagesJumping);
             } else {
