@@ -1,6 +1,7 @@
 class World {
     character = new Character();
     level = level1;
+    bottles = level1.bottles;
     canvas;
     ctx;
     keyboard;

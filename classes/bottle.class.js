@@ -1,17 +1,18 @@
-class Bottle extends DrawableObject {
-    height = 80;
-    width = 70;
-    y = 350;
+class Bottle extends MovableObject {
+    height = 90;
+    width = 80;
+    // y = 350;
 
     imagesBottle = [
-        'img/6_salsa_bottle/salsa_bottle.png'
+        'img/6_salsa_bottle/1_salsa_bottle_on_ground.png',
+        'img/6_salsa_bottle/2_salsa_bottle_on_ground.png'
     ];
 
 
     constructor() {
-        super().loadImage('img/6_salsa_bottle/salsa_bottle.png' );
+        super().loadImage(this.imagesBottle[0]);
         this.loadImages(this.imagesBottle);
-        // this.x = 200 + Math.random() * 500;
+        this.x = 200 + Math.random() * 500;
         // this.speed = 0.15 + Math.random() * 0.5;
         // this.animate();
     }
