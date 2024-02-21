@@ -2,6 +2,7 @@ class World {
     character = new Character();
     level = level1;
     bottles = level1.bottles;
+    coins = level1.coins;
     canvas;
     ctx;
     keyboard;
