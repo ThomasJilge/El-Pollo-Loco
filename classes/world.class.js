@@ -39,14 +39,26 @@ class World {
         }
     }
 
+    // checkCollisions() {
+    //     this.level.enemies.forEach((enemy) => {
+    //         if(this.character.isColliding(enemy))  {
+    //             this.character.hit();
+    //             this.statusBar.setPercentage(this.character.energy);
+    //         }
+    //     });
+    // }
+
     checkCollisions() {
         this.level.enemies.forEach((enemy) => {
-            if(this.character.isColliding(enemy))  {
-                this.character.hit();
-                this.statusBar.setPercentage(this.character.energy);
+            if (enemy instanceof Chicken || enemy instanceof ChickenSmall) {
+                if (this.character.isColliding(enemy)) {
+                    this.character.hit();
+                    this.statusBar.setPercentage(this.character.energy);
+                }
             }
         });
     }
+    
 
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
