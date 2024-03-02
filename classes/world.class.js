@@ -57,7 +57,32 @@ class World {
                 }
             }
         });
+
+        if (this.level.bottles) {
+            this.bottleCollision();
+        }
+
+        if (this.level.coins) {
+            this.coinCollision();
+        }
     }
+
+    bottleCollision() {
+        this.level.bottles.forEach((bottle, i) => {
+            if (this.character.isColliding(bottle)) {
+                this.level.bottles.splice(i, 1);
+            }
+        });
+    }
+
+    coinCollision() {
+        this.level.bcoins.forEach((coin, i) => {
+            if (this.character.isColliding(coin)) {
+                this.level.bottles.splice(i, 1);
+            }
+        });
+    }
+    
     
 
     draw() {

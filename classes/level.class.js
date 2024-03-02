@@ -1,7 +1,7 @@
 class Level {
     enemies;
     // chickens;
-    // bottles;
+    bottles;
     clouds;
     backgroundObjects;
     levelEndx = 2200;
