@@ -4,6 +4,7 @@ class World {
     bottles = level1.bottles;
     coins = level1.coins;
     bottle = [];
+    coin = [];
     collectedBottles = 0;
     canvas;
     ctx;
@@ -32,6 +33,7 @@ class World {
             this.checkCollisions();
             this.checkThrowableObjects();
             this.bottleCollision();
+            this.coinCollision();
         }, 200);
     }
 
@@ -51,7 +53,7 @@ class World {
                 }
             }
         });
-        this.bottleCollision();
+        // this.bottleCollision();
     }
 
     
@@ -59,23 +61,21 @@ class World {
         if (this.level && this.level.bottles) {
             this.level.bottles.forEach((bottle, i) => {
                 if (this.character.isColliding(bottle)) {
-                    // this.character.collectedBottles();
                     this.level.bottles.splice(i, 1);
                 }
             });
         }
     }
     
-
-    // bottleCollision() {
-    //     this.level.bottles.forEach((bottles, i) => {
-    //         if (this.character.isColliding(bottles)) {
-    //             this.character.collectedBottles();
-    //             bottles.image = null;
-    //             this.level.bottles.splice(i, 1);
-    //         }
-    //     });
-    // }
+    coinCollision() {
+        if (this.level && this.level.coins) {
+            this.level.coins.forEach((coin, i) => {
+                if (this.character.isColliding(coin)) {
+                    this.level.coins.splice(i, 1);
+                }
+            });
+        }
+    }
 
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -93,8 +93,8 @@ class World {
         this.addToMap(this.character);
         this.addObjectsToMap(this.level.clouds);
         this.addObjectsToMap(this.level.enemies);
-        // this.addObjectsToMap(this.level.chickens);
         this.addObjectsToMap(this.level.bottles);
+        this.addObjectsToMap(this.level.coins);
         this.addObjectsToMap(this.throwableObjects);
         
         this.ctx.translate(-this.camera_x, 0);
