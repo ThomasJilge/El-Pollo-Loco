@@ -61,11 +61,15 @@ class World {
         if (this.level && this.level.bottles) {
             this.level.bottles.forEach((bottle, i) => {
                 if (this.character.isColliding(bottle)) {
+                    this.character.collectingBottles();
                     this.level.bottles.splice(i, 1);
+                    this.statusBarBottles.setPercentageBottle(this.character.quantityBottles);
+                    this.collectedBottles += 1;
                 }
             });
         }
     }
+
     
     coinCollision() {
         if (this.level && this.level.coins) {

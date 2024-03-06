@@ -5,6 +5,7 @@ class MovableObject extends DrawableObject {
     acceleration = 2.5;
     energy = 100;
     lastHit = 0;
+    quantityBottles = 0;
 
     applyGravity() {
         setInterval(() => {
@@ -34,6 +35,13 @@ class MovableObject extends DrawableObject {
             this.y + this.height > mo.y &&
             this.x < mo.x &&
             this.y < mo.y + mo.height;
+    }
+
+    collectingBottles() {
+        this.quantityBottles += 20;
+        if (this.quantityBottles > 100) {
+            this.quantityBottles = 100;
+        }
     }
 
     playAnimation(images) {
