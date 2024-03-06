@@ -6,6 +6,7 @@ class MovableObject extends DrawableObject {
     energy = 100;
     lastHit = 0;
     quantityBottles = 0;
+    quantityCoins = 0;
 
     applyGravity() {
         setInterval(() => {
@@ -41,6 +42,13 @@ class MovableObject extends DrawableObject {
         this.quantityBottles += 20;
         if (this.quantityBottles > 100) {
             this.quantityBottles = 100;
+        }
+    }
+
+    collectingCoins() {
+        this.quantityCoins += 20;
+        if (this.quantityCoins > 100) {
+            this.quantityCoins = 100;
         }
     }
 

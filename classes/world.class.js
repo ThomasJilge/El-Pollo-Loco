@@ -6,6 +6,7 @@ class World {
     bottle = [];
     coin = [];
     collectedBottles = 0;
+    collectedCoins = 0;
     canvas;
     ctx;
     keyboard;
@@ -75,7 +76,10 @@ class World {
         if (this.level && this.level.coins) {
             this.level.coins.forEach((coin, i) => {
                 if (this.character.isColliding(coin)) {
+                    this.character.collectingCoins();
                     this.level.coins.splice(i, 1);
+                    this.statusBarCoins.setPercentageCoins(this.character.quantityCoins);
+                    this.collectedCoins += 1;
                 }
             });
         }

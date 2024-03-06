@@ -18,11 +18,11 @@ class StatusBarCoins extends DrawableObject {
         this.y = 45;
         this.width = 200;
         this.height = 60;
-        this.setPercentage(0);
+        this.setPercentageCoins(0);
     }
 
 
-    setPercentage(percentage) {
+    setPercentageCoins(percentage) {
         this.percentage = percentage;   
         let path = this.images[this.resolveImageIndex()];
         this.img = this.imageCache[path];
