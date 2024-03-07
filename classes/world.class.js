@@ -16,7 +16,9 @@ class World {
     statusBarBottles = new StatusBarBottles();
     throwableObjects = [];
     collectedCoinsSound = new Audio ('audio/collectedCoinsSound.mp3');
-    noSound = true;
+    collectedBottlesSound = new Audio ('audio/collectedBottlesSound.mp3');
+    noSoundCoins = true;
+    noSoundBottles = true;
 
     constructor(canvas, keyboard) {
         this.ctx = canvas.getContext('2d');
@@ -65,6 +67,9 @@ class World {
             this.level.bottles.forEach((bottle, i) => {
                 if (this.character.isColliding(bottle)) {
                     this.character.collectingBottles();
+                    if (this.noSoundBottles == true) {
+                        this.collectedBottlesSound.play();
+                    }
                     this.level.bottles.splice(i, 1);
                     this.statusBarBottles.setPercentageBottle(this.character.quantityBottles);
                     this.collectedBottles += 1;
@@ -79,7 +84,7 @@ class World {
             this.level.coins.forEach((coin, i) => {
                 if (this.character.isColliding(coin)) {
                     this.character.collectingCoins();
-                    if (this.noSound == true) {
+                    if (this.noSoundCoins == true) {
                         this.collectedCoinsSound.play();
                     }
                     this.level.coins.splice(i, 1);
