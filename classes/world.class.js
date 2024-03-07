@@ -15,6 +15,8 @@ class World {
     statusBarCoins = new StatusBarCoins();
     statusBarBottles = new StatusBarBottles();
     throwableObjects = [];
+    collectedCoinsSound = new Audio ('audio/collectedCoinsSound.mp3');
+    noSound = true;
 
     constructor(canvas, keyboard) {
         this.ctx = canvas.getContext('2d');
@@ -77,6 +79,9 @@ class World {
             this.level.coins.forEach((coin, i) => {
                 if (this.character.isColliding(coin)) {
                     this.character.collectingCoins();
+                    if (this.noSound == true) {
+                        this.collectedCoinsSound.play();
+                    }
                     this.level.coins.splice(i, 1);
                     this.statusBarCoins.setPercentageCoins(this.character.quantityCoins);
                     this.collectedCoins += 1;
