@@ -52,3 +52,9 @@ window.addEventListener('keyup', (e) => {
         keyboard.d = false;
     }
 });
+
+function startGame() {
+    document.getElementById('startButton').classList.add('d-none');
+    document.getElementById('startScreenImg').classList.add('d-none');
+    document.getElementById('canvas').classList.remove('d-none');
+}
