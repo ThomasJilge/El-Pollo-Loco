@@ -57,4 +57,5 @@ function startGame() {
     document.getElementById('startButton').classList.add('d-none');
     document.getElementById('startScreenImg').classList.add('d-none');
     document.getElementById('canvas').classList.remove('d-none');
+    document.getElementById('button').style.marginBottom = '0';
 }
