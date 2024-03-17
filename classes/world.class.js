@@ -62,10 +62,26 @@ class World {
     }
 
     
+    // bottleCollision() {
+    //     if (this.level && this.level.bottles) {
+    //         this.level.bottles.forEach((bottle, i) => {
+    //             if (this.character.isColliding(bottle)) {
+    //                 this.character.collectingBottles();
+    //                 if (this.noSoundBottles == true) {
+    //                     this.collectedBottlesSound.play();
+    //                 }
+    //                 this.level.bottles.splice(i, 1);
+    //                 this.statusBarBottles.setPercentageBottle(this.character.quantityBottles);
+    //                 this.collectedBottles += 1;
+    //             }
+    //         });
+    //     }
+    // }
+
     bottleCollision() {
         if (this.level && this.level.bottles) {
             this.level.bottles.forEach((bottle, i) => {
-                if (this.character.isColliding(bottle)) {
+                if (this.character.isColliding(bottle) && this.collectedBottles < 5) {
                     this.character.collectingBottles();
                     if (this.noSoundBottles == true) {
                         this.collectedBottlesSound.play();
@@ -77,6 +93,7 @@ class World {
             });
         }
     }
+    
 
     
     coinCollision() {
