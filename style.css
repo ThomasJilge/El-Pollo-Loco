@@ -54,3 +54,13 @@ h1 {
 .d-none {
     display: none;
 }
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 1500px) {
+
+    .startButton {
+        margin-top: 150px;
+    }
+
+}
