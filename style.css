@@ -60,11 +60,20 @@ h1 {
 @media (max-width: 1500px) {
 
     .startButton {
-        margin-top: 150px;
+        margin-top: 45px;
     }
 
     .button {
-        margin-bottom: 720px;
+        margin-bottom: 620px;
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .startButton {
+        width: 150px;
+        height: 40px;
     }
 
 }
