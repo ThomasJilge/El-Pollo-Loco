@@ -59,6 +59,18 @@ h1 {
 
 @media (max-width: 1500px) {
 
+    /* .startButton {
+        margin-top: 45px;
+    } */
+
+    .button {
+        margin-bottom: 500px;
+    }
+
+}
+
+@media (max-width: 1500px) {
+
     .startButton {
         margin-top: 45px;
     }
