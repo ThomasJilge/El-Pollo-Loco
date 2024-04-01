@@ -57,17 +57,17 @@ h1 {
 
 /* RESPONSIVE DESIGN */
 
-@media (max-width: 1500px) {
+/* @media (max-width: 1630px) {
 
-    /* .startButton {
-        margin-top: 45px;
-    } */
-
-    .button {
-        margin-bottom: 500px;
+    .startButton {
+        margin-top: 180px;
     }
 
-}
+    .button {
+        margin-bottom: 300px;
+    }
+
+} */
 
 @media (max-width: 1500px) {
 
