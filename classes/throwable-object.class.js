@@ -6,7 +6,7 @@ class ThrowableObject extends MovableObject {
         this.y = y;
         this.height = 60;
         this.width = 50;
-        this.statusBar = this.statusBar;
+        this.statusBar = statusBar;
         this.throw();
     }
     
