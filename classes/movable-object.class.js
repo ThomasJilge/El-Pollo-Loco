@@ -90,4 +90,22 @@ class MovableObject extends DrawableObject {
         return this.energy == 0;
     }
 
+    // checkChickenDeath() {
+    //     this.death = setInterval(() => {
+    //         if (this.isDead()) {
+    //             this.playAnimation(this.imagesDead);
+    //             this.deadChicken();
+    //         } else {
+    //             this.playAnimation(this.imagesWalking);
+    //         }
+    //     }, 150);
+    // }
+
+    // deadChicken() {
+    //     setTimeout(() => {
+    //         clearInterval(this.moveLeft);
+    //         clearInterval(this.death);
+    //     }, 100);
+    // }
+
 }
