@@ -59,6 +59,13 @@ h1 {
     display: none;
     height: 50px;
     width: 50px;
+    cursor: pointer;
+}
+
+.fullscreen {
+    position: absolute;
+    top: -140px;
+    right: -90px;
 }
 
 /* RESPONSIVE DESIGN */
