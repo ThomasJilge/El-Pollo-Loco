@@ -55,6 +55,12 @@ h1 {
     display: none;
 }
 
+.fullscreenImg {
+    display: none;
+    height: 50px;
+    width: 50px;
+}
+
 /* RESPONSIVE DESIGN */
 
 /* @media (max-width: 1630px) {

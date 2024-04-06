@@ -59,4 +59,16 @@ function startGame() {
     document.getElementById('canvas').classList.remove('d-none');
     document.getElementById('headline').classList.remove('d-none');
     document.getElementById('button').style.marginBottom = '0';
+    // document.getElementById('fullscreenImg').classList.remove('d-none');
+    document.getElementById('fullscreenImg').style.display = 'block';
 }
+
+function enterFullscreen(element) {
+    if(element.requestFullscreen) {
+      element.requestFullscreen();
+    } else if(element.msRequestFullscreen) {  
+      element.msRequestFullscreen();
+    } else if(element.webkitRequestFullscreen) {  
+      element.webkitRequestFullscreen();
+    }
+  }
