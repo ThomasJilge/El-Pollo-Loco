@@ -63,6 +63,11 @@ function startGame() {
     document.getElementById('fullscreenImg').style.display = 'block';
 }
 
+function fullscreen() {
+    let fullscreen = document.getElementById('canvas');
+    enterFullscreen(fullscreen);
+}
+
 function enterFullscreen(element) {
     if(element.requestFullscreen) {
       element.requestFullscreen();
