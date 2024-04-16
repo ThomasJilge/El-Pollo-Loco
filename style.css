@@ -84,12 +84,12 @@ h1 {
 
 @media (max-width: 1500px) {
 
-    .startButton {
+    /* .startButton {
         margin-top: 45px;
-    }
+    } */
 
     .button {
-        margin-bottom: 620px;
+        margin-bottom: 730px;
     }
 
 }
