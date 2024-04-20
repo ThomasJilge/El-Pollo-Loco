@@ -71,6 +71,13 @@ h1 {
     font-weight: bold;
 }
 
+.test {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 200px;
+}
+
 .d-none {
     display: none;
 }
