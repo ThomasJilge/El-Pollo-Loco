@@ -69,6 +69,16 @@ function openInfoBox() {
     document.getElementById('infoContainer').classList.remove('d-none');
 }
 
+document.addEventListener('click', function(event) {
+    var infoContainer = document.getElementById('infoContainer');
+    var infoButton = document.getElementById('infoButton');
+    
+    if (!infoContainer.contains(event.target) && event.target !== infoButton) {
+        infoContainer.classList.add('d-none');
+    }
+});
+
+
 function fullscreen() {
     let fullscreen = document.getElementById('canvas');
     enterFullscreen(fullscreen);
