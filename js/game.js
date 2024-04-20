@@ -63,6 +63,10 @@ function startGame() {
     document.getElementById('fullscreenImg').style.display = 'block';
 }
 
+function openInfoBox() {
+    document.getElementById('infoContainer').classList.remove('d-none');
+}
+
 function fullscreen() {
     let fullscreen = document.getElementById('canvas');
     enterFullscreen(fullscreen);
