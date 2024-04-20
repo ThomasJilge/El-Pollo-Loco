@@ -27,8 +27,9 @@ h1 {
 
 .startScreen {
     display: flex;
-    /* position: relative; */
+    justify-content: space-around;
     position: absolute;
+    width: 50%;
 }
 
 .button {
@@ -46,7 +47,7 @@ h1 {
     cursor: pointer;
 }
 
-.buttonStartScreen {
+.buttonStartScreen:hover {
     color: orange;
     border: 3px solid orange;
 }
