@@ -121,9 +121,27 @@ h1 {
 
 }
 
+@media (max-width: 840px) {
+
+    .startScreen {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 700px;
+    }
+
+    .button {
+        margin-bottom: 0;
+    }
+
+    .buttonStartScreen {
+        margin-bottom: 20px;
+    }
+
+}
+
 @media (max-width: 576px) {
 
-    .startButton {
+    .buttonStartScreen {
         width: 150px;
         height: 40px;
     }
