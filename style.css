@@ -146,4 +146,16 @@ h1 {
         height: 40px;
     }
 
+    .infoBox {
+        width: 380px;
+    } 
+
+    @media (max-width: 410px) {
+
+        .infoBox {
+            width: 290px;
+        }
+
+    }
+
 }
