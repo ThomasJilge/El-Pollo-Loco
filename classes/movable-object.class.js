@@ -101,6 +101,17 @@ class MovableObject extends DrawableObject {
     //     }, 150);
     // }
 
+    // checkChickenDeath() {
+    //     if (this.world.level && this.world.level.enemies) {
+    //         this.world.level.enemies.forEach((enemy) => {
+    //             if ((enemy instanceof Chicken || enemy instanceof ChickenSmall) && enemy.isDead()) {
+    //                 // Hier weitere Aktionen ausführen, z. B. das Entfernen des Huhns
+    //                 this.deadChicken();
+    //             }
+    //         });
+    //     }
+    // }
+
     // deadChicken() {
     //     setTimeout(() => {
     //         clearInterval(this.moveLeft);

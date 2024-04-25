@@ -14,6 +14,7 @@ class World {
     statusBar = new StatusBar();
     statusBarCoins = new StatusBarCoins();
     statusBarBottles = new StatusBarBottles();
+    statusBarEndboss = new StatusBarEndboss();
     throwableObjects = [];
     collectedCoinsSound = new Audio ('audio/collectedCoinsSound.mp3');
     collectedBottlesSound = new Audio ('audio/collectedBottlesSound.mp3');
@@ -123,6 +124,7 @@ class World {
         this.addToMap(this.statusBar);
         this.addToMap(this.statusBarCoins);
         this.addToMap(this.statusBarBottles);
+        this.addToMap(this.statusBarEndboss);
         this.ctx.translate(this.camera_x, 0);
 
         this.addToMap(this.character);

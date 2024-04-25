@@ -81,6 +81,7 @@ class Character extends MovableObject {
         setInterval( () => {
             if(this.isDead()) {
                 this.playAnimation(this.imagesDead);
+                this.checkChickenDeath();
             } else if (this.isHurt()) {
                 this.playAnimation(this.imagesHurt);
             } else if (this.isAboveGround()) {
@@ -94,7 +95,46 @@ class Character extends MovableObject {
         }, 50);       
     }
 
+
     jump() {
         this.speedY = 30;
     }
+
+    // checkChickenDeath() {
+    //     if (this.world.level && this.world.level.enemies) {
+    //         this.world.level.enemies.forEach((enemy) => {
+    //             if ((enemy instanceof Chicken || enemy instanceof ChickenSmall) && enemy.isDead()) {
+    //                 // Hier können weitere Aktionen durchgeführt werden, z.B. das Entfernen des Huhns
+    //                 // oder die Reaktion des Charakters auf den Tod des Huhns
+    //             }
+            
+    //         });
+    //     }
+    // }
+
+    // checkChickenDeath() {
+    //     if (this.world.level && this.world.level.enemies) {
+    //         this.world.level.enemies.forEach((enemy) => {
+    //             if ((enemy instanceof Chicken || enemy instanceof ChickenSmall) && enemy.isDead()) {
+    //                 this.deadChicken();
+    //             }
+    //         });
+    //     }
+    // }
+
+    // deadChicken() {
+    //     if (this.collidingChicken == false) {
+    //         this.playAnimation(this.imagesWalking);
+    //     } else {
+    //         this.playAnimation(this.imagesDead);
+    //     }
+    // }
+
+
+    // deadChicken() {
+    //     setTimeout(() => {
+    //         clearInterval(this.moveLeft);
+    //         clearInterval(this.death);
+    //     }, 100);
+    // }
 }
