@@ -100,6 +100,10 @@ class Character extends MovableObject {
         this.speedY = 30;
     }
 
+    isAboutToFall() {
+        return this.speedY > 0;
+    }
+
     // checkChickenDeath() {
     //     if (this.world.level && this.world.level.enemies) {
     //         this.world.level.enemies.forEach((enemy) => {
