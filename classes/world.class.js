@@ -56,28 +56,27 @@ class World {
                 if (this.character.isColliding(enemy)) {
                     this.character.hit();
                     this.statusBar.setPercentage(this.character.energy);
+                    this.chickenDeath(enemy);
+                    // this.level.enemies.splice(index, 1);
                 }
-            }
+            } 
         });
-        // this.bottleCollision();
     }
 
+    chickenDeath(enemy) {
+        const index = this.level.enemies.indexOf(enemy);
+        if (index !== -1) {
+            this.level.enemies.splice(index, 1);
+        }
+    }
     
-    // bottleCollision() {
-    //     if (this.level && this.level.bottles) {
-    //         this.level.bottles.forEach((bottle, i) => {
-    //             if (this.character.isColliding(bottle)) {
-    //                 this.character.collectingBottles();
-    //                 if (this.noSoundBottles == true) {
-    //                     this.collectedBottlesSound.play();
-    //                 }
-    //                 this.level.bottles.splice(i, 1);
-    //                 this.statusBarBottles.setPercentageBottle(this.character.quantityBottles);
-    //                 this.collectedBottles += 1;
-    //             }
-    //         });
-    //     }
+
+    // chickenDeath(chicken) {
+    //     setTimeout(() => {
+    //         chicken.splice(0, 1);
+    //     }, 700);
     // }
+
 
     bottleCollision() {
         if (this.level && this.level.bottles) {

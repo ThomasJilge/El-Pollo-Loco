@@ -103,42 +103,4 @@ class Character extends MovableObject {
     isAboutToFall() {
         return this.speedY > 0;
     }
-
-    // checkChickenDeath() {
-    //     if (this.world.level && this.world.level.enemies) {
-    //         this.world.level.enemies.forEach((enemy) => {
-    //             if ((enemy instanceof Chicken || enemy instanceof ChickenSmall) && enemy.isDead()) {
-    //                 // Hier können weitere Aktionen durchgeführt werden, z.B. das Entfernen des Huhns
-    //                 // oder die Reaktion des Charakters auf den Tod des Huhns
-    //             }
-            
-    //         });
-    //     }
-    // }
-
-    // checkChickenDeath() {
-    //     if (this.world.level && this.world.level.enemies) {
-    //         this.world.level.enemies.forEach((enemy) => {
-    //             if ((enemy instanceof Chicken || enemy instanceof ChickenSmall) && enemy.isDead()) {
-    //                 this.deadChicken();
-    //             }
-    //         });
-    //     }
-    // }
-
-    // deadChicken() {
-    //     if (this.collidingChicken == false) {
-    //         this.playAnimation(this.imagesWalking);
-    //     } else {
-    //         this.playAnimation(this.imagesDead);
-    //     }
-    // }
-
-
-    // deadChicken() {
-    //     setTimeout(() => {
-    //         clearInterval(this.moveLeft);
-    //         clearInterval(this.death);
-    //     }, 100);
-    // }
 }

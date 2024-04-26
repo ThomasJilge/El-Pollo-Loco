@@ -38,6 +38,14 @@ class MovableObject extends DrawableObject {
             this.y < mo.y + mo.height;
     }
 
+    jumpOnEnemies(enemy) { 
+        return this.x + this.width - this.offset.right > enemy.x + enemy.offset.left &&
+            this.y + this.height > enemy.y &&
+            this.x + this.offset.left < enemy.x + enemy.width - enemy.offset.right &&
+            this.y < enemy.y + enemy.height;
+
+    }
+
     collectingBottles() {
         this.quantityBottles += 20;
         if (this.quantityBottles > 100) {
@@ -89,34 +97,5 @@ class MovableObject extends DrawableObject {
     isDead() {
         return this.energy == 0;
     }
-
-    // checkChickenDeath() {
-    //     this.death = setInterval(() => {
-    //         if (this.isDead()) {
-    //             this.playAnimation(this.imagesDead);
-    //             this.deadChicken();
-    //         } else {
-    //             this.playAnimation(this.imagesWalking);
-    //         }
-    //     }, 150);
-    // }
-
-    // checkChickenDeath() {
-    //     if (this.world.level && this.world.level.enemies) {
-    //         this.world.level.enemies.forEach((enemy) => {
-    //             if ((enemy instanceof Chicken || enemy instanceof ChickenSmall) && enemy.isDead()) {
-    //                 // Hier weitere Aktionen ausführen, z. B. das Entfernen des Huhns
-    //                 this.deadChicken();
-    //             }
-    //         });
-    //     }
-    // }
-
-    // deadChicken() {
-    //     setTimeout(() => {
-    //         clearInterval(this.moveLeft);
-    //         clearInterval(this.death);
-    //     }, 100);
-    // }
 
 }
