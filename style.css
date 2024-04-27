@@ -144,7 +144,7 @@ h1 {
     .startScreen {
         flex-direction: column;
         align-items: center;
-        margin-bottom: 700px;
+        /* margin-bottom: 700px; */
     }
 
     .button {
