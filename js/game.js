@@ -6,8 +6,7 @@ function init() {
     initLevel();
     canvas = document.getElementById('canvas');
     world = new World(canvas, keyboard);
-    console.log('My Character is', world.character);
-    
+    console.log('My Character is', world.character);  
 }
 
 window.addEventListener('keydown', (e) => {
@@ -54,6 +53,7 @@ window.addEventListener('keyup', (e) => {
 });
 
 function startGame() {
+    init();
     document.getElementById('startButton').classList.add('d-none');
     document.getElementById('startScreenImg').classList.add('d-none');
     document.getElementById('startScreen').style.justifyContent = 'center';
