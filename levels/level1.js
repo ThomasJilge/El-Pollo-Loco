@@ -65,5 +65,3 @@ level1 = new Level(
 );
 }
 
-sett
-
