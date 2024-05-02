@@ -141,10 +141,15 @@ h1 {
 
 @media (max-width: 840px) {
 
+    .headline {
+        display: none;
+    }
+
     .startScreen {
         flex-direction: column;
         align-items: center;
         /* margin-bottom: 700px; */
+        width: 100%;
     }
 
     .infoScreen {
@@ -157,6 +162,14 @@ h1 {
 
     .buttonStartScreen {
         margin-bottom: 20px;
+    }
+
+}
+
+@media (max-width: 720px) {
+
+    canvas {
+        width: 100%;
     }
 
 }
