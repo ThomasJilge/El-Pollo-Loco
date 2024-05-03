@@ -64,20 +64,12 @@ class World {
     }
 
     chickenDeath(enemy) {
-        const index = this.level.enemies.indexOf(enemy);
-        if (index !== -1) {
-            this.level.enemies.splice(index, 1);
+        let i = this.level.enemies.indexOf(enemy);
+        if (i !== -1) {
+            this.level.enemies.splice(i, 1);
         }
     }
     
-
-    // chickenDeath(chicken) {
-    //     setTimeout(() => {
-    //         chicken.splice(0, 1);
-    //     }, 700);
-    // }
-
-
     bottleCollision() {
         if (this.level && this.level.bottles) {
             this.level.bottles.forEach((bottle, i) => {
