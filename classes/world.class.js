@@ -56,19 +56,22 @@ class World {
                 if (this.character.isColliding(enemy)) {
                     this.character.hit();
                     this.statusBar.setPercentage(this.character.energy);
-                    this.chickenDeath(enemy);
+                    // this.chickenDeath(enemy);
                     // this.level.enemies.splice(index, 1);
+                } else {
+                    enemy.enemyDeath = true;
                 }
+
             } 
         });
     }
 
-    chickenDeath(enemy) {
-        let i = this.level.enemies.indexOf(enemy);
-        if (i !== -1) {
-            this.level.enemies.splice(i, 1);
-        }
-    }
+    // chickenDeath(enemy) {
+    //     let i = this.level.enemies.indexOf(enemy);
+    //     if (i !== -1) {
+    //         this.level.enemies.splice(i, 1);
+    //     }
+    // }
     
     bottleCollision() {
         if (this.level && this.level.bottles) {
