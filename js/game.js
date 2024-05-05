@@ -2,7 +2,7 @@ let canvas;
 let world;
 let keyboard = new Keyboard();
 
-// background_sound = new Audio('audio/backgroundSound.mp3'); 
+background_sound = new Audio('audio/backgroundSound.mp3'); 
 
 function init() {
     initLevel();
@@ -67,7 +67,7 @@ function startGame() {
     document.getElementById('fullscreenImg').style.display = 'block';
     document.getElementById('soundButtonOn').style.display = 'block';
     document.getElementById('soundButtonOff').style.display = 'block';
-    // this.background_sound.play();
+    this.background_sound.play();
 }
 
 function openInfoBox() {
@@ -98,3 +98,15 @@ function enterFullscreen(element) {
       element.webkitRequestFullscreen();
     }
   }
+
+function soundOn() {
+    if (background_sound) {
+        background_sound.play();
+    }
+}
+
+function soundOff() {
+    if (background_sound) {
+        background_sound.pause();
+    }
+}
