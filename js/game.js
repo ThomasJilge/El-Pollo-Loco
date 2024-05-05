@@ -110,3 +110,8 @@ function soundOff() {
         background_sound.pause();
     }
 }
+
+background_sound.addEventListener('ended', function() {
+    this.currentTime = 0;
+    this.play();
+}, false);
