@@ -50,21 +50,42 @@ class World {
         }
     }
 
+
     checkCollisions() {
-        this.level.enemies.forEach((enemy) => {
+        this.level.enemies.forEach((enemy, i) => {
             if (enemy instanceof Chicken || enemy instanceof ChickenSmall) {
                 if (this.character.isColliding(enemy)) {
-                    this.character.hit();
-                    this.statusBar.setPercentage(this.character.energy);
-                    // this.chickenDeath(enemy);
-                    // this.level.enemies.splice(index, 1);
-                } else {
-                    enemy.enemyDeath = true;
+                    if (this.character.isAboveGround()) {
+                        enemy.enemyDeath = true;
+                        // this.imagesDead.push(enemy.image);
+                        // this.chickenDeath(enemy);
+                        this.level.enemies.splice(i, 1);
+                        this.character.jump();
+                    } else {
+                        this.character.hit();
+                        this.statusBar.setPercentage(this.character.energy);
+                    }   
                 }
-
-            } 
+            }
         });
     }
+    
+
+    // checkCollisions() {
+    //     this.level.enemies.forEach((enemy) => {
+    //         if (enemy instanceof Chicken || enemy instanceof ChickenSmall) {
+    //             if (this.character.isColliding(enemy)) {
+    //                 this.character.hit();
+    //                 this.statusBar.setPercentage(this.character.energy);
+    //                 // this.chickenDeath(enemy);
+    //                 // this.level.enemies.splice(index, 1);
+    //             } else {
+    //                 enemy.enemyDeath = true;
+    //             }
+
+    //         } 
+    //     });
+    // }
 
     // chickenDeath(enemy) {
     //     let i = this.level.enemies.indexOf(enemy);

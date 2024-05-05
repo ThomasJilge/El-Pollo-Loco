@@ -2,6 +2,8 @@ let canvas;
 let world;
 let keyboard = new Keyboard();
 
+background_sound = new Audio('audio/backgroundSound.mp3'); 
+
 function init() {
     initLevel();
     canvas = document.getElementById('canvas');
@@ -63,6 +65,7 @@ function startGame() {
     document.getElementById('headline').classList.remove('d-none');
     document.getElementById('button').style.marginBottom = '0';
     document.getElementById('fullscreenImg').style.display = 'block';
+    this.background_sound.play();
 }
 
 function openInfoBox() {

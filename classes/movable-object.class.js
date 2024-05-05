@@ -38,13 +38,14 @@ class MovableObject extends DrawableObject {
             this.y < mo.y + mo.height;
     }
 
-    jumpOnEnemies(enemy) { 
-        return this.x + this.width - this.offset.right > enemy.x + enemy.offset.left &&
-            this.y + this.height > enemy.y &&
-            this.x + this.offset.left < enemy.x + enemy.width - enemy.offset.right &&
-            this.y < enemy.y + enemy.height;
 
-    }
+    // jumpOnEnemies(enemy) { 
+    //     return this.x + this.width - this.offset.right > enemy.x + enemy.offset.left &&
+    //         this.y + this.height > enemy.y &&
+    //         this.x + this.offset.left < enemy.x + enemy.width - enemy.offset.right &&
+    //         this.y < enemy.y + enemy.height;
+
+    // }
 
     collectingBottles() {
         this.quantityBottles += 20;
