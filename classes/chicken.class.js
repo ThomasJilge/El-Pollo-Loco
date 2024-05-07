@@ -1,10 +1,12 @@
+let enemyDeath = false;
+
 class Chicken extends MovableObject {
     height = 80;
     width = 70;
     y = 350;
     // collidingChicken = false;
 
-    enemyDeath = false;
+    
 
     imagesWalking = [
         'img/3_enemies_chicken/chicken_normal/1_walk/1_w.png',
@@ -33,8 +35,7 @@ class Chicken extends MovableObject {
 
         setInterval(() => {
             if (this.enemyDeath) {
-                    this.loadImages(this.imagesDead);
-                    this.y += this.speedY;
+                    this.playAnimation(this.imagesDead);
             } else {
                 this.playAnimation(this.imagesWalking);
             }

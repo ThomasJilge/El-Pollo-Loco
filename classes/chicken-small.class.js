@@ -19,6 +19,7 @@ class ChickenSmall extends MovableObject {
     constructor() {
         super().loadImage('img/3_enemies_chicken/chicken_small/1_walk/1_w.png');
         this.loadImages(this.imagesWalking);
+        this.loadImages(this.imagesDead);
         this.x = 500 + Math.random() * 1500;
         this.speed = 0.10 + Math.random() * 0.5;
         this.animate();
@@ -31,14 +32,10 @@ class ChickenSmall extends MovableObject {
 
         setInterval(() => {
             if (this.enemyDeath) {
+                    this.playAnimation(this.imagesDead);
+            } else {
                 this.playAnimation(this.imagesWalking);
-            } 
-            
-            if (this.enemyDeath) {
-                this.loadImages(this.imagesDead);
-                this.y += this.speedY;
             }
-
-        }, 200);       
+        }, 200);     
     }
 }

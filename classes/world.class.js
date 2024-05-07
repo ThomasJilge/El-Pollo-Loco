@@ -20,6 +20,7 @@ class World {
     collectedBottlesSound = new Audio ('audio/collectedBottlesSound.mp3');
     noSoundCoins = true;
     noSoundBottles = true;
+    // imageCache = {};
 
     constructor(canvas, keyboard) {
         this.ctx = canvas.getContext('2d');
@@ -29,6 +30,15 @@ class World {
         this.setWorld();
         this.run();
     }
+
+    // loadImages(arr) {
+    //     arr.forEach((path) => {
+    //         let img = new Image();
+    //         img.src = path;
+    //         this.imageCache[path] = img;
+    //     });
+    // }
+
 
     setWorld() {
         this.character.world = this;
@@ -50,16 +60,16 @@ class World {
         }
     }
 
-
     checkCollisions() {
         this.level.enemies.forEach((enemy, i) => {
-            if (enemy instanceof Chicken || enemy instanceof ChickenSmall) {
+            if (!enemy.enemyDeath && (enemy instanceof Chicken || enemy instanceof ChickenSmall)) {
                 if (this.character.isColliding(enemy)) {
                     if (this.character.isAboveGround()) {
                         enemy.enemyDeath = true;
-                        // this.imagesDead.push(enemy.image);
-                        // this.chickenDeath(enemy);
-                        this.level.enemies.splice(i, 1);
+                        setTimeout(() => {
+                            const index = this.level.enemies.indexOf(enemy);
+                            this.level.enemies.splice(index, 1);
+                        }, 500);
                         this.character.jump();
                     } else {
                         this.character.hit();
@@ -69,30 +79,6 @@ class World {
             }
         });
     }
-    
-
-    // checkCollisions() {
-    //     this.level.enemies.forEach((enemy) => {
-    //         if (enemy instanceof Chicken || enemy instanceof ChickenSmall) {
-    //             if (this.character.isColliding(enemy)) {
-    //                 this.character.hit();
-    //                 this.statusBar.setPercentage(this.character.energy);
-    //                 // this.chickenDeath(enemy);
-    //                 // this.level.enemies.splice(index, 1);
-    //             } else {
-    //                 enemy.enemyDeath = true;
-    //             }
-
-    //         } 
-    //     });
-    // }
-
-    // chickenDeath(enemy) {
-    //     let i = this.level.enemies.indexOf(enemy);
-    //     if (i !== -1) {
-    //         this.level.enemies.splice(i, 1);
-    //     }
-    // }
     
     bottleCollision() {
         if (this.level && this.level.bottles) {
