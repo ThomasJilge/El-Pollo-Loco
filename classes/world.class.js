@@ -20,7 +20,7 @@ class World {
     collectedBottlesSound = new Audio ('audio/collectedBottlesSound.mp3');
     noSoundCoins = true;
     noSoundBottles = true;
-    // imageCache = {};
+    displayGameOver = false;
 
     constructor(canvas, keyboard) {
         this.ctx = canvas.getContext('2d');
@@ -30,15 +30,6 @@ class World {
         this.setWorld();
         this.run();
     }
-
-    // loadImages(arr) {
-    //     arr.forEach((path) => {
-    //         let img = new Image();
-    //         img.src = path;
-    //         this.imageCache[path] = img;
-    //     });
-    // }
-
 
     setWorld() {
         this.character.world = this;
@@ -50,6 +41,7 @@ class World {
             this.checkThrowableObjects();
             this.bottleCollision();
             this.coinCollision();
+            this.characterIsDead();
         }, 200);
     }
 
@@ -174,4 +166,22 @@ class World {
         mo.x = mo.x * -1;
         this.ctx.restore();
     }
+
+    gameOver() {
+        let gameIsOver = document.getElementById('gameOver');
+        if (this.character.energy <= 0) {
+            gameIsOver.style.display = 'block';
+        } else {
+            gameIsOver.style.display = 'none';
+            this.displayGameOver = false;
+        }
+    }
+
+    characterIsDead() {
+        if (!this.displayGameOver && this.character.energy <= 0) {
+            this.displayGameOver = true;
+            this.gameOver();
+        }
+    }
+
 }
