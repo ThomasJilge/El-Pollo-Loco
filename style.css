@@ -49,10 +49,33 @@ h1 {
     color:rgb(255, 200, 0);
     font-weight: bold;
     font-size: 20px;
-    
 }
 
 .buttonStartScreen:hover {
+    color: orange;
+    border: 3px solid orange;
+    cursor: pointer;
+}
+
+.newGameButtonContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    top: 40px;
+    position: absolute;
+}
+
+.newGameButton {
+    width: 170px;
+    height: 40px;
+    border-radius: 10px;
+    border: 3px solid rgb(255, 200, 0);
+    color:rgb(255, 200, 0);
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.newGameButton:hover {
     color: orange;
     border: 3px solid orange;
     cursor: pointer;
@@ -130,7 +153,7 @@ h1 {
 
 .gameOver {
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .gameOverIMG {
