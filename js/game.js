@@ -115,7 +115,3 @@ function soundOff() {
 //     this.currentTime = 0;
 //     this.play();
 // }, false);
-
-// function gameOver() {
-//     let dislayGameOver = document.getElementById('gameOver');
-// }

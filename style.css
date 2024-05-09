@@ -128,9 +128,15 @@ h1 {
     padding: 0;
 }
 
+.gameOver {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
 .gameOverIMG {
     width: 720px;
     height: 480px;
+    object-fit: cover;
 }
 
 
