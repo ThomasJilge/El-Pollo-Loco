@@ -5,9 +5,10 @@ let keyboard = new Keyboard();
 // background_sound = new Audio('audio/backgroundSound.mp3'); 
 
 function init() {
-    initLevel();
+    // initLevel();
     canvas = document.getElementById('canvas');
-    world = new World(canvas, keyboard);
+    // world = new World(canvas, keyboard);
+    // startGame();
     // console.log('My Character is', world.character);  
 }
 
@@ -55,7 +56,9 @@ window.addEventListener('keyup', (e) => {
 });
 
 function startGame() {
-    init();
+    initLevel();
+    // init();
+    world = new World(canvas, keyboard);
     document.getElementById('startButton').classList.add('d-none');
     document.getElementById('startScreenImg').classList.add('d-none');
     document.getElementById('startScreen').style.justifyContent = 'center';
@@ -69,6 +72,8 @@ function startGame() {
     document.getElementById('soundButtonOff').style.display = 'block';
     // this.background_sound.play();
 }
+
+// document.getElementById('startButton').addEventListener('click', startGame);
 
 function openInfoBox() {
     document.getElementById('infoContainer').classList.remove('d-none');
