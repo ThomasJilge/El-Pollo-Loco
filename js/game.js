@@ -120,3 +120,7 @@ function soundOff() {
 //     this.currentTime = 0;
 //     this.play();
 // }, false);
+
+function newGame() {
+    window.location.reload();
+}
