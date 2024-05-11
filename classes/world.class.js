@@ -45,6 +45,10 @@ class World {
         }, 200);
     }
 
+    clearIntervals() {
+        for (let i = 1; i < 9999; i++) window.clearInterval(i);
+    };
+
     checkThrowableObjects() {
         if(this.statusBarBottles.percentage > 0 && this.keyboard.d) {
             let bottle = new ThrowableObject(this.character.x + 100, this.character.y + 100, this.statusBarBottles);
@@ -161,20 +165,34 @@ class World {
         this.ctx.restore();
     }
 
+    // gameOver() {
+    //     let gameIsOver = document.getElementById('gameOver');
+    //     if (this.character.energy <= 0) {
+    //         gameIsOver.style.display = 'block';
+    //     } else {
+    //         gameIsOver.style.display = 'none';
+    //         this.displayGameOver = false;
+    //     }
+    // }
+
     gameOver() {
         let gameIsOver = document.getElementById('gameOver');
         if (this.character.energy <= 0) {
-            gameIsOver.style.display = 'block';
+            gameIsOver.classList.remove('d-none');
         } else {
-            gameIsOver.style.display = 'none';
+            gameIsOver.classList.add('d-none');
             this.displayGameOver = false;
         }
+        console.log('now Game Over (Function gameOver)!');
+        this.clearIntervals();
     }
+    
 
     characterIsDead() {
         if (!this.displayGameOver && this.character.energy <= 0) {
             this.displayGameOver = true;
             this.gameOver();
+            console.log('now Game Over (Function characterIsDead)!');
         }
     }
 
