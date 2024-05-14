@@ -129,7 +129,7 @@ h1 {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    top: 20px;
     gap: 20px;
 }
 
@@ -170,6 +170,18 @@ h1 {
     canvas {
         width: 100%;
     }
+
+    /* .gameOver {
+        width: 100%;
+    } */
+
+    /* .newGameButtonContainer {
+        width: 100%;
+    } */
+
+    /* .gameOverIMG {
+        width: 100%;
+    } */
 }
 
 @media only screen and (max-height: 480px) {
@@ -177,6 +189,18 @@ h1 {
     canvas {
         height: 100vh;
     }
+
+    /* .gameOver {
+        height: 100vh;
+    } */
+
+    /* .newGameButtonContainer {
+        height: 100vh;
+    } */
+
+    /* .gameOverIMG {
+        height: 100vh;
+    } */
 }
 
 /* RESPONSIVE DESIGN */
