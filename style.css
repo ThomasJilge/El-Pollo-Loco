@@ -266,6 +266,12 @@ h1 {
         width: 100%;
     }
 
+    .soundButton {
+        height: 25px;
+        width: 25px;
+        /* position: absolute; */
+    }
+
     
 }
 
@@ -280,13 +286,23 @@ h1 {
         width: 380px;
     } 
 
-    @media (max-width: 410px) {
+    .buttonBar {
+        top: 10px;
+    }
+
+}
+
+@media (max-width: 410px) {
 
         .infoBox {
             width: 290px;
         }
 
-    }
+        .soundButton {
+            height: 20px;
+            width: 20px;
+        }
 
 }
+
 
