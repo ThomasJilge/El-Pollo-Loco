@@ -44,7 +44,7 @@ class World {
             this.checkThrowableObjects();
             this.bottleCollision();
             this.coinCollision();
-            // this.characterIsDead();
+            this.characterIsDead();
             this.updateEndbossStatusBar();
         }, 200);
     }
@@ -126,10 +126,11 @@ class World {
         this.addToMap(this.statusBar);
         this.addToMap(this.statusBarCoins);
         this.addToMap(this.statusBarBottles);
-        // this.addToMap(this.statusBarEndboss);
+
         if (this.showEndbossStatusBar) {
             this.addToMap(this.statusBarEndboss);
         }
+
         this.ctx.translate(this.camera_x, 0);
         this.addToMap(this.character);
         this.addObjectsToMap(this.level.clouds);
@@ -181,24 +182,24 @@ class World {
     }
 
 
-    // gameOver() {
-    //     let gameIsOver = document.getElementById('gameOver');
-    //     if (this.character.energy <= 0) {
-    //         gameIsOver.classList.remove('d-none');
-    //     } else {
-    //         gameIsOver.classList.add('d-none');
-    //         this.displayGameOver = false;
-    //     }
-    //     this.clearIntervals();
-    // }
+    gameOver() {
+        let gameIsOver = document.getElementById('gameOver');
+        if (this.character.energy <= 0) {
+            gameIsOver.classList.remove('d-none');
+        } else {
+            gameIsOver.classList.add('d-none');
+            this.displayGameOver = false;
+        }
+        this.clearIntervals();
+    }
     
 
-    // characterIsDead() {
-    //     if (!this.displayGameOver && this.character.energy <= 0) {
-    //         this.displayGameOver = true;
-    //         this.gameOver();
-    //     }
-    // }
+    characterIsDead() {
+        if (!this.displayGameOver && this.character.energy <= 0) {
+            this.displayGameOver = true;
+            this.gameOver();
+        }
+    }
 
 
     updateEndbossStatusBar() {
