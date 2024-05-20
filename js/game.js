@@ -121,6 +121,6 @@ function soundOff() {
 //     this.play();
 // }, false);
 
-function newGame() {
-    window.location.reload();
-}
+// function newGame() {
+//     window.location.reload();
+// }

@@ -21,6 +21,7 @@ class World {
     noSoundCoins = true;
     noSoundBottles = true;
     displayGameOver = false;
+    showEndbossStatusBar = false;
 
     constructor(canvas, keyboard) {
         this.ctx = canvas.getContext('2d');
@@ -31,9 +32,11 @@ class World {
         this.run();
     }
 
+
     setWorld() {
         this.character.world = this;
     }
+
 
     run() {
         setInterval(() => {
@@ -41,13 +44,16 @@ class World {
             this.checkThrowableObjects();
             this.bottleCollision();
             this.coinCollision();
-            this.characterIsDead();
+            // this.characterIsDead();
+            this.updateEndbossStatusBar();
         }, 200);
     }
+
 
     clearIntervals() {
         for (let i = 1; i < 9999; i++) window.clearInterval(i);
     };
+
 
     checkThrowableObjects() {
         if(this.statusBarBottles.percentage > 0 && this.keyboard.d) {
@@ -55,6 +61,7 @@ class World {
             this.throwableObjects.push(bottle);
         }
     }
+
 
     checkCollisions() {
         this.level.enemies.forEach((enemy, i) => {
@@ -76,6 +83,7 @@ class World {
         });
     }
     
+
     bottleCollision() {
         if (this.level && this.level.bottles) {
             this.level.bottles.forEach((bottle, i) => {
@@ -92,8 +100,7 @@ class World {
         }
     }
     
-
-    
+  
     coinCollision() {
         if (this.level && this.level.coins) {
             this.level.coins.forEach((coin, i) => {
@@ -119,7 +126,10 @@ class World {
         this.addToMap(this.statusBar);
         this.addToMap(this.statusBarCoins);
         this.addToMap(this.statusBarBottles);
-        this.addToMap(this.statusBarEndboss);
+        // this.addToMap(this.statusBarEndboss);
+        if (this.showEndbossStatusBar) {
+            this.addToMap(this.statusBarEndboss);
+        }
         this.ctx.translate(this.camera_x, 0);
         this.addToMap(this.character);
         this.addObjectsToMap(this.level.clouds);
@@ -136,11 +146,13 @@ class World {
         });
     }
 
+
     addObjectsToMap(objects) {
         objects.forEach(o => {
             this.addToMap(o);
         });
     }
+
 
     addToMap(mo) {
         if(mo.otherDirection) {
@@ -154,6 +166,7 @@ class World {
         }
     }
 
+
     flipImage(mo) {
         this.ctx.save();
         this.ctx.translate(mo.width, 0);
@@ -161,40 +174,45 @@ class World {
         mo.x = mo.x * -1;
     }
 
+
     flipImageBack(mo) {
         mo.x = mo.x * -1;
         this.ctx.restore();
     }
 
+
     // gameOver() {
     //     let gameIsOver = document.getElementById('gameOver');
     //     if (this.character.energy <= 0) {
-    //         gameIsOver.style.display = 'block';
+    //         gameIsOver.classList.remove('d-none');
     //     } else {
-    //         gameIsOver.style.display = 'none';
+    //         gameIsOver.classList.add('d-none');
     //         this.displayGameOver = false;
+    //     }
+    //     this.clearIntervals();
+    // }
+    
+
+    // characterIsDead() {
+    //     if (!this.displayGameOver && this.character.energy <= 0) {
+    //         this.displayGameOver = true;
+    //         this.gameOver();
     //     }
     // }
 
-    gameOver() {
-        let gameIsOver = document.getElementById('gameOver');
-        if (this.character.energy <= 0) {
-            gameIsOver.classList.remove('d-none');
-        } else {
-            gameIsOver.classList.add('d-none');
-            this.displayGameOver = false;
-        }
-        console.log('now Game Over (Function gameOver)!');
-        this.clearIntervals();
-    }
-    
 
-    characterIsDead() {
-        if (!this.displayGameOver && this.character.energy <= 0) {
-            this.displayGameOver = true;
-            this.gameOver();
-            console.log('now Game Over (Function characterIsDead)!');
-        }
+    updateEndbossStatusBar() {
+        this.level.enemies.forEach(enemy => {
+            if (enemy instanceof Endboss) {
+                let distance = Math.abs(this.character.x - enemy.x);
+                if (distance <= 630) {
+                    this.showEndbossStatusBar = true;
+                } else {
+                    this.showEndbossStatusBar = false;
+                }
+            }
+        });
     }
+
 
 }
