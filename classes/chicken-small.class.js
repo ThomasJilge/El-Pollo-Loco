@@ -2,6 +2,8 @@ class ChickenSmall extends MovableObject {
     height = 60;
     width = 50;
     y = 370;
+    smallChickenHitSound = new Audio ('audio/chicken2.mp3');
+    noSoundSmallChickenHit = true;
 
     enemyDeath = false;
 
@@ -22,10 +24,10 @@ class ChickenSmall extends MovableObject {
         this.loadImages(this.imagesDead);
         this.x = 500 + Math.random() * 1500;
         this.speed = 0.10 + Math.random() * 0.5;
-        this.animate();
+        this.animateSmallChicken();
     }
 
-    animate() {
+    animateSmallChicken() {
         setInterval( () => {
             this.moveLeft();
         }, 1000 / 60);
@@ -33,6 +35,12 @@ class ChickenSmall extends MovableObject {
         setInterval(() => {
             if (this.enemyDeath) {
                     this.playAnimation(this.imagesDead);
+                    if (this.noSoundSmallChickenHit == true) {
+                        this.smallChickenHitSound.play();
+                    }
+                    setTimeout(() => {
+                        this.noSoundSmallChickenHit = false;
+                    });
             } else {
                 this.playAnimation(this.imagesWalking);
             }

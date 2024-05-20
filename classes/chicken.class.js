@@ -5,6 +5,8 @@ class Chicken extends MovableObject {
     width = 70;
     y = 350;
     // collidingChicken = false;
+    chickenHitSound = new Audio ('audio/chicken1.mp3');
+    noSoundChickenHit = true;
 
     
 
@@ -25,10 +27,10 @@ class Chicken extends MovableObject {
         this.loadImages(this.imagesDead);
         this.x = 500 + Math.random() * 1500;
         this.speed = 0.15 + Math.random() * 0.5;
-        this.animate();
+        this.animateChicken();
     }
 
-    animate() {
+    animateChicken() {
         setInterval( () => {
             this.moveLeft();
         }, 1000 / 60);
@@ -36,9 +38,16 @@ class Chicken extends MovableObject {
         setInterval(() => {
             if (this.enemyDeath) {
                     this.playAnimation(this.imagesDead);
+                    if (this.noSoundChickenHit == true) {
+                        this.chickenHitSound.play();
+                    }
+                    setTimeout(() => {
+                        this.noSoundChickenHit = false;
+                    });
             } else {
                 this.playAnimation(this.imagesWalking);
             }
+            
         }, 200);
 
         // setInterval( () => {
