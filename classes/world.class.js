@@ -90,7 +90,6 @@ class World {
                 if (throwableObject.isColliding(enemy)) {
                     if (enemy instanceof Endboss) {
                         enemy.energy -= 20;
-                        if (enemy.energy < 0) enemy.energy = 0;  // Sicherstellen, dass die Energie nicht unter 0 fällt
                         this.statusBarEndboss.setPercentageEndboss(enemy.energy);
                         if (enemy.energy == 0) {
                             enemy.enemyDeath = true;
