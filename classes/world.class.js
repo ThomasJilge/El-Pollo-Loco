@@ -40,7 +40,8 @@ class World {
 
     run() {
         setInterval(() => {
-            this.checkCollisions();
+            this.checkCollisionEnemies();
+            this.checkCollisionBottleWithEnemies();
             this.checkThrowableObjects();
             this.bottleCollision();
             this.coinCollision();
@@ -63,7 +64,7 @@ class World {
     }
 
 
-    checkCollisions() {
+    checkCollisionEnemies() {
         this.level.enemies.forEach((enemy, i) => {
             if (!enemy.enemyDeath && (enemy instanceof Chicken || enemy instanceof ChickenSmall)) {
                 if (this.character.isColliding(enemy)) {
@@ -82,6 +83,33 @@ class World {
             }
         });
     }
+
+    checkCollisionBottleWithEnemies() {
+        this.throwableObjects.forEach((throwableObject) => {
+            this.level.enemies.forEach((enemy, i) => {
+                if (throwableObject.isColliding(enemy)) {
+                    enemy.enemyDeath = true;
+                    setTimeout(() => {
+                        this.level.enemies.splice(i, 1);
+                    }, 500);
+                    const y = this.throwableObjects.indexOf(throwableObject);
+                    this.throwableObjects.splice(y, 1);
+                }
+            });
+        });
+    }
+    
+
+    // checkCollisionBottleWithEnemies() {
+    //     this.throwableObjects.forEach((throwableObject) => {
+    //         this.level.enemies.forEach((enemy) => {
+    //             if (throwableObject.isColliding(enemy)) {
+    //                 enemy.enemyDeath = true;
+    //             }
+    //         });
+    //     });
+    // }
+    
     
 
     bottleCollision() {
