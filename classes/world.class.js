@@ -88,10 +88,22 @@ class World {
         this.throwableObjects.forEach((throwableObject) => {
             this.level.enemies.forEach((enemy, i) => {
                 if (throwableObject.isColliding(enemy)) {
-                    enemy.enemyDeath = true;
-                    setTimeout(() => {
-                        this.level.enemies.splice(i, 1);
-                    }, 500);
+                    if (enemy instanceof Endboss) {
+                        enemy.energy -= 20;
+                        if (enemy.energy < 0) enemy.energy = 0;  // Sicherstellen, dass die Energie nicht unter 0 fällt
+                        this.statusBarEndboss.setPercentageEndboss(enemy.energy);
+                        if (enemy.energy == 0) {
+                            enemy.enemyDeath = true;
+                            setTimeout(() => {
+                                this.level.enemies.splice(i, 1);
+                            }, 500);
+                        }
+                    } else {
+                        enemy.enemyDeath = true;
+                        setTimeout(() => {
+                            this.level.enemies.splice(i, 1);
+                        }, 500);
+                    }
                     const y = this.throwableObjects.indexOf(throwableObject);
                     this.throwableObjects.splice(y, 1);
                 }
@@ -99,19 +111,7 @@ class World {
         });
     }
     
-
-    // checkCollisionBottleWithEnemies() {
-    //     this.throwableObjects.forEach((throwableObject) => {
-    //         this.level.enemies.forEach((enemy) => {
-    //             if (throwableObject.isColliding(enemy)) {
-    //                 enemy.enemyDeath = true;
-    //             }
-    //         });
-    //     });
-    // }
     
-    
-
     bottleCollision() {
         if (this.level && this.level.bottles) {
             this.level.bottles.forEach((bottle, i) => {
