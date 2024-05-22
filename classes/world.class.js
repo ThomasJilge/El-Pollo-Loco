@@ -1,5 +1,6 @@
 class World {
     character = new Character();
+    endboss = new Endboss();
     level = level1;
     bottles = level1.bottles;
     coins = level1.coins;
@@ -21,6 +22,7 @@ class World {
     noSoundCoins = true;
     noSoundBottles = true;
     displayGameOver = false;
+    displayGameWon = false;
     showEndbossStatusBar = false;
 
     constructor(canvas, keyboard) {
@@ -46,6 +48,7 @@ class World {
             this.bottleCollision();
             this.coinCollision();
             this.characterIsDead();
+            this.endbossIsDead();
             this.updateEndbossStatusBar();
         }, 200);
     }
@@ -91,7 +94,7 @@ class World {
                     if (enemy instanceof Endboss) {
                         enemy.energy -= 20;
                         this.statusBarEndboss.setPercentageEndboss(enemy.energy);
-                        if (enemy.energy == 0) {
+                        if (enemy.energy <= 0) {
                             enemy.enemyDeath = true;
                             setTimeout(() => {
                                 this.level.enemies.splice(i, 1);
@@ -218,6 +221,24 @@ class World {
             this.displayGameOver = false;
         }
         this.clearIntervals();
+    }
+
+    gameWon() {
+        let gameIsWon = document.getElementById('gameWon');
+        if (this.endboss.energy <= 0) {
+            gameIsWon.classList.remove('d-none');
+        } else {
+            gameIsWon.classList.add('d-none');
+            this.displayGameWon = false;
+        }
+        this.clearIntervals();
+    }
+
+    endbossIsDead() {
+        if (!this.displayGameWon && this.endboss.energy <= 0) {
+            this.displayGameWon = true;
+            this.gameWon();
+        }
     }
     
 

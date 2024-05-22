@@ -162,6 +162,17 @@ h1 {
     object-fit: cover;
 }
 
+.gameWon {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.gameWonIMG {
+    width: 720px;
+    height: 480px;
+    object-fit: cover;
+}
+
 
 /* Smartphones */
 
