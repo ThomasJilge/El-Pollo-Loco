@@ -1,5 +1,8 @@
 class Endboss extends MovableObject {
 
+    endbossDeadSound = new Audio ('audio/endbossDead.mp3');
+    noSoundEndbossDead = true;
+
     height = 400;
     width = 250;
     y = 55;
@@ -29,12 +32,12 @@ class Endboss extends MovableObject {
         setInterval( () => {
             if (this.enemyDeath) {
                 this.playAnimation(this.imagesDead);
-                // if (this.noSoundChickenHit == true) {
-                //     this.chickenHitSound.play();
-                
-                // setTimeout(() => {
-                //     this.noSoundChickenHit = false;
-                // });
+                if (this.noSoundEndbossDead == true) {
+                    this.endbossDeadSound.play();
+                }
+                setTimeout(() => {
+                    this.noSoundEndbossDead = false;
+                });
         } else {
             this.playAnimation(this.imagesWalking);
         }
