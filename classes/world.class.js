@@ -24,6 +24,7 @@ class World {
     displayGameOver = false;
     displayGameWon = false;
     showEndbossStatusBar = false;
+    enemyDeath = false;
 
     constructor(canvas, keyboard) {
         this.ctx = canvas.getContext('2d');
@@ -92,7 +93,9 @@ class World {
             this.level.enemies.forEach((enemy, i) => {
                 if (throwableObject.isColliding(enemy)) {
                     if (enemy instanceof Endboss) {
+                        console.log('test');
                         enemy.energy -= 20;
+                        console.log('endboss reduce energy');
                         this.statusBarEndboss.setPercentageEndboss(enemy.energy);
                         if (enemy.energy <= 0) {
                             enemy.enemyDeath = true;
@@ -212,33 +215,11 @@ class World {
     }
 
 
-    gameOver() {
-        let gameIsOver = document.getElementById('gameOver');
-        if (this.character.energy <= 0) {
-            gameIsOver.classList.remove('d-none');
-        } else {
-            gameIsOver.classList.add('d-none');
-            this.displayGameOver = false;
-        }
-        this.clearIntervals();
-    }
-
-    gameWon() {
-        let gameIsWon = document.getElementById('gameWon');
-        if (this.endboss.energy <= 0) {
-            gameIsWon.classList.remove('d-none');
-        } else {
-            gameIsWon.classList.add('d-none');
-            this.displayGameWon = false;
-        }
-        this.clearIntervals();
-    }
-
     endbossIsDead() {
         if (!this.displayGameWon && this.endboss.energy <= 0) {
             this.displayGameWon = true;
-            this.gameWon();
-        }
+            this.gameWon(); 
+        } 
     }
     
 
@@ -250,6 +231,31 @@ class World {
     }
 
 
+    gameOver() {
+        console.log('Game over!');
+        let gameIsOver = document.getElementById('gameOver');
+        if (this.character.energy <= 0) {
+            gameIsOver.classList.remove('d-none');
+        } else {
+            gameIsOver.classList.add('d-none');
+            this.displayGameOver = false;
+        }
+        this.clearIntervals();
+    }
+
+    gameWon() {
+        console.log('Game won!');
+        let gameIsWon = document.getElementById('gameWon');
+        if (this.endboss.energy <= 0) {
+            gameIsWon.classList.remove('d-none');
+        } else {
+            gameIsWon.classList.add('d-none');
+            this.displayGameWon = false;
+        }
+        this.clearIntervals();
+    }
+
+    
     updateEndbossStatusBar() {
         this.level.enemies.forEach(enemy => {
             if (enemy instanceof Endboss) {

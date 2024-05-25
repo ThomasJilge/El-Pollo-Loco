@@ -9,7 +9,7 @@ class StatusBarCoins extends DrawableObject {
         'img/7_statusbars/1_statusbar/1_statusbar_coin/orange/100.png'
     ];
 
-    percentage = 20;
+    percentage = 0;
 
     constructor() {
         super();
