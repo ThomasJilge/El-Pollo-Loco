@@ -1,6 +1,5 @@
 class World {
     character = new Character();
-    endboss = new Endboss();
     level = level1;
     bottles = level1.bottles;
     coins = level1.coins;
@@ -33,6 +32,7 @@ class World {
         this.draw();
         this.setWorld();
         this.run();
+        this.endboss = null;
     }
 
 
@@ -216,12 +216,16 @@ class World {
 
 
     endbossIsDead() {
-        if (!this.displayGameWon && this.endboss.energy <= 0) {
-            this.displayGameWon = true;
-            this.gameWon(); 
-        } 
+        this.level.enemies.forEach((enemy) => {
+            if (enemy instanceof Endboss && enemy.energy <= 0) {
+                if (!this.displayGameWon) {
+                    this.displayGameWon = true;
+                    this.gameWon();
+                }
+            }
+        });
     }
-    
+
 
     characterIsDead() {
         if (!this.displayGameOver && this.character.energy <= 0) {
@@ -246,14 +250,36 @@ class World {
     gameWon() {
         console.log('Game won!');
         let gameIsWon = document.getElementById('gameWon');
-        if (this.endboss.energy <= 0) {
+        let endbossDefeated = false;
+    
+        this.level.enemies.forEach((enemy) => {
+            if (enemy instanceof Endboss && enemy.energy <= 0) {
+                endbossDefeated = true;
+            }
+        });
+    
+        if (endbossDefeated) {
             gameIsWon.classList.remove('d-none');
+            this.displayGameWon = true;
+            this.clearIntervals();
         } else {
             gameIsWon.classList.add('d-none');
             this.displayGameWon = false;
         }
-        this.clearIntervals();
     }
+    
+
+    // gameWon() {
+    //     console.log('Game won!');
+    //     let gameIsWon = document.getElementById('gameWon');
+    //     if (this.endboss.energy <= 0) {
+    //         gameIsWon.classList.remove('d-none');
+    //     } else {
+    //         gameIsWon.classList.add('d-none');
+    //         this.displayGameWon = false;
+    //     }
+    //     this.clearIntervals();
+    // }
 
     
     updateEndbossStatusBar() {
