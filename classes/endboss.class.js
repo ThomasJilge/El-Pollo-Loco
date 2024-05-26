@@ -2,6 +2,7 @@ class Endboss extends MovableObject {
 
     endbossDeadSound = new Audio ('audio/endbossDead.mp3');
     noSoundEndbossDead = true;
+    firstContact = false;
     // energy = 100;
 
     height = 400;
@@ -61,6 +62,7 @@ class Endboss extends MovableObject {
         // this.endbossAlert();
     }
 
+
     animateEndboss() {
         setInterval( () => {
             if (this.enemyDeath) {
@@ -77,24 +79,9 @@ class Endboss extends MovableObject {
         }, 400);   
     }
 
-    // endbossAlert() {
-    //     let distance = Math.abs(this.character.x - this.x);
-    //     if (distance <= 530) {
-    //         this.playAnimation(this.imagesAlert);
-    //     } else {
-    //         this.playAnimation(this.imagesWalking);
-    //     }
-    // }
 
-    // endbossAttack(character) {
-    //     let distance = Math.abs(this.x - character.x);
-    //     if (distance <= 500) {
-    //         this.playAnimation(this.imagesAttack);
-    //         if (this.x > character.x) {
-    //             this.x -= 5; // Move left towards the character
-    //         } else {
-    //             this.x += 5; // Move right towards the character
-    //         }
-    //     }
-    // }
+    seeEndboss() {
+        this.playAnimation(this.imagesWalking);
+        this.moveLeft();
+    }
 }
