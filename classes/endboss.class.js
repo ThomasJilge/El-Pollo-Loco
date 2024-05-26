@@ -2,7 +2,9 @@ class Endboss extends MovableObject {
 
     endbossDeadSound = new Audio ('audio/endbossDead.mp3');
     noSoundEndbossDead = true;
-    firstContact = false;
+    alertDone = false;
+    walkingDone = false;
+    // firstContact = false;
     // energy = 100;
 
     height = 400;
@@ -58,8 +60,8 @@ class Endboss extends MovableObject {
         this.loadImages(this.imagesHurt);
         this.loadImages(this.imagesDead);
         this.x = 2500;
+        this.speed = 0.15 + Math.random() * 0.5;
         this.animateEndboss();
-        // this.endbossAlert();
     }
 
 
@@ -73,15 +75,25 @@ class Endboss extends MovableObject {
                 setTimeout(() => {
                     this.noSoundEndbossDead = false;
                 });
-        } else {
+        } else if (!this.alertDone) {
             this.playAnimation(this.imagesAlert);
+        } else if (this.walkingDone) {
+            setTimeout(() => {
+                this.walkingEndboss();
+            }, 3000);
         }
         }, 400);   
     }
 
 
-    seeEndboss() {
-        this.playAnimation(this.imagesWalking);
-        this.moveLeft();
+    walkingEndboss() {
+        setInterval(() => {
+            this.moveLeft();
+            this.playAnimation(this.imagesWalking);
+        }, 200);
     }
+
 }
+
+
+

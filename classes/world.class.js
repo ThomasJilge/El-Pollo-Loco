@@ -273,19 +273,6 @@ class World {
     }
     
 
-    // gameWon() {
-    //     console.log('Game won!');
-    //     let gameIsWon = document.getElementById('gameWon');
-    //     if (this.endboss.energy <= 0) {
-    //         gameIsWon.classList.remove('d-none');
-    //     } else {
-    //         gameIsWon.classList.add('d-none');
-    //         this.displayGameWon = false;
-    //     }
-    //     this.clearIntervals();
-    // }
-
-    
     updateEndbossStatusBar() {
         this.level.enemies.forEach(enemy => {
             if (enemy instanceof Endboss) {
