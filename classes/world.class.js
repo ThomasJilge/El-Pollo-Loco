@@ -257,15 +257,19 @@ class World {
                 endbossDefeated = true;
             }
         });
+
+        setInterval( () => {
+            if (endbossDefeated) {
+                gameIsWon.classList.remove('d-none');
+                this.displayGameWon = true;
+                this.clearIntervals();
+            } else {
+                gameIsWon.classList.add('d-none');
+                this.displayGameWon = false;
+            }
+        }, 2000);   
     
-        if (endbossDefeated) {
-            gameIsWon.classList.remove('d-none');
-            this.displayGameWon = true;
-            this.clearIntervals();
-        } else {
-            gameIsWon.classList.add('d-none');
-            this.displayGameWon = false;
-        }
+        
     }
     
 

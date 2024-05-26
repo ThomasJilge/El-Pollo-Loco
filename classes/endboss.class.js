@@ -72,6 +72,6 @@ class Endboss extends MovableObject {
         } else {
             this.playAnimation(this.imagesWalking);
         }
-        }, 200);   
+        }, 400);   
     }
 }
