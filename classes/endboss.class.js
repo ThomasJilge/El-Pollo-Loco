@@ -8,13 +8,6 @@ class Endboss extends MovableObject {
     width = 250;
     y = 55;
 
-    imagesWalking = [
-        'img/4_enemie_boss_chicken/1_walk/G1.png',
-        'img/4_enemie_boss_chicken/1_walk/G2.png',
-        'img/4_enemie_boss_chicken/1_walk/G3.png',
-        'img/4_enemie_boss_chicken/1_walk/G4.png'
-    ];
-
     imagesAlert = [
         'img/4_enemie_boss_chicken/2_alert/G5.png',
         'img/4_enemie_boss_chicken/2_alert/G6.png',
@@ -24,6 +17,14 @@ class Endboss extends MovableObject {
         'img/4_enemie_boss_chicken/2_alert/G10.png',
         'img/4_enemie_boss_chicken/2_alert/G11.png',
         'img/4_enemie_boss_chicken/2_alert/G12.png'
+    ];
+
+
+    imagesWalking = [
+        'img/4_enemie_boss_chicken/1_walk/G1.png',
+        'img/4_enemie_boss_chicken/1_walk/G2.png',
+        'img/4_enemie_boss_chicken/1_walk/G3.png',
+        'img/4_enemie_boss_chicken/1_walk/G4.png'
     ];
 
     imagesAttack = [
@@ -49,14 +50,15 @@ class Endboss extends MovableObject {
     ];
 
     constructor() {
-        super().loadImage(this.imagesWalking[0]);
-        this.loadImages(this.imagesWalking);
+        super().loadImage(this.imagesAlert[0]);
         this.loadImages(this.imagesAlert);
+        this.loadImages(this.imagesWalking);
         this.loadImages(this.imagesAttack);
         this.loadImages(this.imagesHurt);
         this.loadImages(this.imagesDead);
         this.x = 2500;
         this.animateEndboss();
+        // this.endbossAlert();
     }
 
     animateEndboss() {
@@ -70,8 +72,29 @@ class Endboss extends MovableObject {
                     this.noSoundEndbossDead = false;
                 });
         } else {
-            this.playAnimation(this.imagesWalking);
+            this.playAnimation(this.imagesAlert);
         }
         }, 400);   
     }
+
+    // endbossAlert() {
+    //     let distance = Math.abs(this.character.x - this.x);
+    //     if (distance <= 530) {
+    //         this.playAnimation(this.imagesAlert);
+    //     } else {
+    //         this.playAnimation(this.imagesWalking);
+    //     }
+    // }
+
+    // endbossAttack(character) {
+    //     let distance = Math.abs(this.x - character.x);
+    //     if (distance <= 500) {
+    //         this.playAnimation(this.imagesAttack);
+    //         if (this.x > character.x) {
+    //             this.x -= 5; // Move left towards the character
+    //         } else {
+    //             this.x += 5; // Move right towards the character
+    //         }
+    //     }
+    // }
 }
