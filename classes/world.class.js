@@ -95,8 +95,12 @@ class World {
                     if (enemy instanceof Endboss) {
                         console.log('test');
                         enemy.energy -= 20;
+                        enemy.isHurt = true;
                         console.log('endboss reduce energy');
                         this.statusBarEndboss.setPercentageEndboss(enemy.energy);
+                        setTimeout(() => {
+                            enemy.isHurt = false;
+                        }, 1000);
                         if (enemy.energy <= 0) {
                             enemy.enemyDeath = true;
                             setTimeout(() => {
