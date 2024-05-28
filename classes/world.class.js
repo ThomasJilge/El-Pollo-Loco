@@ -283,12 +283,16 @@ class World {
                 let distance = Math.abs(this.character.x - enemy.x);
                 if (distance <= 630) {
                     this.showEndbossStatusBar = true;
+                    if (distance <= 430 && !enemy.walkingDone) {
+                        enemy.startWalking();
+                    }
                 } else {
                     this.showEndbossStatusBar = false;
                 }
             }
         });
     }
+
     
 
 
