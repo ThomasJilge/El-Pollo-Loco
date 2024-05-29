@@ -70,7 +70,7 @@ class World {
 
     checkCollisionEnemies() {
         this.level.enemies.forEach((enemy, i) => {
-            if (!enemy.enemyDeath && (enemy instanceof Chicken || enemy instanceof ChickenSmall)) {
+            if (!enemy.enemyDeath && (enemy instanceof Chicken || enemy instanceof ChickenSmall || enemy instanceof Endboss)) {
                 if (this.character.isColliding(enemy)) {
                     if (this.character.isAboveGround()) {
                         enemy.enemyDeath = true;
