@@ -5,6 +5,8 @@ class Endboss extends MovableObject {
     alertDone = false;
     walkingDone = false;
     isHurt = false;
+    isAttack = false;
+    isNotAttack = true;
     enemyDeath = false;
 
     height = 400;
@@ -60,34 +62,73 @@ class Endboss extends MovableObject {
         this.loadImages(this.imagesHurt);
         this.loadImages(this.imagesDead);
         this.x = 2500;
-        this.speed = 0.2;
-        // this.speed = 0.2;
+        this.speed = 2.0;
         this.animateEndboss();
     }
 
+
+    // animateEndboss() {
+    //     setInterval(() => {
+    //         if (this.isAttack) {
+    //             this.moveLeft();
+    //         }
+    //     }, 100);
+    //     setInterval(() => {
+    //         if (this.enemyDeath) {
+    //             this.playAnimation(this.imagesDead);
+    //             if (this.noSoundEndbossDead == true) {
+    //                 this.endbossDeadSound.play();
+    //                 this.noSoundEndbossDead = false;
+    //             }
+    //         } else if (this.isHurt) {
+    //             this.playAnimation(this.imagesHurt);
+    //         } else if (this.alertDone) {
+    //             this.playAnimation(this.imagesAlert);
+    //         } else if (this.isAttack) {
+    //             this.playAnimation(this.imagesAttack);
+    //         } else {
+    //             this.playAnimation(this.imagesWalking);
+    //         }
+    //     }, 200);
+    // }
+
     animateEndboss() {
+        setInterval(() => {
+            if (this.walkingDone && !this.enemyDeath) {
+                this.moveLeft();
+            }
+        }, 100);
+        
         setInterval(() => {
             if (this.enemyDeath) {
                 this.playAnimation(this.imagesDead);
-                if (this.noSoundEndbossDead == true) {
+                if (this.noSoundEndbossDead) {
                     this.endbossDeadSound.play();
                     this.noSoundEndbossDead = false;
                 }
             } else if (this.isHurt) {
                 this.playAnimation(this.imagesHurt);
-            } else if (this.walkingDone) {
-                setInterval(() => {
-                    this.moveLeft();
-                    this.playAnimation(this.imagesWalking);
-                }, 100);
-            } else if (!this.alertDone) {
+            } else if (this.alertDone) {
                 this.playAnimation(this.imagesAlert);
+            } else if (this.isAttack) {
+                this.playAnimation(this.imagesAttack);
+            } else if (this.walkingDone) {
+                this.playAnimation(this.imagesWalking);
             }
         }, 200);
     }
 
+
     startWalking() {
         this.walkingDone = true;
+    }
+
+    startAttack() {
+        this.isAttack = true;
+    }
+
+    stopAttack() {
+        this.isNotAttack = false;
     }
 
 

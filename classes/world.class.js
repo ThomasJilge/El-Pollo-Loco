@@ -50,7 +50,7 @@ class World {
             this.coinCollision();
             this.characterIsDead();
             this.endbossIsDead();
-            this.updateEndbossStatusBar();
+            this.updateEndbossAndStatusBar();
         }, 200);
     }
 
@@ -124,7 +124,7 @@ class World {
     bottleCollision() {
         if (this.level && this.level.bottles) {
             this.level.bottles.forEach((bottle, i) => {
-                if (this.character.isColliding(bottle) && this.collectedBottles < 5) {
+                if (this.character.isColliding(bottle) && this.collectedBottles < 6) {
                     this.character.collectingBottles();
                     if (this.noSoundBottles == true) {
                         this.collectedBottlesSound.play();
@@ -275,9 +275,9 @@ class World {
     
         
     }
-    
 
-    updateEndbossStatusBar() {
+
+    updateEndbossAndStatusBar() {
         this.level.enemies.forEach(enemy => {
             if (enemy instanceof Endboss) {
                 let distance = Math.abs(this.character.x - enemy.x);
@@ -286,9 +286,13 @@ class World {
                     if (distance <= 430 && !enemy.walkingDone) {
                         enemy.startWalking();
                     }
-                } else {
-                    this.showEndbossStatusBar = false;
-                }
+                    if (distance <= 150 && !enemy.isAttack) {
+                        enemy.startAttack();
+                    }
+                    if (distance >= 151 && enemy.isAttack) {
+                        enemy.stopAttack();
+                    }
+                } 
             }
         });
     }
