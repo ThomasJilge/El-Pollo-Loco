@@ -173,6 +173,27 @@ h1 {
     /* object-fit: cover; */
 }
 
+.imprintAndDataprotectionContainer {
+    display: flex;
+    position: absolute;
+    top: 20px;
+    right: 50px;
+    gap: 15px;
+}
+
+
+.imprint, .dataprotection {
+    text-decoration: none;
+    color:rgb(255, 200, 0);
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.imprint:hover, .dataprotection:hover {
+    color: orange;
+    cursor: pointer;
+}
+
 
 /* Smartphones */
 
