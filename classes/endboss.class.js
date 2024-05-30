@@ -66,32 +66,7 @@ class Endboss extends MovableObject {
         this.animateEndboss();
     }
 
-
-    // animateEndboss() {
-    //     setInterval(() => {
-    //         if (this.isAttack) {
-    //             this.moveLeft();
-    //         }
-    //     }, 100);
-    //     setInterval(() => {
-    //         if (this.enemyDeath) {
-    //             this.playAnimation(this.imagesDead);
-    //             if (this.noSoundEndbossDead == true) {
-    //                 this.endbossDeadSound.play();
-    //                 this.noSoundEndbossDead = false;
-    //             }
-    //         } else if (this.isHurt) {
-    //             this.playAnimation(this.imagesHurt);
-    //         } else if (this.alertDone) {
-    //             this.playAnimation(this.imagesAlert);
-    //         } else if (this.isAttack) {
-    //             this.playAnimation(this.imagesAttack);
-    //         } else {
-    //             this.playAnimation(this.imagesWalking);
-    //         }
-    //     }, 200);
-    // }
-
+    
     animateEndboss() {
         setInterval(() => {
             if (this.walkingDone && !this.enemyDeath) {
@@ -125,11 +100,21 @@ class Endboss extends MovableObject {
 
     startAttack() {
         this.isAttack = true;
-    }
-
-    stopAttack() {
         this.isNotAttack = false;
     }
+    
+    stopAttack() {
+        this.isAttack = false;
+        this.isNotAttack = true;
+    }
+
+    // startAttack() {
+    //     this.isAttack = true;
+    // }
+
+    // stopAttack() {
+    //     this.isNotAttack = false;
+    // }
 
 
     // walkingEndboss() {
