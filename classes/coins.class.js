@@ -4,6 +4,13 @@ class Coins extends MovableObject {
     width = 170;
     y = 100;
 
+    offset = {
+        top: 50,
+        bottom: 50,
+        left: 50,
+        right: 50,
+    };
+
     imagesCoins = [
         'img/8_coin/coin_1.png',
         'img/8_coin/coin_2.png'

@@ -3,6 +3,13 @@ class Bottle extends MovableObject {
     width = 80;
     y = 335;
 
+    offset = {
+        top: 10,
+        bottom: 5,
+        left: 5,
+        right: 5,
+    };
+
     imagesBottle = [
         'img/6_salsa_bottle/1_salsa_bottle_on_ground.png',
         'img/6_salsa_bottle/2_salsa_bottle_on_ground.png'
