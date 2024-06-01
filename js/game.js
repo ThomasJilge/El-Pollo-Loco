@@ -70,6 +70,8 @@ function startGame() {
     document.getElementById('fullscreenImg').style.display = 'block';
     document.getElementById('soundButtonOn').style.display = 'block';
     document.getElementById('soundButtonOff').style.display = 'block';
+    document.getElementById('imprint').classList.add('d-none');
+    document.getElementById('dataprotection').classList.add('d-none');
     // this.background_sound.play();
 }
 

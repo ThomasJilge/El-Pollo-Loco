@@ -3,6 +3,8 @@ class Character extends MovableObject {
     height = 250;
     y = 160;
     speed = 10;
+    characterIdle = false;
+    characterLongIdle = false;
     // bottles = 0;
 
     offset = {
@@ -95,39 +97,42 @@ class Character extends MovableObject {
 
         setInterval(() => {
             this.walking_sound.pause();
-            if(this.world.keyboard.right && this.x < this.world.level.levelEndx) {
+            if (this.world.keyboard.right && this.x < this.world.level.levelEndx) {
                 this.moveRight();
                 this.otherDirection = false;
                 this.walking_sound.play();
             }
-            if(this.world.keyboard.left && this.x > 0) {
+
+            if (this.world.keyboard.left && this.x > 0) {
                 this.moveLeft();
                 this.walking_sound.play();
                 this.otherDirection = true ;
             }
 
-            if(this.world.keyboard.space && !this.isAboveGround()) {
+            if (this.world.keyboard.space && !this.isAboveGround()) {
                 this.jump();
             }
 
             this.world.camera_x = -this.x + 100;
         }, 1000 / 60);
 
-        setInterval( () => {
-            if(this.isDead()) {
+        setInterval(() => {
+            if (this.isDead()) {
                 this.playAnimation(this.imagesDead);
-                // this.checkChickenDeath();
+
             } else if (this.isHurt()) {
                 this.playAnimation(this.imagesHurt);
+
             } else if (this.isAboveGround()) {
                 this.playAnimation(this.imagesJumping);
-            } else {
 
-                if(this.world.keyboard.right || this.world.keyboard.left) {
-                    this.playAnimation(this.imagesWalking);
-                }
+            } else if (this.world.keyboard.right || this.world.keyboard.left) {
+                this.playAnimation(this.imagesWalking);
+
+            } else {
+                this.playAnimation(this.imagesIdle);
             }
-        }, 50);       
+        }, 50);      
     }
 
 
@@ -137,5 +142,13 @@ class Character extends MovableObject {
 
     isAboutToFall() {
         return this.speedY > 0;
+    }
+
+    isIdle() {
+        return this.characterIdle = true;
+    }
+
+    isLongIdle() {
+        return this.characterLongIdle = true;
     }
 }
