@@ -120,18 +120,7 @@ class Character extends MovableObject {
             }
 
             if (!this.world.keyboard.space && !this.world.keyboard.right && !this.world.keyboard.left && !this.world.keyboard.d) {
-                // setTimeout(() => {
-                //     this.isIdle();
-                //     console.log('Character idle')
-                // }, 2000);
                 this.setIdleTimers();
-            }
-
-            if (!this.world.keyboard.space && !this.world.keyboard.right && !this.world.keyboard.left && !this.world.keyboard.d) {
-                // setTimeout(() => {
-                //     this.isLongIdle();
-                //     console.log('Character long idle')
-                // }, 4000);
             }
 
             this.world.camera_x = -this.x + 100;
@@ -186,7 +175,6 @@ class Character extends MovableObject {
         this.characterIdle = false;
         this.characterLongIdle = false;
     }
-
 
 
     jump() {
