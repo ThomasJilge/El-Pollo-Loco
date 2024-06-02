@@ -1,7 +1,7 @@
 class Character extends MovableObject {
 
     height = 250;
-    y = 160;
+    y = 180;
     speed = 10;
     characterIdle = false;
     characterLongIdle = false;
@@ -202,5 +202,11 @@ class Character extends MovableObject {
 
     isAboutToFall() {
         return this.speedY > 0;
+    }
+
+    isAboveGround() {
+        // Beispiel für die Implementierung der Methode
+        // Diese Methode sollte true zurückgeben, wenn der Charakter in der Luft ist
+        return this.y < 180; // Anpassen je nach Spielwelt
     }
 }
