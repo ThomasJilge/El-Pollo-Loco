@@ -115,4 +115,12 @@ class MovableObject extends DrawableObject {
         return this.energy == 0;
     }
 
+    isIdle() {
+        return this.characterIdle = true;
+    }
+
+    isLongIdle() {
+        return this.characterLongIdle = true;
+    }
+
 }

@@ -5,6 +5,9 @@ class Character extends MovableObject {
     speed = 10;
     characterIdle = false;
     characterLongIdle = false;
+    idleTimer;
+    longIdleTimer;
+
     // bottles = 0;
 
     offset = {
@@ -101,16 +104,34 @@ class Character extends MovableObject {
                 this.moveRight();
                 this.otherDirection = false;
                 this.walking_sound.play();
+                this.resetIdleTimers();
             }
 
             if (this.world.keyboard.left && this.x > 0) {
                 this.moveLeft();
                 this.walking_sound.play();
                 this.otherDirection = true ;
+                this.resetIdleTimers();
             }
 
             if (this.world.keyboard.space && !this.isAboveGround()) {
                 this.jump();
+                this.resetIdleTimers();
+            }
+
+            if (!this.world.keyboard.space && !this.world.keyboard.right && !this.world.keyboard.left && !this.world.keyboard.d) {
+                // setTimeout(() => {
+                //     this.isIdle();
+                //     console.log('Character idle')
+                // }, 2000);
+                this.setIdleTimers();
+            }
+
+            if (!this.world.keyboard.space && !this.world.keyboard.right && !this.world.keyboard.left && !this.world.keyboard.d) {
+                // setTimeout(() => {
+                //     this.isLongIdle();
+                //     console.log('Character long idle')
+                // }, 4000);
             }
 
             this.world.camera_x = -this.x + 100;
@@ -129,11 +150,43 @@ class Character extends MovableObject {
             } else if (this.world.keyboard.right || this.world.keyboard.left) {
                 this.playAnimation(this.imagesWalking);
 
+            } else if (this.characterLongIdle) {
+                this.playAnimation(this.imagesLongIdle);
+
             } else {
                 this.playAnimation(this.imagesIdle);
             }
         }, 50);      
     }
+
+    setIdleTimers() {
+        if (!this.idleTimer) {
+            this.idleTimer = setTimeout(() => {
+                this.isIdle();
+                console.log('Character idle');
+            }, 2000);
+        }
+        if (!this.longIdleTimer) {
+            this.longIdleTimer = setTimeout(() => {
+                this.isLongIdle();
+                console.log('Character long idle');
+            }, 4000);
+        }
+    }
+
+    resetIdleTimers() {
+        if (this.idleTimer) {
+            clearTimeout(this.idleTimer);
+            this.idleTimer = null;
+        }
+        if (this.longIdleTimer) {
+            clearTimeout(this.longIdleTimer);
+            this.longIdleTimer = null;
+        }
+        this.characterIdle = false;
+        this.characterLongIdle = false;
+    }
+
 
 
     jump() {
@@ -142,13 +195,5 @@ class Character extends MovableObject {
 
     isAboutToFall() {
         return this.speedY > 0;
-    }
-
-    isIdle() {
-        return this.characterIdle = true;
-    }
-
-    isLongIdle() {
-        return this.characterLongIdle = true;
     }
 }
