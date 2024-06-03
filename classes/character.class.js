@@ -205,8 +205,6 @@ class Character extends MovableObject {
     }
 
     isAboveGround() {
-        // Beispiel für die Implementierung der Methode
-        // Diese Methode sollte true zurückgeben, wenn der Charakter in der Luft ist
-        return this.y < 180; // Anpassen je nach Spielwelt
+        return this.y < 180; 
     }
 }

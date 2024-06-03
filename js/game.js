@@ -2,7 +2,8 @@ let canvas;
 let world;
 let keyboard = new Keyboard();
 
-// background_sound = new Audio('audio/backgroundSound.mp3'); 
+background_sound = new Audio('audio/backgroundSound.mp3'); 
+background_sound.volume = 0.1;
 
 function init() {
     // initLevel();
@@ -72,7 +73,7 @@ function startGame() {
     document.getElementById('soundButtonOff').style.display = 'block';
     document.getElementById('imprint').classList.add('d-none');
     document.getElementById('dataprotection').classList.add('d-none');
-    // this.background_sound.play();
+    this.background_sound.play();
 }
 
 // document.getElementById('startButton').addEventListener('click', startGame);
@@ -118,10 +119,10 @@ function soundOff() {
     }
 }
 
-// background_sound.addEventListener('ended', function() {
-//     this.currentTime = 0;
-//     this.play();
-// }, false);
+background_sound.addEventListener('ended', function() {
+    this.currentTime = 0;
+    this.play();
+}, false);
 
 function newGame() {
     window.location.reload();
