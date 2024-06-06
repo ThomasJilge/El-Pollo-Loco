@@ -29,6 +29,7 @@ class World {
         this.ctx = canvas.getContext('2d');
         this.canvas = canvas;
         this.keyboard = keyboard;
+        this.background_sound = background_sound;
         this.draw();
         this.setWorld();
         this.run();
@@ -248,6 +249,7 @@ class World {
             gameIsOver.classList.add('d-none');
             this.displayGameOver = false;
         }
+        background_sound.pause();
         this.clearIntervals();
     }
 
