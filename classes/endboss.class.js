@@ -88,6 +88,7 @@ class Endboss extends MovableObject {
                     this.endbossDeadSound.play();
                     this.noSoundEndbossDead = false;
                 }
+                background_sound.pause();
             } else if (this.isHurt) {
                 this.playAnimation(this.imagesHurt);
             } else if (this.alertDone) {
@@ -114,22 +115,6 @@ class Endboss extends MovableObject {
         this.isAttack = false;
         this.isNotAttack = true;
     }
-
-    // startAttack() {
-    //     this.isAttack = true;
-    // }
-
-    // stopAttack() {
-    //     this.isNotAttack = false;
-    // }
-
-
-    // walkingEndboss() {
-    //     setInterval(() => {
-    //         this.moveLeft();
-    //         this.playAnimation(this.imagesWalking);
-    //     }, 200);
-    // }
 
 }
 
