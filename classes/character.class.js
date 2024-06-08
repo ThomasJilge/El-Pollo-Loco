@@ -82,6 +82,7 @@ class Character extends MovableObject {
 
     world;
     walking_sound = new Audio('audio/running.mp3');
+    snoring_sound = new Audio('audio/snoring.mp3');
 
     constructor() {
         super().loadImage('img/2_character_pepe/2_walk/W-21.png');
@@ -162,6 +163,9 @@ class Character extends MovableObject {
         setInterval(() => {
             if (this.characterLongIdle) {
                 this.playAnimation(this.imagesLongIdle);
+                this.snoring_sound.play();
+            } else {
+                this.snoring_sound.pause();
             }
         }, 200);
 
