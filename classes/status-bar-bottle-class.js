@@ -11,6 +11,8 @@ class StatusBarBottles extends DrawableObject {
 
     percentage = 0;
 
+    /** */
+
     constructor() {
         super();
         this.loadImages(this.images);
@@ -21,12 +23,15 @@ class StatusBarBottles extends DrawableObject {
         this.setPercentageBottle(0);
     }
 
+    /** */
 
     setPercentageBottle(percentage) {
         this.percentage = percentage;   
         let path = this.images[this.resolveImageIndex()];
         this.img = this.imageCache[path];
     }
+
+    /** */
 
     resolveImageIndex() {
         if(this.percentage == 100) {

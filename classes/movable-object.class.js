@@ -17,6 +17,8 @@ class MovableObject extends DrawableObject {
         right: 0,
     };
 
+    /** */
+
     applyGravity() {
         setInterval(() => {
             if(this.isAboveGround() || this.speedY > 0) {
@@ -26,6 +28,8 @@ class MovableObject extends DrawableObject {
         }, 1000 / 25);
     }
 
+    /** */
+
     isAboveGround() {
         if(this instanceof ThrowableObject) {
             return true;
@@ -34,11 +38,14 @@ class MovableObject extends DrawableObject {
         }
     }
 
+
     // isColliding(obj) {
     //     return  (this.x + this.width) >= obj.x && this.x <= (obj.x + obj.width) && 
     //             (this.y + this.offsetY + this.height) >= obj.y &&
     //             (this.y + this.offsetY) <= (obj.y + obj.height) && 
     // }
+
+    /** */
 
     isColliding(mo) {
         return this.x + this.width > mo.x &&
@@ -46,6 +53,8 @@ class MovableObject extends DrawableObject {
             this.x < mo.x &&
             this.y < mo.y + mo.height;
     }
+
+    /** */
 
     isCollidingOffset(mo) {
         return this.x + this.width - this.offset.right >= mo.x + mo.offset.left &&
@@ -63,12 +72,16 @@ class MovableObject extends DrawableObject {
 
     // }
 
+    /** */
+
     collectingBottles() {
         this.quantityBottles += 20;
         if (this.quantityBottles > 100) {
             this.quantityBottles = 100;
         }
     }
+
+    /** */
 
     collectingCoins() {
         this.quantityCoins += 20;
@@ -77,6 +90,8 @@ class MovableObject extends DrawableObject {
         }
     }
 
+    /** */
+
     playAnimation(images) {
         let i = this.currentImage % images.length;
         let path = images[i];
@@ -84,17 +99,25 @@ class MovableObject extends DrawableObject {
         this.currentImage ++;
     }
 
+    /** */
+
     moveRight() {
         this.x += this.speed;
     }
+
+    /** */
 
     moveLeft() {
         this.x -= this.speed;    
     }
 
+    /** */
+
     jump() {
         this.speedY = 30;
     }
+
+    /** */
 
     hit() {
         this.energy -= 5;
@@ -105,19 +128,27 @@ class MovableObject extends DrawableObject {
         }
     }
 
+    /** */
+
     isHurt() {
         let timepassed = new Date().getTime() - this.lastHit; // Difference in ms
         timepassed = timepassed / 1000; // Differnce in s
         return timepassed < 1;
     }
 
+    /** */
+
     isDead() {
         return this.energy == 0;
     }
 
+    /** */
+
     isIdle() {
         return this.characterIdle = true;
     }
+
+    /** */
 
     isLongIdle() {
         return this.characterLongIdle = true;

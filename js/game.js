@@ -5,6 +5,8 @@ let keyboard = new Keyboard();
 background_sound = new Audio('audio/backgroundSound.mp3'); 
 background_sound.volume = 0.1;
 
+/** */
+
 function init() {
     // initLevel();
     canvas = document.getElementById('canvas');
@@ -12,6 +14,8 @@ function init() {
     // startGame();
     // console.log('My Character is', world.character);  
 }
+
+/** */
 
 window.addEventListener('keydown', (e) => {
     if(e.keyCode == 39) {
@@ -35,6 +39,8 @@ window.addEventListener('keydown', (e) => {
     // console.log(e);
 });
 
+/** */
+
 window.addEventListener('keyup', (e) => {
     if(e.keyCode == 39) {
         keyboard.right = false;
@@ -55,6 +61,8 @@ window.addEventListener('keyup', (e) => {
         keyboard.d = false;
     }
 });
+
+/** */
 
 function startGame() {
     initLevel();
@@ -78,9 +86,13 @@ function startGame() {
 
 // document.getElementById('startButton').addEventListener('click', startGame);
 
+/** */
+
 function openInfoBox() {
     document.getElementById('infoContainer').classList.remove('d-none');
 }
+
+/** */
 
 document.addEventListener('click', function(event) {
     var infoContainer = document.getElementById('infoContainer');
@@ -91,11 +103,14 @@ document.addEventListener('click', function(event) {
     }
 });
 
+/** */
 
 function fullscreen() {
     let fullscreen = document.getElementById('canvas');
     enterFullscreen(fullscreen);
 }
+
+/** */
 
 function enterFullscreen(element) {
     if(element.requestFullscreen) {
@@ -105,7 +120,9 @@ function enterFullscreen(element) {
     } else if(element.webkitRequestFullscreen) {  
       element.webkitRequestFullscreen();
     }
-  }
+}
+
+/** */
 
 function soundOn() {
     if (background_sound) {
@@ -113,16 +130,22 @@ function soundOn() {
     }
 }
 
+/** */
+
 function soundOff() {
     if (background_sound) {
         background_sound.pause();
     }
 }
 
+/** */
+
 background_sound.addEventListener('ended', function() {
     this.currentTime = 0;
     this.play();
 }, false);
+
+/** */
 
 function newGame() {
     window.location.reload();

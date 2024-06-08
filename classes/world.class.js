@@ -25,6 +25,8 @@ class World {
     showEndbossStatusBar = false;
     enemyDeath = false;
 
+    /** */
+
     constructor(canvas, keyboard) {
         this.ctx = canvas.getContext('2d');
         this.canvas = canvas;
@@ -35,11 +37,13 @@ class World {
         this.endboss = null;
     }
 
+    /** */
 
     setWorld() {
         this.character.world = this;
     }
 
+    /** */
 
     run() {
         setInterval(() => {
@@ -54,6 +58,7 @@ class World {
         }, 200);
     }
 
+    /** */
 
     clearIntervals() {
         for (let i = 1; i < 9999; i++) window.clearInterval(i);
@@ -67,6 +72,8 @@ class World {
     //     }
     // }
 
+    /** */
+
     checkThrowableObjects() {
         if(this.statusBarBottles.percentage > 0 && this.keyboard.d) {
             let direction = this.character.otherDirection ? -1 : 1;
@@ -75,6 +82,8 @@ class World {
             this.throwableObjects.push(bottle);
         }
     }
+
+    /** */
 
     checkCollisionEnemies() {
         this.level.enemies.forEach((enemy, i) => {
@@ -95,6 +104,8 @@ class World {
             }
         });
     }
+
+    /** */
 
     checkCollisionBottleWithEnemies() {
         this.throwableObjects.forEach((throwableObject) => {
@@ -127,7 +138,8 @@ class World {
             });
         });
     }
-    
+
+    /** */
     
     bottleCollision() {
         if (this.level && this.level.bottles) {
@@ -144,8 +156,9 @@ class World {
             });
         }
     }
+
+    /** */
     
-  
     coinCollision() {
         if (this.level && this.level.coins) {
             this.level.coins.forEach((coin, i) => {
@@ -162,6 +175,7 @@ class World {
         }
     }
 
+    /** */
 
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -192,6 +206,7 @@ class World {
         });
     }
 
+    /** */
 
     addObjectsToMap(objects) {
         objects.forEach(o => {
@@ -212,6 +227,7 @@ class World {
         }
     }
 
+    /** */
 
     flipImage(mo) {
         this.ctx.save();
@@ -220,12 +236,14 @@ class World {
         mo.x = mo.x * -1;
     }
 
+    /** */
 
     flipImageBack(mo) {
         mo.x = mo.x * -1;
         this.ctx.restore();
     }
 
+    /** */
 
     endbossIsDead() {
         this.level.enemies.forEach((enemy) => {
@@ -238,6 +256,7 @@ class World {
         });
     }
 
+    /** */
 
     characterIsDead() {
         if (!this.displayGameOver && this.character.energy <= 0) {
@@ -246,6 +265,7 @@ class World {
         }
     }
 
+    /** */
 
     gameOver() {
         console.log('Game over!');
@@ -259,6 +279,8 @@ class World {
         background_sound.pause();
         this.clearIntervals();
     }
+
+    /** */
 
     gameWon() {
         console.log('Game won!');
@@ -285,6 +307,7 @@ class World {
         
     }
 
+    /** */
 
     updateEndbossAndStatusBar() {
         this.level.enemies.forEach(enemy => {
@@ -305,8 +328,5 @@ class World {
             }
         });
     }
-
-    
-
 
 }

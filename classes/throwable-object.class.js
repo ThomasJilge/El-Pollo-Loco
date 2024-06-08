@@ -34,6 +34,8 @@ class ThrowableObject extends MovableObject {
     //     this.animateThrowable();
     // }
 
+    /** */
+
     constructor(x, y, statusBar, direction) {
         super().loadImage('img/6_salsa_bottle/bottle_rotation/1_bottle_rotation.png');
         this.loadImages(this.throwBottleRotation);
@@ -47,6 +49,8 @@ class ThrowableObject extends MovableObject {
         this.throw();
         this.animateThrowable();
     }
+
+    /** */
 
     animateThrowable() {
         setInterval(() => {
@@ -76,6 +80,8 @@ class ThrowableObject extends MovableObject {
     //         this.statusBar.setPercentageBottle(this.statusBar.percentage - 20);
     //     } 
     // }
+
+    /** */
 
     throw() {
         this.speedY = 30;
