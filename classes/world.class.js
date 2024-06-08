@@ -85,9 +85,29 @@ class World {
 
     /** */
 
+    // checkCollisionEnemies() {
+    //     this.level.enemies.forEach((enemy, i) => {
+    //         if (!enemy.enemyDeath && (enemy instanceof Chicken || enemy instanceof ChickenSmall || enemy instanceof Endboss)) {
+    //             if (this.character.isColliding(enemy)) {
+    //                 if (this.character.isAboveGround()) {
+    //                     enemy.enemyDeath = true;
+    //                     setTimeout(() => {
+    //                         const index = this.level.enemies.indexOf(enemy);
+    //                         this.level.enemies.splice(index, 1);
+    //                     }, 500);
+    //                     this.character.jump();
+    //                 } else {
+    //                     this.character.hit();
+    //                     this.statusBar.setPercentage(this.character.energy);
+    //                 }   
+    //             }
+    //         }
+    //     });
+    // }
+
     checkCollisionEnemies() {
         this.level.enemies.forEach((enemy, i) => {
-            if (!enemy.enemyDeath && (enemy instanceof Chicken || enemy instanceof ChickenSmall || enemy instanceof Endboss)) {
+            if (!enemy.enemyDeath && (enemy instanceof Chicken || enemy instanceof ChickenSmall)) {
                 if (this.character.isColliding(enemy)) {
                     if (this.character.isAboveGround()) {
                         enemy.enemyDeath = true;
@@ -99,11 +119,18 @@ class World {
                     } else {
                         this.character.hit();
                         this.statusBar.setPercentage(this.character.energy);
-                    }   
+                    }
+                }
+            } else if (!enemy.enemyDeath && enemy instanceof Endboss) {
+                if (this.character.isColliding(enemy)) {
+                    if (this.character.isAboveGround()) {
+                        this.character.jump();
+                    }
                 }
             }
         });
     }
+    
 
     /** */
 
