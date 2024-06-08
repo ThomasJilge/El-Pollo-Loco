@@ -182,7 +182,7 @@ class Character extends MovableObject {
             this.longIdleTimer = setTimeout(() => {
                 this.isLongIdle();
                 console.log('Character long idle');
-            }, 4000);
+            }, 8000);
         }
     }
 
