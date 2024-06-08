@@ -29,7 +29,6 @@ class World {
         this.ctx = canvas.getContext('2d');
         this.canvas = canvas;
         this.keyboard = keyboard;
-        this.background_sound = background_sound;
         this.draw();
         this.setWorld();
         this.run();
@@ -61,13 +60,21 @@ class World {
     };
 
 
+    // checkThrowableObjects() {
+    //     if(this.statusBarBottles.percentage > 0 && this.keyboard.d) {
+    //         let bottle = new ThrowableObject(this.character.x + 100, this.character.y + 100, this.statusBarBottles);
+    //         this.throwableObjects.push(bottle);
+    //     }
+    // }
+
     checkThrowableObjects() {
         if(this.statusBarBottles.percentage > 0 && this.keyboard.d) {
-            let bottle = new ThrowableObject(this.character.x + 100, this.character.y + 100, this.statusBarBottles);
+            let direction = this.character.otherDirection ? -1 : 1;
+            let offset = this.character.otherDirection ? -100 : 100;
+            let bottle = new ThrowableObject(this.character.x + offset, this.character.y + 100, this.statusBarBottles, direction);
             this.throwableObjects.push(bottle);
         }
     }
-
 
     checkCollisionEnemies() {
         this.level.enemies.forEach((enemy, i) => {
