@@ -30,13 +30,20 @@ h1 {
     height: 100%;
 }
 
-.startScreen {
+.startInfoContainer {
     display: flex;
     justify-content: center;
-    gap: 200px;
-    position: absolute;
-    /* width: 50%; */
     width: 100%;
+    position: absolute;
+}
+
+.startScreen {
+    /* display: flex;
+    justify-content: space-around;
+    position: absolute;
+    width: 100%; */
+    display: flex;
+    gap: 200px;
 }
 
 /* .startButton {
