@@ -159,7 +159,9 @@ h1 {
 }
 
 .gameOver {
-    width: 100%;
+    /* width: 100%; */
+    /* display: flex;
+    justify-content: center; */
     height: 100%;
     position: absolute;
     background-color: rgba(0, 0, 0, 0.7);
