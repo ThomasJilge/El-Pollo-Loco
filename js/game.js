@@ -81,6 +81,7 @@ function startGame() {
     document.getElementById('soundButtonOff').style.display = 'block';
     document.getElementById('imprint').classList.add('d-none');
     document.getElementById('dataprotection').classList.add('d-none');
+    document.getElementById('menuButton').classList.remove('d-none');
     this.background_sound.play();
 }
 
@@ -148,5 +149,9 @@ background_sound.addEventListener('ended', function() {
 /** */
 
 function newGame() {
+    window.location.reload();
+}
+
+function goToMenu() {
     window.location.reload();
 }
