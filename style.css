@@ -32,19 +32,20 @@ h1 {
 
 .startScreen {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 200px;
     position: absolute;
     /* width: 50%; */
     width: 100%;
 }
 
-.startButton {
+/* .startButton {
     margin-left: 300px;
 }
 
 .infoButton {
     margin-right: 300px;
-}
+} */
 
 .imprintAndDataprotectionImg {
     width: 100%;
