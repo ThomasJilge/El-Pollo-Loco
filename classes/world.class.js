@@ -339,6 +339,7 @@ class World {
         }
         background_sound.pause();
         this.clearIntervals();
+        this.character.snoring_sound.pause();
     }
 
     /** */
@@ -359,6 +360,7 @@ class World {
                 gameIsWon.classList.remove('d-none');
                 this.displayGameWon = true;
                 this.clearIntervals();
+                this.character.snoring_sound.pause();
             } else {
                 gameIsWon.classList.add('d-none');
                 this.displayGameWon = false;
