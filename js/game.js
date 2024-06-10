@@ -62,6 +62,49 @@ window.addEventListener('keyup', (e) => {
     }
 });
 
+function mobileButtonPressEvents() {
+    document.getElementById('leftButton').addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        keyboard.left = true;
+    });
+
+    document.getElementById('leftButton').addEventListener('touchend', (e) => {
+        e.preventDefault();
+        keyboard.left = false;
+    });
+
+    document.getElementById('rightButton').addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        keyboard.right = true;
+    });
+
+    document.getElementById('rightButton').addEventListener('touchend', (e) => {
+        e.preventDefault();
+        keyboard.right = false;
+    });
+
+    document.getElementById('spaceButton').addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        keyboard.space = true;
+    });
+
+    document.getElementById('spaceButton').addEventListener('touchend', (e) => {
+        e.preventDefault();
+        keyboard.space = false;
+    });
+
+    document.getElementById('dButton').addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        keyboard.d = true;
+    });
+
+    document.getElementById('dButton').addEventListener('touchend', (e) => {
+        e.preventDefault();
+        keyboard.d = false;
+    });
+}
+
+
 /** */
 
 function startGame() {
