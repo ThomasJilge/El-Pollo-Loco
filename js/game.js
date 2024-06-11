@@ -125,6 +125,7 @@ function startGame() {
     document.getElementById('imprint').classList.add('d-none');
     document.getElementById('dataprotection').classList.add('d-none');
     document.getElementById('menuButton').classList.remove('d-none');
+    // document.getElementById('mobileButtonContainer').remove('d-none');
     this.background_sound.play();
 }
 

@@ -55,7 +55,7 @@
             <button onclick="openInfoBox()" class="infoButton buttonStartScreen" id="infoButton">Info</button>
         </div>
         </div>
-    </div>
+    <!-- </div> -->
 
         <div class="info">
         <div class="infoContainer d-none" id="infoContainer">
@@ -68,6 +68,7 @@
         </div>
     </div>
 
+
         <div class="buttonBar">
                 <button class="buttonCanvas d-none" id="soundButtonOn">
                     <img onclick="soundOn()" class="soundButton" src="img/others/soundOn.png" alt="">
@@ -75,9 +76,28 @@
                 <button class="buttonCanvas d-none" id="soundButtonOff">
                     <img onclick="soundOff()" class="soundButton" src="img/others/soundOff.png" alt="">
                 </button>
-        </div>    
-
+        </div>  
+        
         <canvas class="d-none" id="canvas" width="720" height="480"></canvas>
+
+        <div class="mobileButtonContainer" id="mobileButtonContainer">
+            <div class="mobileButtonsOne">
+                <button>
+                    <img class="mobileButton" src="img/others/arrowLeft.png" alt="">
+                </button>
+                <button>
+                    <img class="mobileButton" src="img/others/arrowRight.png" alt="">
+                </button>
+            </div>
+            <div class="mobileButtonsTwo">
+                <button>
+                    <img class="mobileButton" src="img/others/arrowUp.png" alt="">
+                </button>
+                <button>
+                    <img class="mobileButton" src="img/others/arrowThrowBottle.png" alt="">
+                </button>
+            </div>
+        </div>
 
         <div class="gameOver d-none" id="gameOver">
             <div class="newGameButtonContainer" id="newGameButtonContainer">
