@@ -243,9 +243,22 @@ h1 {
     cursor: pointer;
 }
 
+.mobileButtonContainer {
+    /* display: none; */
+    justify-content: space-between;
+    position: absolute;
+}
+
 .mobileButton {
     width: 40px;
     height: 40px;
+}
+
+.buttonSmartphone {
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    border: 0;
 }
 
 /* Smartphones */
@@ -254,6 +267,13 @@ h1 {
 
     canvas {
         width: 100%;
+    }
+
+    .mobileButtonContainer {
+        display: flex;
+        width: 100%;
+        top: 450px;
+        left: 10px;
     }
 
 }
@@ -319,13 +339,15 @@ h1 {
         /* position: absolute; */
     }
 
-    /* .mobileButtonContainer {
-        display: flex;
-    width: 100%;
-    justify-content: space-around;
-    position: relative;
-    bottom: 115px;
-    } */
+    .mobileButtonContainer {
+        /* display: flex; */
+        /* top: 500px;
+        right: 440px;
+        width: 720px;
+        justify-content: space-between;
+        position: absolute;
+        background-color: aqua; */
+    }
 
     
 }

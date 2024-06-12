@@ -55,7 +55,6 @@
             <button onclick="openInfoBox()" class="infoButton buttonStartScreen" id="infoButton">Info</button>
         </div>
         </div>
-    <!-- </div> -->
 
         <div class="info">
         <div class="infoContainer d-none" id="infoContainer">
@@ -68,6 +67,26 @@
         </div>
     </div>
 
+    <div class="mobileButtonContainer d-none" id="mobileButtonContainer">
+        <div class="mobileButtonsOne">
+            <button class="buttonSmartphone" id="leftButton">
+                <img class="mobileButton" src="img/others/arrowLeft.png" alt="">
+            </button>
+            <button class="buttonSmartphone" id="rightButton">
+                <img class="mobileButton" src="img/others/arrowRight.png" alt="">
+            </button>
+        </div>
+        <div class="mobileButtonsTwo">
+            <button class="buttonSmartphone" id="spaceButton">
+                <img class="mobileButton" src="img/others/arrowUp.png" alt="">
+            </button>
+            <button class="buttonSmartphone" id="dButton">
+                <img class="mobileButton" src="img/others/arrowThrowBottle.png" alt="">
+            </button>
+        </div>
+    </div>
+</div>
+
 
         <div class="buttonBar">
                 <button class="buttonCanvas d-none" id="soundButtonOn">
@@ -79,25 +98,6 @@
         </div>  
         
         <canvas class="d-none" id="canvas" width="720" height="480"></canvas>
-
-        <div class="mobileButtonContainer" id="mobileButtonContainer">
-            <div class="mobileButtonsOne">
-                <button>
-                    <img class="mobileButton" src="img/others/arrowLeft.png" alt="">
-                </button>
-                <button>
-                    <img class="mobileButton" src="img/others/arrowRight.png" alt="">
-                </button>
-            </div>
-            <div class="mobileButtonsTwo">
-                <button>
-                    <img class="mobileButton" src="img/others/arrowUp.png" alt="">
-                </button>
-                <button>
-                    <img class="mobileButton" src="img/others/arrowThrowBottle.png" alt="">
-                </button>
-            </div>
-        </div>
 
         <div class="gameOver d-none" id="gameOver">
             <div class="newGameButtonContainer" id="newGameButtonContainer">
@@ -113,7 +113,9 @@
             <img class="gameWonIMG" src="img/9_intro_outro_screens/start/startscreen_1.png" alt="">
         </div>
 
+    <!-- </div> -->
 
+        
             
 </body>
 </html>
