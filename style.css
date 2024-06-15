@@ -245,11 +245,11 @@ h1 {
 
 .mobileButtonContainer {
     /* display: none; */
-    justify-content: space-between;
-    position: absolute;
+    /* justify-content: space-between;
+    position: absolute; */
 }
 
-.mobileButton {
+/* .mobileButton {
     width: 40px;
     height: 40px;
 }
@@ -261,6 +261,20 @@ h1 {
     border: 0;
 }
 
+.mobilesButtonOne {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.mobilesButtonTwo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+} */
+
+
+
 /* Smartphones */
 
 @media only screen and (max-width: 720px) {
@@ -269,11 +283,8 @@ h1 {
         width: 100%;
     }
 
-    .mobileButtonContainer {
-        display: flex;
-        width: 100%;
-        top: 450px;
-        left: 10px;
+    .mobileButton:hover {
+        cursor: pointer;
     }
 
 }
@@ -339,15 +350,15 @@ h1 {
         /* position: absolute; */
     }
 
-    .mobileButtonContainer {
-        /* display: flex; */
-        /* top: 500px;
-        right: 440px;
-        width: 720px;
+    /* .mobileButtonContainer {
+        display: flex;
+        top: 500px;
+        width: 100%;
         justify-content: space-between;
         position: absolute;
-        background-color: aqua; */
-    }
+        background-color: aqua;
+        left: 10px;
+    } */
 
     
 }

@@ -2,8 +2,8 @@ let canvas;
 let world;
 let keyboard = new Keyboard();
 
-background_sound = new Audio('audio/backgroundSound.mp3'); 
-background_sound.volume = 0.1;
+// background_sound = new Audio('audio/backgroundSound.mp3'); 
+// background_sound.volume = 0.1;
 
 /** */
 
@@ -62,47 +62,47 @@ window.addEventListener('keyup', (e) => {
     }
 });
 
-function mobileButtonPressEvents() {
-    document.getElementById('leftButton').addEventListener('touchstart', (e) => {
-        e.preventDefault();
-        keyboard.left = true;
-    });
+// function mobileButtonPressEvents() {
+//     document.getElementById('leftButton').addEventListener('touchstart', (e) => {
+//         e.preventDefault();
+//         keyboard.left = true;
+//     });
 
-    document.getElementById('leftButton').addEventListener('touchend', (e) => {
-        e.preventDefault();
-        keyboard.left = false;
-    });
+//     document.getElementById('leftButton').addEventListener('touchend', (e) => {
+//         e.preventDefault();
+//         keyboard.left = false;
+//     });
 
-    document.getElementById('rightButton').addEventListener('touchstart', (e) => {
-        e.preventDefault();
-        keyboard.right = true;
-    });
+//     document.getElementById('rightButton').addEventListener('touchstart', (e) => {
+//         e.preventDefault();
+//         keyboard.right = true;
+//     });
 
-    document.getElementById('rightButton').addEventListener('touchend', (e) => {
-        e.preventDefault();
-        keyboard.right = false;
-    });
+//     document.getElementById('rightButton').addEventListener('touchend', (e) => {
+//         e.preventDefault();
+//         keyboard.right = false;
+//     });
 
-    document.getElementById('spaceButton').addEventListener('touchstart', (e) => {
-        e.preventDefault();
-        keyboard.space = true;
-    });
+//     document.getElementById('spaceButton').addEventListener('touchstart', (e) => {
+//         e.preventDefault();
+//         keyboard.space = true;
+//     });
 
-    document.getElementById('spaceButton').addEventListener('touchend', (e) => {
-        e.preventDefault();
-        keyboard.space = false;
-    });
+//     document.getElementById('spaceButton').addEventListener('touchend', (e) => {
+//         e.preventDefault();
+//         keyboard.space = false;
+//     });
 
-    document.getElementById('dButton').addEventListener('touchstart', (e) => {
-        e.preventDefault();
-        keyboard.d = true;
-    });
+//     document.getElementById('dButton').addEventListener('touchstart', (e) => {
+//         e.preventDefault();
+//         keyboard.d = true;
+//     });
 
-    document.getElementById('dButton').addEventListener('touchend', (e) => {
-        e.preventDefault();
-        keyboard.d = false;
-    });
-}
+//     document.getElementById('dButton').addEventListener('touchend', (e) => {
+//         e.preventDefault();
+//         keyboard.d = false;
+//     });
+// }
 
 
 /** */
@@ -126,8 +126,8 @@ function startGame() {
     document.getElementById('dataprotection').classList.add('d-none');
     document.getElementById('menuButton').classList.remove('d-none');
     // document.getElementById('mobileButtonContainer').classList.remove('d-none');
-    mobileButtonPressEvents();
-    this.background_sound.play();
+    // mobileButtonPressEvents();
+    // this.background_sound.play();
 }
 
 // document.getElementById('startButton').addEventListener('click', startGame);
@@ -186,10 +186,10 @@ function soundOff() {
 
 /** */
 
-background_sound.addEventListener('ended', function() {
-    this.currentTime = 0;
-    this.play();
-}, false);
+// background_sound.addEventListener('ended', function() {
+//     this.currentTime = 0;
+//     this.play();
+// }, false);
 
 /** */
 

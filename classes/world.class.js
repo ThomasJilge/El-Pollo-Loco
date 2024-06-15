@@ -49,6 +49,7 @@ class World {
         setInterval(() => {
             this.checkCollisionEnemies();
             this.checkCollisionBottleWithEnemies();
+            this.checkCollisionWithEndboss();
             this.checkThrowableObjects();
             this.bottleCollision();
             this.coinCollision();
@@ -132,10 +133,9 @@ class World {
     // }
 
     checkCollisionEnemies() {
-        this.level.enemies.forEach((enemy, i) => {
+        this.level.enemies.forEach((enemy) => {
             if (!enemy.enemyDeath && (enemy instanceof Chicken || enemy instanceof ChickenSmall)) {
                 if (this.character.isColliding(enemy)) {
-                    // Wenn der Character über dem Boden ist, stirbt das Chicken
                     if (this.character.isAboveGround()) {
                         enemy.enemyDeath = true;
                         setTimeout(() => {
@@ -144,7 +144,6 @@ class World {
                         }, 500);
                         this.character.jump();
                     } else {
-                        // Der Character wird verletzt
                         this.character.hit();
                         this.statusBar.setPercentage(this.character.energy);
                     }
@@ -159,6 +158,9 @@ class World {
                 if (this.character.isColliding(enemy)) {
                     if (this.character.isAboveGround()) {
                         this.character.jump();
+                    } else {
+                        this.character.hit();
+                        this.statusBar.setPercentage(this.character.energy);
                     }
                 }
             }
@@ -337,9 +339,9 @@ class World {
             gameIsOver.classList.add('d-none');
             this.displayGameOver = false;
         }
-        background_sound.pause();
+        // background_sound.pause();
         this.clearIntervals();
-        this.character.snoring_sound.pause();
+        // this.character.snoring_sound.pause();
     }
 
     /** */
