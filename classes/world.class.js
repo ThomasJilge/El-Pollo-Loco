@@ -295,9 +295,9 @@ class World {
             gameIsOver.classList.add('d-none');
             this.displayGameOver = false;
         }
-        // background_sound.pause();
+        background_sound.pause();
         this.clearIntervals();
-        // this.character.snoring_sound.pause();
+        this.character.snoring_sound.pause();
     }
 
     /** */
