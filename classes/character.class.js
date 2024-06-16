@@ -211,4 +211,5 @@ class Character extends MovableObject {
     isAboveGround() {
         return this.y < 180; 
     }
+
 }
