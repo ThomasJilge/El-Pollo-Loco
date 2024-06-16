@@ -161,7 +161,7 @@ class World {
     bottleCollision() {
         if (this.level && this.level.bottles) {
             this.level.bottles.forEach((bottle, i) => {
-                if (this.character.isColliding(bottle) && this.collectedBottles < 5) {
+                if (this.character.isColliding(bottle)) {
                     this.character.collectingBottles();
                     if (this.noSoundBottles == true) {
                         this.collectedBottlesSound.play();

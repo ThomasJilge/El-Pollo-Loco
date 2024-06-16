@@ -2,8 +2,8 @@ let canvas;
 let world;
 let keyboard = new Keyboard();
 
-// background_sound = new Audio('audio/backgroundSound.mp3'); 
-// background_sound.volume = 0.1;
+background_sound = new Audio('audio/backgroundSound.mp3'); 
+background_sound.volume = 0.1;
 
 /** */
 
@@ -127,7 +127,7 @@ function startGame() {
     document.getElementById('menuButton').classList.remove('d-none');
     // document.getElementById('mobileButtonContainer').classList.remove('d-none');
     // mobileButtonPressEvents();
-    // this.background_sound.play();
+    this.background_sound.play();
 }
 
 // document.getElementById('startButton').addEventListener('click', startGame);
@@ -173,6 +173,7 @@ function enterFullscreen(element) {
 function soundOn() {
     if (background_sound) {
         background_sound.play();
+        snoring_sound.play();
     }
 }
 
@@ -181,15 +182,19 @@ function soundOn() {
 function soundOff() {
     if (background_sound) {
         background_sound.pause();
+        if (world && world.character && world.character.snoring_sound) {
+            world.character.snoring_sound.pause();
+            console.log('stop snoring sound');
+        }
     }
 }
 
 /** */
 
-// background_sound.addEventListener('ended', function() {
-//     this.currentTime = 0;
-//     this.play();
-// }, false);
+background_sound.addEventListener('ended', function() {
+    this.currentTime = 0;
+    this.play();
+}, false);
 
 /** */
 

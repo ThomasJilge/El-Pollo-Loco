@@ -142,16 +142,6 @@ class Character extends MovableObject {
                 this.playAnimation(this.imagesWalking);
 
             } 
-
-            // else if (this.characterLongIdle) {
-            //     this.playAnimation(this.imagesLongIdle);
-            // } 
-            // else if (this.characterIdle) {
-            //     this.playAnimation(this.imagesIdle);
-            // }
-            // else {
-            //     this.playAnimation(this.imagesIdle);
-            // }
         }, 50);  
 
         setInterval(() => {
@@ -182,7 +172,7 @@ class Character extends MovableObject {
             this.longIdleTimer = setTimeout(() => {
                 this.isLongIdle();
                 console.log('Character long idle');
-            }, 8000);
+            }, 5000);
         }
     }
 
