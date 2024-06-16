@@ -127,7 +127,6 @@ class Character extends MovableObject {
             this.world.camera_x = -this.x + 100;
         }, 1000 / 60);
 
-        
         setInterval(() => {
             if (this.isDead()) {
                 this.playAnimation(this.imagesDead);
@@ -150,10 +149,21 @@ class Character extends MovableObject {
             }
         }, 200);
 
+        // setInterval(() => {
+        //     if (this.characterLongIdle) {
+        //         this.playAnimation(this.imagesLongIdle);
+        //         this.snoring_sound.play();
+        //     } else {
+        //         this.snoring_sound.pause();
+        //     }
+        // }, 200);
+
         setInterval(() => {
             if (this.characterLongIdle) {
                 this.playAnimation(this.imagesLongIdle);
-                this.snoring_sound.play();
+                if (this.world.soundEnabled) {
+                    this.snoring_sound.play();
+                }
             } else {
                 this.snoring_sound.pause();
             }

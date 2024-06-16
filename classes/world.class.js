@@ -24,6 +24,7 @@ class World {
     displayGameWon = false;
     showEndbossStatusBar = false;
     enemyDeath = false;
+    soundEnabled = true;
 
     /** */
 

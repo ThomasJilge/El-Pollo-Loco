@@ -173,7 +173,7 @@ function enterFullscreen(element) {
 function soundOn() {
     if (background_sound) {
         background_sound.play();
-        snoring_sound.play();
+        world.soundEnabled = true;
     }
 }
 
@@ -187,6 +187,7 @@ function soundOff() {
             console.log('stop snoring sound');
         }
     }
+    world.soundEnabled = false;
 }
 
 /** */
