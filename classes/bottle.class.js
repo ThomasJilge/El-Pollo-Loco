@@ -1,4 +1,5 @@
 class Bottle extends MovableObject {
+
     height = 90;
     width = 80;
     y = 335;
@@ -10,14 +11,19 @@ class Bottle extends MovableObject {
         right: 5,
     };
 
-    /** */
+    /**
+     * @type {string[]} imagesBottle - Array of paths to bottle images.
+     */
 
     imagesBottle = [
         'img/6_salsa_bottle/1_salsa_bottle_on_ground.png',
         'img/6_salsa_bottle/2_salsa_bottle_on_ground.png'
     ];
 
-    /** */
+    /**
+     * Constructor for Bottle class
+     * Loads initial image, sets random position, and starts animation
+     */
 
     constructor() {
         super().loadImage('img/6_salsa_bottle/1_salsa_bottle_on_ground.png');
@@ -28,7 +34,10 @@ class Bottle extends MovableObject {
         this.animate();
     }
 
-    /** */
+    /**
+     * Animates the bottle by continuously playing through its images
+     * Uses setInterval to change images
+     */
 
     animate() {
         setInterval(() => {

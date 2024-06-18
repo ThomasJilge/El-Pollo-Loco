@@ -139,6 +139,7 @@ class World {
                             enemy.isHurt = false;
                         }, 1000);
                         if (enemy.energy <= 0) {
+                            console.log('endboss is dead');
                             enemy.enemyDeath = true;
                             setTimeout(() => {
                                 this.level.enemies.splice(i, 1);
@@ -218,7 +219,6 @@ class World {
         this.addObjectsToMap(this.throwableObjects);
         this.ctx.translate(-this.camera_x, 0);
         
-        // Draw() wird immer wieder aufgerufen
         let self = this;
         requestAnimationFrame(function() {
             self.draw();
@@ -264,16 +264,6 @@ class World {
 
     /** */
 
-    endbossIsDead() {
-        this.level.enemies.forEach((enemy) => {
-            if (enemy instanceof Endboss && enemy.energy <= 0) {
-                if (!this.displayGameWon) {
-                    this.displayGameWon = true;
-                    this.gameWon();
-                }
-            }
-        });
-    }
 
     /** */
 
@@ -346,6 +336,18 @@ class World {
                         enemy.stopAttack();
                     }
                 } 
+            }
+        });
+    }
+
+    endbossIsDead() {
+        this.level.enemies.forEach((enemy) => {
+            if (enemy instanceof Endboss && enemy.energy <= 0) {
+                enemy.enemyDeath = true;
+                if (!this.displayGameWon) {
+                    this.displayGameWon = true;
+                    this.gameWon();
+                }
             }
         });
     }

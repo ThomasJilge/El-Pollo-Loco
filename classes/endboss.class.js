@@ -123,6 +123,7 @@ class Endboss extends MovableObject {
         this.isAttack = false;
         this.isNotAttack = true;
     }
+    
 
 }
 
