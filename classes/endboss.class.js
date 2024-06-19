@@ -61,7 +61,9 @@ class Endboss extends MovableObject {
         'img/4_enemie_boss_chicken/5_dead/G26.png'
     ];
 
-    /** */
+    /** 
+     * Constructs a new Endboss instance and initializes its properties.
+     */
 
     constructor() {
         super().loadImage(this.imagesAlert[0]);
@@ -75,7 +77,9 @@ class Endboss extends MovableObject {
         this.animateEndboss();
     }
 
-    /** */
+    /** 
+     * Animates the endboss by moving it and changing its images based on its state.
+     */
     
     animateEndboss() {
         setInterval(() => {
@@ -104,20 +108,26 @@ class Endboss extends MovableObject {
         }, 200);
     }
 
-    /** */
+    /** 
+     * Starts the walking animation of the endboss.
+     */
 
     startWalking() {
         this.walkingDone = true;
     }
 
-    /** */
+    /** 
+     * Starts the attack animation of the endboss.
+     */
 
     startAttack() {
         this.isAttack = true;
         this.isNotAttack = false;
     }
 
-    /** */
+    /** 
+     * Stops the attack animation of the endboss.
+     */
     
     stopAttack() {
         this.isAttack = false;

@@ -36,7 +36,10 @@ class StatusBarEndboss extends DrawableObject {
         this.img = this.imageCache[path];
     }
 
-    /** */
+    /** 
+     * Determines the index of the image to be used based on the current percentage
+     * @returns {number} The index of the image to be used
+     */
 
     resolveImageIndex() {
         if(this.percentage == 100) {
