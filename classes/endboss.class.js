@@ -134,7 +134,6 @@ class Endboss extends MovableObject {
         this.isNotAttack = true;
     }
     
-
 }
 
 
