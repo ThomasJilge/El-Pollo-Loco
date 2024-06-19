@@ -11,7 +11,9 @@ class StatusBarEndboss extends DrawableObject {
 
     percentage = 0;
 
-    /** */
+    /** 
+     * Constructs a new StatusBarEndboss instance
+     */
 
     constructor() {
         super();
@@ -23,7 +25,10 @@ class StatusBarEndboss extends DrawableObject {
         this.setPercentageEndboss(100);
     }
 
-    /** */
+    /** 
+     * Sets the percentage of the endboss's health and updates the status bar image accordingly
+     * @param {number} percentage - The new percentage of the endboss's health
+     */
 
     setPercentageEndboss(percentage) {
         this.percentage = percentage;   
