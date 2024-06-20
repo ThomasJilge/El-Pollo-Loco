@@ -26,7 +26,11 @@ class World {
     enemyDeath = false;
     soundEnabled = true;
 
-    /** */
+    /**
+     * Initializes the World with a canvas and keyboard input
+     * @param {HTMLCanvasElement} canvas - The canvas element where the game is drawn
+     * @param {Object} keyboard - An object to handle keyboard input
+     */
 
     constructor(canvas, keyboard) {
         this.ctx = canvas.getContext('2d');
@@ -38,13 +42,17 @@ class World {
         this.endboss = null;
     }
 
-    /** */
+    /**
+     * Sets the world property of the character to this instance of the World
+     */
 
     setWorld() {
         this.character.world = this;
     }
 
-    /** */
+    /**
+     * Starts the game loop, checking various conditions and updating the game state
+     */
 
     run() {
         setInterval(() => {
@@ -60,21 +68,17 @@ class World {
         }, 200);
     }
 
-    /** */
+    /**
+     * Clears all intervals to stop the game loop
+     */
 
     clearIntervals() {
         for (let i = 1; i < 9999; i++) window.clearInterval(i);
     };
 
-
-    // checkThrowableObjects() {
-    //     if(this.statusBarBottles.percentage > 0 && this.keyboard.d) {
-    //         let bottle = new ThrowableObject(this.character.x + 100, this.character.y + 100, this.statusBarBottles);
-    //         this.throwableObjects.push(bottle);
-    //     }
-    // }
-
-    /** */
+    /**
+     * Checks if throwable objects (bottles) should be created and added to the game
+     */
 
     checkThrowableObjects() {
         if(this.statusBarBottles.percentage > 0 && this.keyboard.d) {
@@ -85,7 +89,9 @@ class World {
         }
     }
 
-    /** */
+    /**
+     * Checks for collisions between the character and enemies
+     */
 
     checkCollisionEnemies() {
         this.level.enemies.forEach((enemy) => {
@@ -107,6 +113,10 @@ class World {
         });
     }
 
+    /**
+     * Checks for collisions between the character and the endboss
+     */
+
     checkCollisionWithEndboss() {
         this.level.enemies.forEach((enemy) => {
             if (!enemy.enemyDeath && enemy instanceof Endboss) {
@@ -122,8 +132,9 @@ class World {
         });
     }
     
-
-    /** */
+    /**
+     * Checks for collisions between throwable objects (bottles) and enemies
+     */
 
     checkCollisionBottleWithEnemies() {
         this.throwableObjects.forEach((throwableObject) => {
@@ -158,7 +169,9 @@ class World {
         });
     }
 
-    /** */
+    /**
+     * Checks for collisions between the character and bottles to collect them
+     */
     
     bottleCollision() {
         if (this.level && this.level.bottles) {
@@ -177,7 +190,9 @@ class World {
         }
     }
 
-    /** */
+    /**
+     * Checks for collisions between the character and coins to collect them
+     */
     
     coinCollision() {
         if (this.level && this.level.coins) {
@@ -195,7 +210,9 @@ class World {
         }
     }
 
-    /** */
+    /**
+     * Draws the game elements on the canvas
+     */
 
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -225,7 +242,10 @@ class World {
         });
     }
 
-    /** */
+    /**
+     * Adds multiple objects to the map
+     * @param {Array} objects - An array of objects to be added to the map
+     */
 
     addObjectsToMap(objects) {
         objects.forEach(o => {
@@ -233,6 +253,10 @@ class World {
         });
     }
 
+    /**
+     * Adds a single movable object to the map
+     * @param {Object} mo - A movable object to be added to the map
+     */
 
     addToMap(mo) {
         if(mo.otherDirection) {
@@ -246,7 +270,10 @@ class World {
         }
     }
 
-    /** */
+    /**
+     * Flips the image horizontally for drawing
+     * @param {Object} mo - A movable object to be flipped
+     */
 
     flipImage(mo) {
         this.ctx.save();
@@ -255,17 +282,19 @@ class World {
         mo.x = mo.x * -1;
     }
 
-    /** */
+    /**
+     * Restores the flipped image back to its original orientation
+     * @param {Object} mo - A movable object to be restored
+     */
 
     flipImageBack(mo) {
         mo.x = mo.x * -1;
         this.ctx.restore();
     }
 
-    /** */
-
-
-    /** */
+    /**
+     * Checks if the character is dead and triggers the game over sequence
+     */
 
     characterIsDead() {
         if (!this.displayGameOver && this.character.energy <= 0) {
@@ -274,7 +303,9 @@ class World {
         }
     }
 
-    /** */
+    /**
+     * Show the game over screen and stops the game
+     */
 
     gameOver() {
         console.log('Game over!');
@@ -290,7 +321,9 @@ class World {
         this.character.snoring_sound.pause();
     }
 
-    /** */
+    /**
+     * Show the game won screen and stops the game
+     */
 
     gameWon() {
         console.log('Game won!');
@@ -318,7 +351,9 @@ class World {
         
     }
 
-    /** */
+    /**
+     * Updates the status bar and triggers the endboss behavior
+     */
 
     updateEndbossAndStatusBar() {
         this.level.enemies.forEach(enemy => {
@@ -339,6 +374,10 @@ class World {
             }
         });
     }
+
+    /**
+     * Checks if the endboss is dead and triggers the game won sequence if so
+     */
 
     endbossIsDead() {
         this.level.enemies.forEach((enemy) => {
