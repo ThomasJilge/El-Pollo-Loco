@@ -84,6 +84,10 @@ class Character extends MovableObject {
     walking_sound = new Audio('audio/running.mp3');
     snoring_sound = new Audio('audio/snoring.mp3');
 
+    /**
+     * Creates an instance of Character and initializes it with images and animations
+     */
+
     constructor() {
         super().loadImage('img/2_character_pepe/2_walk/W-21.png');
         this.loadImages(this.imagesWalking);
@@ -96,6 +100,10 @@ class Character extends MovableObject {
         this.animate();
         // this.bottlesCollected = 0;
     }
+
+    /**
+     * Handles the character's animations and movements
+     */
 
     animate() {
 
@@ -171,6 +179,10 @@ class Character extends MovableObject {
 
     }
 
+    /**
+     * Sets the idle and long idle timers
+     */
+
     setIdleTimers() {
         if (!this.idleTimer) {
             this.idleTimer = setTimeout(() => {
@@ -186,6 +198,10 @@ class Character extends MovableObject {
         }
     }
 
+    /**
+     * Resets the idle and long idle timers
+     */
+
     resetIdleTimers() {
         if (this.idleTimer) {
             clearTimeout(this.idleTimer);
@@ -199,17 +215,31 @@ class Character extends MovableObject {
         this.characterLongIdle = false;
     }
 
+    /**
+     * Makes the character jump
+     */
 
     jump() {
         this.speedY = 30;
     }
 
+    /**
+     * Checks if the character is about to fall.
+     * @returns {boolean} - True if the character is about to fall, otherwise false
+     */
+
     isAboutToFall() {
         return this.speedY > 0;
     }
 
+    /**
+     * Checks if the character is above the ground.
+     * @returns {boolean} - True if the character is above the ground, otherwise false
+     */
+
     isAboveGround() {
         return this.y < 180; 
     }
+    
 
 }
