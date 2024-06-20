@@ -1,8 +1,37 @@
 class Cloud extends MovableObject {
-        y = 50;
-        width = 500;
-        height = 250;
-        speed = 0.15;
+
+    /**
+     * Vertical position of the cloud
+     * @type {number}
+     */
+
+    y = 50;
+
+    /**
+     * Width of the cloud
+     * @type {number}
+     */
+
+    width = 500;
+
+    /**
+     * Height of the cloud.
+     * @type {number}
+     */
+
+    height = 250;
+
+    /**
+     * Speed of the cloud
+     * @type {number}
+     */
+
+    speed = 0.15;
+
+    /**
+     * Creates an instance of Cloud
+     * Loads the initial image, sets the initial position, and starts the animation
+     */
 
     constructor() {
         super().loadImage('img/5_background/layers/4_clouds/1.png');
@@ -10,9 +39,17 @@ class Cloud extends MovableObject {
         this.animate();
     }
 
+    /**
+     * Animates the cloud by moving it to the left
+     */
+
     animate() {
         this.moveLeft();
     }
+
+    /**
+     * Moves the cloud to the left continuously at the defined speed
+     */
 
     moveLeft() {
         setInterval( () => {
