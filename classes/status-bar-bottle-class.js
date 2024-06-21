@@ -9,9 +9,17 @@ class StatusBarBottles extends DrawableObject {
         'img/7_statusbars/1_statusbar/3_statusbar_bottle/green/100.png'
     ];
 
+     /**
+     * The percentage of bottles collected.
+     * @type {number}
+     * @default 0
+     */
+
     percentage = 0;
 
-    /** */
+    /**
+     * Creates a new StatusBarBottles instance.
+     */
 
     constructor() {
         super();
@@ -23,7 +31,10 @@ class StatusBarBottles extends DrawableObject {
         this.setPercentageBottle(0);
     }
 
-    /** */
+    /**
+     * Sets the percentage of bottles collected and updates the displayed image
+     * @param {number} percentage - The percentage of bottles collected
+     */
 
     setPercentageBottle(percentage) {
         this.percentage = percentage;   
@@ -31,7 +42,10 @@ class StatusBarBottles extends DrawableObject {
         this.img = this.imageCache[path];
     }
 
-    /** */
+    /**
+     * Resolves the image index based on the current percentage of bottles collected
+     * @returns {number} The index of the image to display
+     */
 
     resolveImageIndex() {
         if(this.percentage >= 100) {
