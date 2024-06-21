@@ -9,9 +9,35 @@ class Endboss extends MovableObject {
     isNotAttack = true;
     enemyDeath = false;
 
+    /**
+     * Height of the endboss
+     * @type {number}
+     */
+
     height = 400;
+
+    /**
+     * Width of the endboss
+     * @type {number}
+     */
+
     width = 250;
+
+    /**
+     * Vertical position of the endboss
+     * @type {number}
+     */
+
     y = 55;
+
+    /**
+     * Offset for collision detection
+     * @type {Object}
+     * @property {number} top - Top offset
+     * @property {number} bottom - Bottom offset
+     * @property {number} left - Left offset
+     * @property {number} right - Right offset
+     */
 
     offset = {
         top: 5,
@@ -62,7 +88,7 @@ class Endboss extends MovableObject {
     ];
 
     /** 
-     * Constructs a new Endboss instance and initializes its properties.
+     * Constructs a new Endboss instance and initializes its properties
      */
 
     constructor() {
@@ -78,7 +104,7 @@ class Endboss extends MovableObject {
     }
 
     /** 
-     * Animates the endboss by moving it and changing its images based on its state.
+     * Animates the endboss by moving it and changing its images based on its state
      */
     
     animateEndboss() {
@@ -109,7 +135,7 @@ class Endboss extends MovableObject {
     }
 
     /** 
-     * Starts the walking animation of the endboss.
+     * Starts the walking animation of the endboss
      */
 
     startWalking() {
@@ -117,7 +143,7 @@ class Endboss extends MovableObject {
     }
 
     /** 
-     * Starts the attack animation of the endboss.
+     * Starts the attack animation of the endboss
      */
 
     startAttack() {
@@ -126,7 +152,7 @@ class Endboss extends MovableObject {
     }
 
     /** 
-     * Stops the attack animation of the endboss.
+     * Stops the attack animation of the endboss
      */
     
     stopAttack() {
