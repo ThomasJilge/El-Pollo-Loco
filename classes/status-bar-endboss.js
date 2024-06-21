@@ -9,6 +9,12 @@ class StatusBarEndboss extends DrawableObject {
         'img/7_statusbars/2_statusbar_endboss/orange/orange100.png'
     ];
 
+    /**
+     * The percentage of the endboss's health.
+     * @type {number}
+     * @default 0
+     */
+
     percentage = 0;
 
     /** 

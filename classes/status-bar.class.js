@@ -9,9 +9,17 @@ class StatusBar extends DrawableObject {
         'img/7_statusbars/1_statusbar/2_statusbar_health/blue/100.png'
     ];
 
+    /**
+     * The percentage of the player's health
+     * @type {number}
+     * @default 0
+     */
+
     percentage = 0;
 
-    /** */
+    /** 
+     * Constructs a new StatusBar instance
+     */
 
     constructor() {
         super();
@@ -23,7 +31,10 @@ class StatusBar extends DrawableObject {
         this.setPercentage(100);
     }
 
-    /** */
+    /** 
+     * Sets the percentage of the player's health and updates the status bar image accordingly
+     * @param {number} percentage - The new percentage of the player's health
+     */
 
     setPercentage(percentage) {
         this.percentage = percentage;   
@@ -31,7 +42,10 @@ class StatusBar extends DrawableObject {
         this.img = this.imageCache[path];
     }
 
-    /** */
+    /** 
+     * Determines the index of the image to be used based on the current percentage
+     * @returns {number} The index of the image to be used
+     */
 
     resolveImageIndex() {
         if(this.percentage == 100) {
