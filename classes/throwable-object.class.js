@@ -34,7 +34,13 @@ class ThrowableObject extends MovableObject {
     //     this.animateThrowable();
     // }
 
-    /** */
+    /**
+     * Create a throwable object.
+     * @param {number} x - The x-coordinate of the object.
+     * @param {number} y - The y-coordinate of the object.
+     * @param {Object} statusBar - The status bar associated with the object.
+     * @param {number} direction - The direction of the throw (1 for right, -1 for left).
+     */
 
     constructor(x, y, statusBar, direction) {
         super().loadImage('img/6_salsa_bottle/bottle_rotation/1_bottle_rotation.png');
@@ -50,7 +56,9 @@ class ThrowableObject extends MovableObject {
         this.animateThrowable();
     }
 
-    /** */
+    /**
+     * Animate the throwable object.
+     */
 
     animateThrowable() {
         setInterval(() => {
@@ -81,7 +89,9 @@ class ThrowableObject extends MovableObject {
     //     } 
     // }
 
-    /** */
+    /**
+     * Throw the object with gravity applied.
+     */
 
     throw() {
         this.speedY = 30;
