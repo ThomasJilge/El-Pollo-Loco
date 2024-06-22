@@ -156,6 +156,7 @@ class World {
                                 this.level.enemies.splice(i, 1);
                             }, 500);
                         }
+                        console.log(`Endboss energy: ${enemy.energy}`);
                     } else {
                         enemy.enemyDeath = true;
                         setTimeout(() => {
