@@ -5,7 +5,9 @@ let keyboard = new Keyboard();
 background_sound = new Audio('audio/backgroundSound.mp3'); 
 background_sound.volume = 0.1;
 
-/** */
+/**
+ * Initializes the game environment by setting up the canvas.
+ */
 
 function init() {
     // initLevel();
@@ -15,7 +17,10 @@ function init() {
     // console.log('My Character is', world.character);  
 }
 
-/** */
+/**
+ * Event listener for keydown events to update the keyboard state.
+ * @param {KeyboardEvent} e - The keydown event.
+ */
 
 window.addEventListener('keydown', (e) => {
     if(e.keyCode == 39) {
@@ -39,7 +44,10 @@ window.addEventListener('keydown', (e) => {
     // console.log(e);
 });
 
-/** */
+/**
+ * Event listener for keyup events to update the keyboard state.
+ * @param {KeyboardEvent} e - The keyup event.
+ */
 
 window.addEventListener('keyup', (e) => {
     if(e.keyCode == 39) {
@@ -105,7 +113,9 @@ window.addEventListener('keyup', (e) => {
 // }
 
 
-/** */
+/**
+ * Starts the game by initializing the level and setting up the world.
+ */
 
 function startGame() {
     initLevel();
@@ -132,13 +142,18 @@ function startGame() {
 
 // document.getElementById('startButton').addEventListener('click', startGame);
 
-/** */
+/**
+ * Opens the information box.
+ */
 
 function openInfoBox() {
     document.getElementById('infoContainer').classList.remove('d-none');
 }
 
-/** */
+/**
+ * Event listener for click events to close the information box if clicked outside.
+ * @param {MouseEvent} event - The click event.
+ */
 
 document.addEventListener('click', function(event) {
     var infoContainer = document.getElementById('infoContainer');
@@ -149,14 +164,19 @@ document.addEventListener('click', function(event) {
     }
 });
 
-/** */
+/**
+ * Activates fullscreen mode for the canvas.
+ */
 
 function fullscreen() {
     let fullscreen = document.getElementById('canvas');
     enterFullscreen(fullscreen);
 }
 
-/** */
+/**
+ * Requests fullscreen mode for a given element.
+ * @param {HTMLElement} element - The element to display in fullscreen.
+ */
 
 function enterFullscreen(element) {
     if(element.requestFullscreen) {
@@ -168,7 +188,9 @@ function enterFullscreen(element) {
     }
 }
 
-/** */
+/**
+ * Enables the background sound.
+ */
 
 function soundOn() {
     if (background_sound) {
@@ -177,7 +199,9 @@ function soundOn() {
     }
 }
 
-/** */
+/**
+ * Disables the background sound and stops the character's snoring sound if active.
+ */
 
 function soundOff() {
     if (background_sound) {
@@ -190,18 +214,26 @@ function soundOff() {
     world.soundEnabled = false;
 }
 
-/** */
+/**
+ * Loops the background sound when it ends.
+ */
 
 background_sound.addEventListener('ended', function() {
     this.currentTime = 0;
     this.play();
 }, false);
 
-/** */
+/**
+ * Reloads the game to start a new game.
+ */
 
 function newGame() {
     window.location.reload();
 }
+
+/**
+ * Reloads the game to go back to the menu.
+ */
 
 function goToMenu() {
     window.location.reload();
