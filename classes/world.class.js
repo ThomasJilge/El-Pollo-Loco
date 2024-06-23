@@ -92,6 +92,7 @@ class World {
             this.statusBarBottles.setPercentageBottle(newPercentage);
 
             this.character.resetIdleTimers();
+            console.log(`Current percentage of statusBarBottles: ${this.statusBarBottles.percentage}`);
         }
     }
 
@@ -328,6 +329,7 @@ class World {
         background_sound.pause();
         this.clearIntervals();
         this.character.snoring_sound.pause();
+        this.character.walking_sound.pause();
     }
 
     /**
