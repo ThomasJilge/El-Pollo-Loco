@@ -106,6 +106,8 @@ class World {
                         this.character.jump();
                     } else {
                         this.character.hit();
+                        // this.character.energy -= 20;
+                        console.log(`Character energy: ${this.character.energy}`);
                         this.statusBar.setPercentage(this.character.energy);
                     }
                 }
