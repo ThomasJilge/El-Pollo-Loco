@@ -87,9 +87,9 @@ class World {
             let bottle = new ThrowableObject(this.character.x + offset, this.character.y + 100, this.statusBarBottles, direction);
             this.throwableObjects.push(bottle);
 
-            this.collectedBottles -= 1;
-            let newPercentage = this.statusBarBottles.percentage - 20;
-            this.statusBarBottles.setPercentageBottle(newPercentage);
+            // this.collectedBottles -= 1;
+            // let newPercentage = this.statusBarBottles.percentage - 20;
+            // this.statusBarBottles.setPercentageBottle(newPercentage);
 
             this.character.resetIdleTimers();
             console.log(`Current percentage of statusBarBottles: ${this.statusBarBottles.percentage}`);
@@ -186,7 +186,7 @@ class World {
     bottleCollision() {
         if (this.level && this.level.bottles) {
             this.level.bottles.forEach((bottle, i) => {
-                if (this.character.isColliding(bottle) && this.collectedBottles < 5) {
+                if (this.character.isColliding(bottle)) {
                     this.character.collectingBottles();
                     if (this.noSoundBottles == true) {
                         this.collectedBottlesSound.play();
