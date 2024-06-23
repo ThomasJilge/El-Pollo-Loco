@@ -86,6 +86,10 @@ class World {
             let offset = this.character.otherDirection ? -100 : 100;
             let bottle = new ThrowableObject(this.character.x + offset, this.character.y + 100, this.statusBarBottles, direction);
             this.throwableObjects.push(bottle);
+
+            this.collectedBottles -= 1;
+            let newPercentage = this.statusBarBottles.percentage - 20;
+            this.statusBarBottles.setPercentageBottle(newPercentage);
         }
     }
 
@@ -179,7 +183,7 @@ class World {
     bottleCollision() {
         if (this.level && this.level.bottles) {
             this.level.bottles.forEach((bottle, i) => {
-                if (this.character.isColliding(bottle)) {
+                if (this.character.isColliding(bottle) && this.collectedBottles < 5) {
                     this.character.collectingBottles();
                     if (this.noSoundBottles == true) {
                         this.collectedBottlesSound.play();
