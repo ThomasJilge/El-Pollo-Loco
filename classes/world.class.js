@@ -90,6 +90,8 @@ class World {
             this.collectedBottles -= 1;
             let newPercentage = this.statusBarBottles.percentage - 20;
             this.statusBarBottles.setPercentageBottle(newPercentage);
+
+            this.character.resetIdleTimers();
         }
     }
 

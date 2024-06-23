@@ -211,7 +211,7 @@ class Character extends MovableObject {
             clearTimeout(this.longIdleTimer);
             this.longIdleTimer = null;
         }
-        this.characterIdle = false;
+        this.characterIdle = true;
         this.characterLongIdle = false;
     }
 
