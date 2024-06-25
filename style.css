@@ -144,10 +144,11 @@ h1 {
 
 .info {
     display: flex;
+    width: 600px;
+    justify-content: center;
     align-items: center;
     position: absolute;
     top: 200px;
-    margin-left: 50px;
 }
 
 .d-none {
@@ -387,7 +388,7 @@ h1 {
     }
 
     .info {
-        margin-left: 0;
+        width: 500px;
     }
 
     /* .mobileButtonContainer {
@@ -405,9 +406,14 @@ h1 {
 
 @media (max-width: 576px) {
 
-    .startInfoContainer {
-        max-width: 400px;
+    .startScreen {
+        gap: 100px;
+        justify-content: center;
     }
+
+    /* .startInfoContainer {
+        max-width: 400px;
+    } */
 
     /* .startButton {
         margin-left: 50px;
@@ -416,6 +422,10 @@ h1 {
     .infoButton {
         margin-right: 50px;
     } */
+
+    .info {
+        width: 400px;
+    }
 
     .infoBox {
         width: 380px;
@@ -438,20 +448,34 @@ h1 {
 
 @media (max-width: 410px) {
 
-        .infoBox {
-            width: 290px;
-        }
+    .startScreen {
+        display: block;
+    }
 
-        .soundButton {
-            height: 20px;
-            width: 20px;
-        }
+    .info {
+        width: 150px;
+        top: 270px;
+    }
 
-        .newGameButton {
-            width: 120px;
-            height: 25px;
-            font-size: 14px;
-        }
+    .infoBox {
+        width: 290px;
+    }
+
+    .userInfoContainer {
+        top: 135px;
+        width: 300px;
+    }
+
+    .soundButton {
+        height: 20px;
+        width: 20px;
+    }
+
+    .newGameButton {
+        width: 120px;
+        height: 25px;
+        font-size: 14px;
+    }
 
 }
 
