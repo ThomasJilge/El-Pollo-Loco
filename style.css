@@ -221,6 +221,7 @@ h1 {
 
 .gameWon {
     /* width: 100%; */
+    max-width: 720px;
     height: 100%;
     position: absolute;
     background-color: rgba(0, 0, 0, 0.7);
@@ -230,8 +231,8 @@ h1 {
 }
 
 .gameWonIMG {
-    /* width: 100%; */
-    max-width: 720px;
+    width: 100%;
+    /* max-width: 720px; */
     height: 100%;
     border-radius: 10px;
     /* object-fit: cover; */
