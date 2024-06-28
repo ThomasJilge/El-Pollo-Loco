@@ -225,6 +225,8 @@ h1 {
     position: absolute;
     background-color: rgba(0, 0, 0, 0.7);
     border-radius: 10px;
+    border: 1px solid green;
+    box-shadow: 0 0 8px 1px green;
 }
 
 .gameWonIMG {
