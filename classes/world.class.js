@@ -81,18 +81,18 @@ class World {
      */
 
     checkThrowableObjects() {
-        if(this.statusBarBottles.percentage > 0 && this.keyboard.d) {
+        if (this.collectedBottles > 0 && this.keyboard.d) {
             let direction = this.character.otherDirection ? -1 : 1;
             let offset = this.character.otherDirection ? -100 : 100;
             let bottle = new ThrowableObject(this.character.x + offset, this.character.y + 100, this.statusBarBottles, direction);
             this.throwableObjects.push(bottle);
-
+    
             // this.collectedBottles -= 1;
             // let newPercentage = this.statusBarBottles.percentage - 20;
             // this.statusBarBottles.setPercentageBottle(newPercentage);
-
+    
             this.character.resetIdleTimers();
-            console.log(`Current percentage of statusBarBottles: ${this.statusBarBottles.percentage}`);
+            console.log(`Aktueller Prozentsatz der statusBarBottles: ${this.statusBarBottles.percentage}`);
         }
     }
 
@@ -199,6 +199,7 @@ class World {
             });
         }
     }
+    
 
     /**
      * Checks for collisions between the character and coins to collect them
