@@ -130,6 +130,8 @@ class Endboss extends MovableObject {
                 this.playAnimation(this.imagesAttack);
             } else if (this.walkingDone) {
                 this.playAnimation(this.imagesWalking);
+            } else {
+                this.playAnimation(this.imagesAlert);
             }
         }, 200);
     }
