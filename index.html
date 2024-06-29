@@ -75,37 +75,41 @@
                 <button class="buttonCanvas d-none" id="soundButtonOff">
                     <img onclick="soundOff()" class="soundButton" src="img/others/soundOff.png" alt="">
                 </button>
-        </div>  
+        </div> 
+        
+        <div class="mobileButtonContainer d-none" id="mobileButtonContainer">
+            <div class="mobileButtonsOne">
+                <button class="buttonSmartphone" id="leftButton">
+                    <img class="mobileButton" src="img/others/arrowLeft.png" alt="">
+                </button>
+                <button class="buttonSmartphone" id="rightButton">
+                    <img class="mobileButton" src="img/others/arrowRight.png" alt="">
+                </button>
+            </div>
+            <div class="mobileButtonsTwo">
+                <button class="buttonSmartphone" id="spaceButton">
+                    <img class="mobileButton" src="img/others/arrowUp.png" alt="">
+                </button>
+                <button class="buttonSmartphone" id="dButton">
+                    <img class="mobileButton" src="img/others/arrowThrowBottle.png" alt="">
+                </button>
+            </div>
+        </div>
+    </div>
+
+ 
 
         <div class="userInfoContainer d-none" id="userInfoContainer">
             <div class="turnDeviceSpan d-none">
                 <span>Please turn your device</span>
             </div>
         </div>
+
+
         
-        <canvas class="d-none" id="canvas" width="720" height="480">
+        <canvas class="d-none" id="canvas" width="720" height="480"></canvas>
 
-                <!-- <div class="mobileButtonContainer d-none" id="mobileButtonContainer">
-        <div class="mobileButtonsOne">
-            <button class="buttonSmartphone" id="leftButton">
-                <img class="mobileButton" src="img/others/arrowLeft.png" alt="">
-            </button>
-            <button class="buttonSmartphone" id="rightButton">
-                <img class="mobileButton" src="img/others/arrowRight.png" alt="">
-            </button>
-        </div>
-        <div class="mobileButtonsTwo">
-            <button class="buttonSmartphone" id="spaceButton">
-                <img class="mobileButton" src="img/others/arrowUp.png" alt="">
-            </button>
-            <button class="buttonSmartphone" id="dButton">
-                <img class="mobileButton" src="img/others/arrowThrowBottle.png" alt="">
-            </button>
-        </div>
-    </div>
-</div> -->
 
-        </canvas>
 
         <div class="gameOver d-none" id="gameOver">
             <div class="newGameButtonContainer" id="newGameButtonContainer">
