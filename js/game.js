@@ -137,7 +137,9 @@ function startGame() {
     document.getElementById('menuButton').classList.remove('d-none');
     document.getElementById('userInfoContainer').classList.remove('d-none');
     // document.getElementById('userInfoContainer').style.display = 'flex';
-    // document.getElementById('mobileButtonContainer').classList.remove('d-none');
+    document.getElementById('mobileButtonContainer').classList.remove('d-none');
+    // document.getElementById('mobileButtonContainer').style.display = 'flex';
+    // document.getElementById('startInfoContainer').classList.add('d-none');
     // mobileButtonPressEvents();
     this.background_sound.play();
 }

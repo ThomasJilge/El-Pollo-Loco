@@ -263,7 +263,9 @@ h1 {
     cursor: pointer;
 }
 
-
+.mobileButtonContainer {
+    display: none;
+}
 
 .mobileButton {
     width: 40px;
