@@ -137,9 +137,17 @@ function startGame() {
     document.getElementById('menuButton').classList.remove('d-none');
     // document.getElementById('userInfoContainer').classList.remove('d-none');
     // document.getElementById('userInfoContainer').style.display = 'flex';
-    document.getElementById('mobileButtonContainer').classList.remove('d-none');
-    // document.getElementById('mobileButtonContainer').style.display = 'flex';
+    document.getElementById('mobileButtonContainerOne').classList.remove('d-none');
+    document.getElementById('mobileButtonContainerTwo').classList.remove('d-none');
+    document.getElementById('mobileButtonContainerOne').style.display = 'flex';
+    document.getElementById('mobileButtonContainerTwo').style.display = 'flex';
     // mobileButtonPressEvents();
+
+    if (window.innerWidth >= 721) {
+            document.getElementById('mobileButtonContainerOne').classList.add('d-none');
+            document.getElementById('mobileButtonContainerTwo').classList.add('d-none');
+    }
+    
     this.background_sound.play();
 }
 
