@@ -178,8 +178,8 @@ h1 {
     width: 100%;
     display: flex;
     justify-content: center;
-    /* top: 20px; */
-    bottom: 95px;
+    top: 20px;
+    /* bottom: 95px; */
     gap: 20px;
 }
 
@@ -206,7 +206,8 @@ h1 {
     /* display: flex;
     justify-content: center; */
     max-width: 720px;
-    max-height: 480px;
+    height: 480px;
+    /* max-height: 480px; */
     position: absolute;
     background-color: rgba(0, 0, 0, 0.7);
     border: 1px solid red;
@@ -225,7 +226,8 @@ h1 {
 .gameWon {
     /* width: 100%; */
     max-width: 720px;
-    max-height: 480px;
+    height: 480px;
+    /* max-height: 480px; */
     position: absolute;
     background-color: rgba(0, 0, 0, 0.7);
     border-radius: 10px;
@@ -333,9 +335,9 @@ h1 {
         display: none;
     }
 
-    .buttonBar {
+    /* .buttonBar {
         bottom: 175px;
-    }
+    } */
 
     /* .startScreen {
         flex-direction: column;
@@ -413,9 +415,9 @@ h1 {
         top: 415px;
     }
 
-    .buttonBar {
+    /* .buttonBar {
         bottom: 170px;
-    }
+    } */
 
     
 }
@@ -435,9 +437,9 @@ h1 {
         width: 380px;
     } 
 
-    .buttonBar {
+    /* .buttonBar {
         bottom: 140px;
-    }
+    } */
 
     .newGameButtonContainer {
         top: 25px;
@@ -450,13 +452,13 @@ h1 {
 
 }
 
-@media (max-width: 500px) {
+/* @media (max-width: 500px) {
 
     .buttonBar {
         bottom: 100px;
     }
 
-}
+} */
 
 @media (max-width: 410px) {
 
@@ -489,9 +491,9 @@ h1 {
         font-size: 14px;
     }
 
-    .buttonBar {
+    /* .buttonBar {
         bottom: 90px;
-    }
+    } */
 
 }
 
@@ -502,7 +504,7 @@ h1 {
     }
 
     .buttonBar {
-        bottom: 70px;
+        top: 10px;
     }
 
 }
