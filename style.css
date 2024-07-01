@@ -207,7 +207,8 @@ h1 {
     justify-content: center; */
     max-width: 720px;
     /* height: 480px; */
-    max-height: 480px;
+    /* max-height: 480px; */
+    height: 100%;
     position: absolute;
     background-color: rgba(0, 0, 0, 0.7);
     border: 1px solid red;
@@ -227,7 +228,8 @@ h1 {
     /* width: 100%; */
     max-width: 720px;
     /* height: 480px; */
-    max-height: 480px;
+    /* max-height: 480px; */
+    height: 100%;
     position: absolute;
     background-color: rgba(0, 0, 0, 0.7);
     border-radius: 10px;
