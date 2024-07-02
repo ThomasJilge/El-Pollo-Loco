@@ -65,7 +65,7 @@ class World {
             this.characterIsDead();
             this.endbossIsDead();
             this.updateEndbossAndStatusBar();
-        }, 200);
+        }, 100);
     }
 
     /**
