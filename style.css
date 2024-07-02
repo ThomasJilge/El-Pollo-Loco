@@ -316,7 +316,7 @@ h1 {
         background-color: rgb(133, 130, 130);
         opacity: 0.8;
         width: 400px;
-        top: 220px;
+        top: 70px;
         height: 100px;
         border-radius: 10px;
         border: 1px solid rgb(159, 6, 6);
@@ -426,7 +426,7 @@ h1 {
     }
 
     .userInfoContainer {
-        top: 250px;
+        top: 135px;
         width: 300px;
     }
 
