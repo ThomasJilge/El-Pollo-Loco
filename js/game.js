@@ -135,8 +135,8 @@ function startGame() {
     document.getElementById('imprint').classList.add('d-none');
     document.getElementById('dataprotection').classList.add('d-none');
     document.getElementById('menuButton').classList.remove('d-none');
-    // document.getElementById('userInfoContainer').classList.remove('d-none');
-    // document.getElementById('userInfoContainer').style.display = 'flex';
+    document.getElementById('userInfoContainer').classList.add('d-none');
+    document.getElementById('userInfoContainer').style.display = '';
     document.getElementById('mobileButtonContainerOne').classList.remove('d-none');
     document.getElementById('mobileButtonContainerTwo').classList.remove('d-none');
     document.getElementById('mobileButtonContainerOne').style.display = 'flex';
