@@ -140,7 +140,7 @@ h1 {
 }
 
 .d-none {
-    display: none;
+    display: none !important;
 }
 
 .fullscreenImg {
@@ -240,6 +240,9 @@ h1 {
     cursor: pointer;
 }
 
+/* .spanUserInfoContainer {
+    display: none;
+} */
 
 
 

@@ -130,25 +130,36 @@ function startGame() {
     document.getElementById('headline').classList.remove('d-none');
     document.getElementById('button').style.marginBottom = '0';
     document.getElementById('fullscreenImg').style.display = 'block';
-    document.getElementById('soundButtonOn').style.display = 'block';
-    document.getElementById('soundButtonOff').style.display = 'block';
+    // document.getElementById('soundButtonOn').style.display = 'block';
+    // document.getElementById('soundButtonOff').style.display = 'block';
+    document.getElementById('soundButtonOn').classList.remove('d-none');
+    document.getElementById('soundButtonOff').classList.remove('d-none');
+    document.getElementById('mobileButtonContainerOne').classList.remove('d-none');
+    document.getElementById('mobileButtonContainerTwo').classList.remove('d-none');
     document.getElementById('imprint').classList.add('d-none');
     document.getElementById('dataprotection').classList.add('d-none');
     document.getElementById('menuButton').classList.remove('d-none');
     document.getElementById('userInfoContainer').classList.add('d-none');
-    document.getElementById('userInfoContainer').style.display = '';
-    document.getElementById('mobileButtonContainerOne').classList.remove('d-none');
-    document.getElementById('mobileButtonContainerTwo').classList.remove('d-none');
-    document.getElementById('mobileButtonContainerOne').style.display = 'flex';
-    document.getElementById('mobileButtonContainerTwo').style.display = 'flex';
     // mobileButtonPressEvents();
 
-    if (window.innerWidth >= 721) {
-            document.getElementById('mobileButtonContainerOne').classList.add('d-none');
-            document.getElementById('mobileButtonContainerTwo').classList.add('d-none');
+    if (window.innerWidth <= 720) {
+        document.getElementById('userInfoContainer').classList.add('d-none');
+        
+        document.getElementById('mobileButtonContainerOne').style.display = 'flex';
+        document.getElementById('mobileButtonContainerTwo').style.display = 'flex';
+    } else {
+        // document.getElementById('mobileButtonContainerOne').classList.add('d-none');
+        // document.getElementById('mobileButtonContainerTwo').classList.add('d-none');
     }
+
+    // if (window.innerWidth >= 721) {
+    //         document.getElementById('mobileButtonContainerOne').classList.add('d-none');
+    //         document.getElementById('mobileButtonContainerTwo').classList.add('d-none');
+    // } 
+
     
-    this.background_sound.play();
+    
+    background_sound.play();
 }
 
 // document.getElementById('startButton').addEventListener('click', startGame);
