@@ -136,6 +136,7 @@ function startGame() {
     document.getElementById('soundButtonOff').classList.remove('d-none');
     document.getElementById('mobileButtonContainerOne').classList.remove('d-none');
     document.getElementById('mobileButtonContainerTwo').classList.remove('d-none');
+    
     document.getElementById('imprint').classList.add('d-none');
     document.getElementById('dataprotection').classList.add('d-none');
     document.getElementById('menuButton').classList.remove('d-none');
@@ -147,15 +148,23 @@ function startGame() {
         
         document.getElementById('mobileButtonContainerOne').style.display = 'flex';
         document.getElementById('mobileButtonContainerTwo').style.display = 'flex';
+        document.getElementById('mobileButtonsOne').classList.remove('d-none');
+        document.getElementById('mobileButtonsTwo').classList.remove('d-none');
+        document.getElementById('mobileButtonsOne').style.display = 'flex';
+        document.getElementById('mobileButtonsTwo').style.display = 'flex';
     } else {
         // document.getElementById('mobileButtonContainerOne').classList.add('d-none');
         // document.getElementById('mobileButtonContainerTwo').classList.add('d-none');
+        // document.getElementById('mobileButtonsOne').classList.add('d-none');
+        // document.getElementById('mobileButtonsTwo').classList.add('d-none');
     }
 
-    // if (window.innerWidth >= 721) {
-    //         document.getElementById('mobileButtonContainerOne').classList.add('d-none');
-    //         document.getElementById('mobileButtonContainerTwo').classList.add('d-none');
-    // } 
+    if (window.innerWidth >= 721) {
+            document.getElementById('mobileButtonContainerOne').classList.add('d-none');
+            document.getElementById('mobileButtonContainerTwo').classList.add('d-none');
+            document.getElementById('mobileButtonsOne').classList.add('d-none');
+            document.getElementById('mobileButtonsTwo').classList.add('d-none');
+    } 
 
     
     
