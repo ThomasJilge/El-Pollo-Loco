@@ -150,8 +150,8 @@ function startGame() {
         document.getElementById('mobileButtonContainerTwo').style.display = 'flex';
         document.getElementById('mobileButtonsOne').classList.remove('d-none');
         document.getElementById('mobileButtonsTwo').classList.remove('d-none');
-        document.getElementById('mobileButtonsOne').style.display = 'flex';
-        document.getElementById('mobileButtonsTwo').style.display = 'flex';
+        // document.getElementById('mobileButtonsOne').style.display = 'flex';
+        // document.getElementById('mobileButtonsTwo').style.display = 'flex';
     } else {
         // document.getElementById('mobileButtonContainerOne').classList.add('d-none');
         // document.getElementById('mobileButtonContainerTwo').classList.add('d-none');
@@ -160,10 +160,10 @@ function startGame() {
     }
 
     if (window.innerWidth >= 721) {
-            document.getElementById('mobileButtonContainerOne').classList.add('d-none');
-            document.getElementById('mobileButtonContainerTwo').classList.add('d-none');
+            // document.getElementById('mobileButtonContainerOne').classList.add('d-none');
+            // document.getElementById('mobileButtonContainerTwo').classList.add('d-none');
             document.getElementById('mobileButtonsOne').classList.add('d-none');
-            document.getElementById('mobileButtonsTwo').classList.add('d-none');
+        document.getElementById('mobileButtonsTwo').classList.add('d-none');
     } 
 
     
