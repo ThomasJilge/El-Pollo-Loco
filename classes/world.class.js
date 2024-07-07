@@ -153,6 +153,7 @@ class World {
                         console.log('test');
                         enemy.energy -= 20;
                         enemy.isHurt = true;
+                        enemy.noSoundEndbossIsHurt = true;
                         console.log('endboss reduce energy');
                         this.statusBarEndboss.setPercentageEndboss(enemy.energy);
                         setTimeout(() => {
