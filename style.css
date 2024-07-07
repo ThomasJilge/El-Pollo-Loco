@@ -143,6 +143,10 @@ h1 {
     display: none;
 }
 
+.mobileButtonContainerOne {
+    display: none;
+}
+
 .d-none {
     display: none !important;
 }

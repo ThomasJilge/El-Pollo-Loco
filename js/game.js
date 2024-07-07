@@ -2,8 +2,8 @@ let canvas;
 let world;
 let keyboard = new Keyboard();
 
-background_sound = new Audio('audio/backgroundSound.mp3'); 
-background_sound.volume = 0.1;
+// background_sound = new Audio('audio/backgroundSound.mp3'); 
+// background_sound.volume = 0.1;
 
 /**
  * Initializes the game environment by setting up the canvas.
@@ -146,29 +146,25 @@ function startGame() {
     if (window.innerWidth <= 720) {
         document.getElementById('userInfoContainer').classList.add('d-none');
         
-        document.getElementById('mobileButtonContainerOne').style.display = 'flex';
-        document.getElementById('mobileButtonContainerTwo').style.display = 'flex';
-        document.getElementById('mobileButtonsOne').classList.remove('d-none');
-        document.getElementById('mobileButtonsTwo').classList.remove('d-none');
-        // document.getElementById('mobileButtonsOne').style.display = 'flex';
-        // document.getElementById('mobileButtonsTwo').style.display = 'flex';
+        // document.getElementById('mobileButtonContainerOne').style.display = 'flex';
+        // document.getElementById('mobileButtonContainerTwo').style.display = 'flex';
+        // document.getElementById('mobileButtonsOne').classList.remove('d-none');
+        // document.getElementById('mobileButtonsTwo').classList.remove('d-none');
     } else {
-        // document.getElementById('mobileButtonContainerOne').classList.add('d-none');
-        // document.getElementById('mobileButtonContainerTwo').classList.add('d-none');
         // document.getElementById('mobileButtonsOne').classList.add('d-none');
         // document.getElementById('mobileButtonsTwo').classList.add('d-none');
     }
 
     if (window.innerWidth >= 721) {
-            // document.getElementById('mobileButtonContainerOne').classList.add('d-none');
-            // document.getElementById('mobileButtonContainerTwo').classList.add('d-none');
-            document.getElementById('mobileButtonsOne').classList.add('d-none');
-        document.getElementById('mobileButtonsTwo').classList.add('d-none');
+            // document.getElementById('mobileButtonsOne').classList.add('d-none');
+            // document.getElementById('mobileButtonsTwo').classList.add('d-none');
+
+            
     } 
 
     
     
-    background_sound.play();
+    // background_sound.play();
 }
 
 // document.getElementById('startButton').addEventListener('click', startGame);
@@ -249,10 +245,10 @@ function soundOff() {
  * Loops the background sound when it ends.
  */
 
-background_sound.addEventListener('ended', function() {
-    this.currentTime = 0;
-    this.play();
-}, false);
+// background_sound.addEventListener('ended', function() {
+//     this.currentTime = 0;
+//     this.play();
+// }, false);
 
 /**
  * Reloads the game to start a new game.
