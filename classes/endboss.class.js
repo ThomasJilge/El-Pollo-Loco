@@ -2,6 +2,8 @@ class Endboss extends MovableObject {
 
     endbossDeadSound = new Audio ('audio/endbossDead.mp3');
     noSoundEndbossDead = true;
+    endBossIsHurt = new Audio ('audio/endbossHurt.mp3');
+    noSoundEndbossIsHurt = true;
     alertDone = false;
     walkingDone = false;
     isHurt = false;
@@ -124,6 +126,11 @@ class Endboss extends MovableObject {
                 background_sound.pause();
             } else if (this.isHurt) {
                 this.playAnimation(this.imagesHurt);
+                if (this.noSoundEndbossIsHurt) {
+                    this.endBossIsHurt.play();
+                    this.noSoundEndbossIsHurt = false;
+                    console.log('endboss is hurt');
+                }
             } else if (this.alertDone) {
                 this.playAnimation(this.imagesAlert);
             } else if (this.isAttack) {
