@@ -7,6 +7,8 @@ class Character extends MovableObject {
     characterLongIdle = false;
     idleTimer;
     longIdleTimer;
+    CharacterIsHurt_sound = new Audio('audio/characterHurt.mp3');
+    noSoundCharacterIsHurt = true;
 
     // bottles = 0;
 
@@ -141,6 +143,10 @@ class Character extends MovableObject {
 
             } else if (this.isHurt()) {
                 this.playAnimation(this.imagesHurt);
+                if (this.noSoundCharacterIsHurt) {
+                    this.CharacterIsHurt_sound.play();
+                    this.noSoundCharacterIsHurt = false;
+                }
 
             } else if (this.isAboveGround()) {
                 this.playAnimation(this.imagesJumping);
