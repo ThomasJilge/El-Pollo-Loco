@@ -85,24 +85,40 @@ class Chicken extends MovableObject {
      */
 
     animateChicken() {
-        setInterval( () => {
+        setInterval(() => {
             this.moveLeft();
         }, 1000 / 60);
-
         setInterval(() => {
             if (this.enemyDeath) {
-                    this.playAnimation(this.imagesDead);
-                    if (this.noSoundChickenHit == true) {
-                        this.chickenHitSound.play();
-                    }
-                    setTimeout(() => {
-                        this.noSoundChickenHit = false;
-                    });
+                this.playAnimation(this.imagesDead);
+                if (this.noSoundChickenHit) {
+                    this.chickenHitSound.play();
+                    this.noSoundChickenHit = false;
+                }
             } else {
                 this.playAnimation(this.imagesWalking);
             }
-            
-        }, 200);      
+        }, 200);
     }
-
 }
+
+
+//     animateChicken() {
+//         setInterval( () => {
+//             this.moveLeft();
+//         }, 1000 / 60);
+//         setInterval(() => {
+//             if (this.enemyDeath) {
+//                     this.playAnimation(this.imagesDead);
+//                     if (this.noSoundChickenHit == true) {
+//                         this.chickenHitSound.play();
+//                     }
+//                     setTimeout(() => {
+//                         this.noSoundChickenHit = false;
+//                     });
+//             } else {
+//                 this.playAnimation(this.imagesWalking);
+//             }
+//         }, 200);      
+//     }
+// }
