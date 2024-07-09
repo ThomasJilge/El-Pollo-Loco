@@ -57,8 +57,11 @@ class World {
     run() {
         setInterval(() => {
             this.checkCollisionEnemies();
+            this.endbossCollision();
+            this.enemyCollision();
+            this.removeThrowableObject();
             this.checkCollisionBottleWithEnemies();
-            this.checkCollisionWithEndboss();
+            // this.checkCollisionWithEndboss();
             this.checkThrowableObjects();
             this.bottleCollision();
             this.coinCollision();
@@ -86,11 +89,6 @@ class World {
             let offset = this.character.otherDirection ? -100 : 100;
             let bottle = new ThrowableObject(this.character.x + offset, this.character.y + 100, this.statusBarBottles, direction);
             this.throwableObjects.push(bottle);
-    
-            // this.collectedBottles -= 1;
-            // let newPercentage = this.statusBarBottles.percentage - 20;
-            // this.statusBarBottles.setPercentageBottle(newPercentage);
-    
             this.character.resetIdleTimers();
             console.log(`Aktueller Prozentsatz der statusBarBottles: ${this.statusBarBottles.percentage}`);
         }
@@ -113,7 +111,6 @@ class World {
                         this.character.jump();
                     } else {
                         this.character.hit();
-                        // this.character.energy -= 20;
                         console.log(`Character energy: ${this.character.energy}`);
                         this.statusBar.setPercentage(this.character.energy);
                     }
@@ -126,60 +123,108 @@ class World {
      * Checks for collisions between the character and the endboss
      */
 
-    checkCollisionWithEndboss() {
-        this.level.enemies.forEach((enemy) => {
-            if (!enemy.enemyDeath && enemy instanceof Endboss) {
-                if (this.character.isColliding(enemy)) {
-                    if (this.character.isAboveGround()) {
-                        this.character.jump();
-                    } else {
-                        this.character.hit();
-                        this.statusBar.setPercentage(this.character.energy);
-                    }
-                }
-            }
-        });
+    // checkCollisionWithEndboss() {
+    //     this.level.enemies.forEach((enemy) => {
+    //         if (!enemy.enemyDeath && enemy instanceof Endboss) {
+    //             if (this.character.isColliding(enemy)) {
+    //                 if (this.character.isAboveGround()) {
+    //                     this.character.jump();
+    //                 } else {
+    //                     this.character.hit();
+    //                     this.statusBar.setPercentage(this.character.energy);
+    //                 }
+    //             }
+    //         }
+    //     });
+    // }
+
+    endbossCollision(enemy, index) {
+        if (!enemy) return;
+        enemy.energy -= 20;
+        enemy.isHurt = true;
+        enemy.noSoundEndbossIsHurt = true;
+        this.statusBarEndboss.setPercentageEndboss(enemy.energy);
+        setTimeout(() => {
+            enemy.isHurt = false;
+        }, 1000);
+        if (enemy.energy <= 0) {
+            enemy.enemyDeath = true;
+            setTimeout(() => {
+                this.level.enemies.splice(index, 1);
+            }, 500);
+        }
     }
     
     /**
      * Checks for collisions between throwable objects (bottles) and enemies
      */
 
+    // checkCollisionBottleWithEnemies() {
+    //     this.throwableObjects.forEach((throwableObject) => {
+    //         this.level.enemies.forEach((enemy, i) => {
+    //             if (throwableObject.isColliding(enemy)) {
+    //                 if (enemy instanceof Endboss) {
+    //                     console.log('test');
+    //                     enemy.energy -= 20;
+    //                     enemy.isHurt = true;
+    //                     enemy.noSoundEndbossIsHurt = true;
+    //                     console.log('endboss reduce energy');
+    //                     this.statusBarEndboss.setPercentageEndboss(enemy.energy);
+    //                     setTimeout(() => {
+    //                         enemy.isHurt = false;
+    //                     }, 1000);
+    //                     if (enemy.energy <= 0) {
+    //                         console.log('endboss is dead');
+    //                         enemy.enemyDeath = true;
+    //                         setTimeout(() => {
+    //                             this.level.enemies.splice(i, 1);
+    //                         }, 500);
+    //                     }
+    //                     console.log(`Endboss energy: ${enemy.energy}`);
+    //                 } else {
+    //                     enemy.enemyDeath = true;
+    //                     setTimeout(() => {
+    //                         this.level.enemies.splice(i, 1);
+    //                     }, 500);
+    //                 }
+    //                 const y = this.throwableObjects.indexOf(throwableObject);
+    //                 this.throwableObjects.splice(y, 1);
+    //             }
+    //         });
+    //     });
+    // }
+
     checkCollisionBottleWithEnemies() {
         this.throwableObjects.forEach((throwableObject) => {
             this.level.enemies.forEach((enemy, i) => {
                 if (throwableObject.isColliding(enemy)) {
                     if (enemy instanceof Endboss) {
-                        console.log('test');
-                        enemy.energy -= 20;
-                        enemy.isHurt = true;
-                        enemy.noSoundEndbossIsHurt = true;
-                        console.log('endboss reduce energy');
-                        this.statusBarEndboss.setPercentageEndboss(enemy.energy);
-                        setTimeout(() => {
-                            enemy.isHurt = false;
-                        }, 1000);
-                        if (enemy.energy <= 0) {
-                            console.log('endboss is dead');
-                            enemy.enemyDeath = true;
-                            setTimeout(() => {
-                                this.level.enemies.splice(i, 1);
-                            }, 500);
-                        }
-                        console.log(`Endboss energy: ${enemy.energy}`);
+                        this.endbossCollision(enemy, i);
                     } else {
-                        enemy.enemyDeath = true;
-                        setTimeout(() => {
-                            this.level.enemies.splice(i, 1);
-                        }, 500);
+                        this.enemyCollision(enemy, i);
                     }
-                    const y = this.throwableObjects.indexOf(throwableObject);
-                    this.throwableObjects.splice(y, 1);
+                    this.removeThrowableObject(throwableObject);
                 }
             });
         });
     }
 
+    enemyCollision(enemy, index) {
+        if (!enemy) return; // Safety check to ensure enemy is defined
+        enemy.enemyDeath = true;
+        setTimeout(() => {
+            this.level.enemies.splice(index, 1);
+        }, 500);
+    }
+
+    removeThrowableObject(throwableObject) {
+        const index = this.throwableObjects.indexOf(throwableObject);
+        if (index > -1) {
+            this.throwableObjects.splice(index, 1);
+        }
+    }
+
+  
     /**
      * Checks for collisions between the character and bottles to collect them
      */
