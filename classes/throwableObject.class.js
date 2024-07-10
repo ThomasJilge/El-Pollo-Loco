@@ -66,7 +66,6 @@ class ThrowableObject extends MovableObject {
                 this.playAnimation(this.throwBottleRotation);
             } else if (this.y >= this.floor) {
                 this.playAnimation(this.throwBottleSplash);
-                // console.log('Playing throwBottleSplash');
                 if (this.noSoundBrokenBottle == true) {
                     this.brokenBottleSound.play();
                 }
