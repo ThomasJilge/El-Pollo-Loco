@@ -190,13 +190,11 @@ class Character extends MovableObject {
         if (!this.idleTimer) {
             this.idleTimer = setTimeout(() => {
                 this.isIdle();
-                console.log('Character idle');
             }, 2000);
         }
         if (!this.longIdleTimer) {
             this.longIdleTimer = setTimeout(() => {
                 this.isLongIdle();
-                console.log('Character long idle');
             }, 5000);
         }
     }
@@ -243,5 +241,5 @@ class Character extends MovableObject {
     isAboveGround() {
         return this.y < 180; 
     }
-    
+
 }

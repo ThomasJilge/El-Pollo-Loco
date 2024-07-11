@@ -179,6 +179,11 @@
 
 @media (max-width: 410px) {
 
+    .startInfoContainer {
+        height: 750px;
+        top: 100px;
+    }
+
     .startScreen {
         display: block;
     }

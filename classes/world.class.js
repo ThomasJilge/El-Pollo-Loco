@@ -117,38 +117,38 @@ class World {
     //     });
     // }
 
-        /**
+    /**
      * Checks for collisions between the character and enemies
      */
 
-        checkCollisionEnemies() {
-            this.level.enemies.forEach((enemy) => {
-                if (!enemy.enemyDeath && (enemy instanceof Chicken || enemy instanceof ChickenSmall)) {
-                    if (this.character.isColliding(enemy)) {
-                        if (this.character.isAboveGround()) {
-                            this.setTimeOutEnemyDeath(enemy);
-                        } else {
-                            this.character.hit();
-                            this.statusBar.setPercentage(this.character.energy);
-                        }
+    checkCollisionEnemies() {
+        this.level.enemies.forEach((enemy) => {
+            if (!enemy.enemyDeath && (enemy instanceof Chicken || enemy instanceof ChickenSmall)) {
+                if (this.character.isColliding(enemy)) {
+                    if (this.character.isAboveGround()) {
+                        this.setTimeOutEnemyDeath(enemy);
+                    } else {
+                        this.character.hit();
+                        this.statusBar.setPercentage(this.character.energy);
                     }
                 }
-            });
-        }
+            }
+        });
+    }
     
-        /**
-         * Handles the logic when an enemy is killed
-         * @param {Object} enemy - The enemy object that was killed
-         */
+    /**
+    * Handles the logic when an enemy is killed
+    * @param {Object} enemy - The enemy object that was killed
+    */
 
-        setTimeOutEnemyDeath(enemy) {
-            enemy.enemyDeath = true;
-            setTimeout(() => {
-                const index = this.level.enemies.indexOf(enemy);
-                this.level.enemies.splice(index, 1);
-            }, 500);
-            this.character.jump();
-        }
+    setTimeOutEnemyDeath(enemy) {
+        enemy.enemyDeath = true;
+        setTimeout(() => {
+            const index = this.level.enemies.indexOf(enemy);
+            this.level.enemies.splice(index, 1);
+        }, 500);
+        this.character.jump();
+    }
 
     
 
@@ -243,7 +243,7 @@ class World {
     }
 
     enemyCollision(enemy, index) {
-        if (!enemy) return; // Safety check to ensure enemy is defined
+        if (!enemy) return;
         enemy.enemyDeath = true;
         setTimeout(() => {
             this.level.enemies.splice(index, 1);
