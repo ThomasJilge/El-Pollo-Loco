@@ -388,9 +388,12 @@ class World {
             if (enemy instanceof Endboss && enemy.energy <= 0) {
                 endbossDefeated = true;
             }
-        });
-
-        setInterval( () => {
+        });   
+        this.setIntervalGameWon(endbossDefeated, gameIsWon);
+    }
+    
+    setIntervalGameWon(endbossDefeated, gameIsWon) {
+        setInterval(() => {
             if (endbossDefeated) {
                 gameIsWon.classList.remove('d-none');
                 this.displayGameWon = true;
@@ -400,7 +403,7 @@ class World {
                 gameIsWon.classList.add('d-none');
                 this.displayGameWon = false;
             }
-        }, 2000);      
+        }, 2000); 
     }
     
     /**
