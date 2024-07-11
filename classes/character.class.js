@@ -111,14 +111,13 @@ class Character extends MovableObject {
         setInterval(() => {
             this.walking_sound.pause();
             
-            if (!this.world.keyboard.space && !this.world.keyboard.right && !this.world.keyboard.left && !this.world.keyboard.d) {
-                this.setIdleTimers();
-            }
+            
             this.world.camera_x = -this.x + 100;
 
             this.characterMoveRight();
             this.characterMoveLeft();
             this.characterJump();
+            this.activateSetIdleTimers();
         }, 1500 / 60);
 
         setInterval(() => {
@@ -181,6 +180,12 @@ class Character extends MovableObject {
         if (this.world.keyboard.space && !this.isAboveGround()) {
             this.jump();
             this.resetIdleTimers();
+        }
+    }
+
+    activateSetIdleTimers() {
+        if (!this.world.keyboard.space && !this.world.keyboard.right && !this.world.keyboard.left && !this.world.keyboard.d) {
+            this.setIdleTimers();
         }
     }
 
