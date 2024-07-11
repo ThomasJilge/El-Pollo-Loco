@@ -110,10 +110,7 @@ class Character extends MovableObject {
     animate() {
         setInterval(() => {
             this.walking_sound.pause();
-            if (this.world.keyboard.space && !this.isAboveGround()) {
-                this.jump();
-                this.resetIdleTimers();
-            }
+            
             if (!this.world.keyboard.space && !this.world.keyboard.right && !this.world.keyboard.left && !this.world.keyboard.d) {
                 this.setIdleTimers();
             }
@@ -121,6 +118,7 @@ class Character extends MovableObject {
 
             this.characterMoveRight();
             this.characterMoveLeft();
+            this.characterJump();
         }, 1500 / 60);
 
         setInterval(() => {
@@ -175,6 +173,13 @@ class Character extends MovableObject {
             this.moveLeft();
             this.walking_sound.play();
             this.otherDirection = true ;
+            this.resetIdleTimers();
+        }
+    }
+
+    characterJump() {
+        if (this.world.keyboard.space && !this.isAboveGround()) {
+            this.jump();
             this.resetIdleTimers();
         }
     }
