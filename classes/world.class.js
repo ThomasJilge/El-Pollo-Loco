@@ -90,7 +90,6 @@ class World {
             let bottle = new ThrowableObject(this.character.x + offset, this.character.y + 100, this.statusBarBottles, direction);
             this.throwableObjects.push(bottle);
             this.character.resetIdleTimers();
-            console.log(`Aktueller Prozentsatz der statusBarBottles: ${this.statusBarBottles.percentage}`);
         }
     }
 
@@ -365,7 +364,6 @@ class World {
      */
 
     gameOver() {
-        console.log('Game over!');
         let gameIsOver = document.getElementById('gameOver');
         if (this.character.energy <= 0) {
             gameIsOver.classList.remove('d-none');
@@ -384,10 +382,8 @@ class World {
      */
 
     gameWon() {
-        console.log('Game won!');
         let gameIsWon = document.getElementById('gameWon');
         let endbossDefeated = false;
-    
         this.level.enemies.forEach((enemy) => {
             if (enemy instanceof Endboss && enemy.energy <= 0) {
                 endbossDefeated = true;
@@ -404,11 +400,9 @@ class World {
                 gameIsWon.classList.add('d-none');
                 this.displayGameWon = false;
             }
-        }, 2000);   
-    
-        
+        }, 2000);      
     }
-
+    
     /**
      * Updates the status bar and triggers the endboss behavior
      */
@@ -419,18 +413,26 @@ class World {
                 let distance = Math.abs(this.character.x - enemy.x);
                 if (distance <= 630) {
                     this.showEndbossStatusBar = true;
-                    if (distance <= 430 && !enemy.walkingDone) {
-                        enemy.startWalking();
-                    }
-                    if (distance <= 150 && !enemy.isAttack) {
-                        enemy.startAttack();
-                    }
-                    if (distance >= 151 && enemy.isAttack) {
-                        enemy.stopAttack();
-                    }
+                    this.endbossWalking(enemy, distance);
+                    this.endbossAttack(enemy, distance);
                 } 
             }
         });
+    }
+
+    endbossWalking(enemy, distance) {
+        if (distance <= 430 && !enemy.walkingDone) {
+            enemy.startWalking();
+        }
+    }
+
+    endbossAttack(enemy, distance) {
+        if (distance <= 150 && !enemy.isAttack) {
+            enemy.startAttack();
+        }
+        if (distance >= 151 && enemy.isAttack) {
+            enemy.stopAttack();
+        }
     }
 
     /**

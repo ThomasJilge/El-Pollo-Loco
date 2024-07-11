@@ -110,10 +110,7 @@ class Character extends MovableObject {
     animate() {
         setInterval(() => {
             this.walking_sound.pause();
-            
-            
             this.world.camera_x = -this.x + 100;
-
             this.characterMoveRight();
             this.characterMoveLeft();
             this.characterJump();
@@ -123,20 +120,16 @@ class Character extends MovableObject {
         setInterval(() => {
             if (this.isDead()) {
                 this.playAnimation(this.imagesDead);
-
             } else if (this.isHurt()) {
                 this.playAnimation(this.imagesHurt);
                 if (this.noSoundCharacterIsHurt) {
                     this.CharacterIsHurt_sound.play();
                     this.noSoundCharacterIsHurt = false;
                 }
-
             } else if (this.isAboveGround()) {
                 this.playAnimation(this.imagesJumping);
-
             } else if (this.world.keyboard.right || this.world.keyboard.left) {
                 this.playAnimation(this.imagesWalking);
-
             } 
         }, 50);  
 
@@ -251,5 +244,4 @@ class Character extends MovableObject {
         return this.y < 180; 
     }
     
-
 }
