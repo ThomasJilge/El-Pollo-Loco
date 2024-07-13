@@ -30,7 +30,16 @@
 
 } */
 
-@media (max-width: 840px) and (orientation: landscape) {
+/* @media (max-width: 1368px) and (orientation: landscape) {
+
+    .userInfoContainer {
+        display: none;
+    }
+
+} */
+
+
+@media (max-width: 840px) {
 
     .headline {
         display: none;
@@ -263,4 +272,65 @@
     .buttonSmartphone {
         border-radius: 5px;
     }
+}
+
+@media (orientation: landscape) {
+
+    .userInfoContainer {
+        display: none;
+    }
+
+}
+
+@media (max-width: 1024px) and (orientation: landscape) {
+
+    .info {
+        top: 120px;
+    }
+
+}
+
+@media (max-width: 950px) and (orientation: landscape) {
+
+    .startInfoContainer {
+        top: 55px;
+    }
+
+    .info {
+        top: 70px;
+    }
+
+    .infoBox {
+        height: 200px;
+    }
+
+}
+
+@media (max-width: 740px) and (orientation: landscape) {
+
+    .infoBox {
+        height: 200px;
+    }
+
+}
+
+@media (max-width: 670px) and (orientation: landscape) {
+
+    .startInfoContainer {
+        top: 55px;
+    }
+
+    .startButton .infoButton {
+        width: 120px;
+        height: 40px;
+    }
+
+    .info {
+        top: 50px;
+    }
+
+    .infoBox {
+        height: 250px;
+    }
+
 }
