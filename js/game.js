@@ -134,7 +134,7 @@ function startGame() {
     document.getElementById('soundButtonOff').classList.remove('d-none');
     document.getElementById('mobileButtonContainerOne').classList.remove('d-none');
     document.getElementById('mobileButtonContainerTwo').classList.remove('d-none');
-    
+    document.getElementById('startInfoContainer').style.top = '290px';
     document.getElementById('imprint').classList.add('d-none');
     document.getElementById('dataprotection').classList.add('d-none');
     document.getElementById('menuButton').classList.remove('d-none');

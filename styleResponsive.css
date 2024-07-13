@@ -82,7 +82,8 @@
         background-color: rgb(133, 130, 130);
         opacity: 0.8;
         width: 400px;
-        top: 70px;
+        /* top: 70px; */
+        bottom: 200px;
         height: 100px;
         border-radius: 10px;
         border: 1px solid rgb(159, 6, 6);
@@ -154,9 +155,9 @@
         max-height: 720px;
     }
 
-    .startInfoContainer {
+    /* .startInfoContainer {
         top: 100px;
-    }
+    } */
 
     .info {
         width: 400px;
@@ -199,7 +200,7 @@
 
     .startInfoContainer {
         /* height: 750px; */
-        top: 80px;
+        /* top: 80px; */
     }
 
     .startScreen {
@@ -216,7 +217,7 @@
     }
 
     .userInfoContainer {
-        top: 135px;
+        /* top: 135px; */
         width: 300px;
     }
 
@@ -282,19 +283,48 @@
 
 }
 
-@media (max-width: 1024px) and (orientation: landscape) {
+/* @media (max-width: 1280px) and (orientation: landscape) {
+
+    canvas {
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .gameOver {
+        width: 100%;
+    }
+
+    .headline {
+        display: none;
+    }
+
+    .fullscreen {
+        display: none;
+    } 
+
+} */
+
+/* @media (max-width: 1024px) and (orientation: landscape) {
 
     .info {
         top: 120px;
     }
 
-}
+    .headline {
+        display: none;
+    }
+
+    .fullscreen {
+        display: none;
+    }
+
+} */
 
 @media (max-width: 950px) and (orientation: landscape) {
 
-    .startInfoContainer {
+    /* .startInfoContainer {
         top: 55px;
-    }
+    } */
 
     .info {
         top: 70px;
@@ -306,15 +336,15 @@
 
 }
 
-@media (max-width: 740px) and (orientation: landscape) {
+/* @media (max-width: 740px) and (orientation: landscape) {
 
     .infoBox {
         height: 200px;
     }
 
-}
+} */
 
-@media (max-width: 670px) and (orientation: landscape) {
+/* @media (max-width: 670px) and (orientation: landscape) {
 
     .startInfoContainer {
         top: 55px;
@@ -333,4 +363,4 @@
         height: 250px;
     }
 
-}
+} */
