@@ -206,7 +206,7 @@
 
     .startScreen {
         display: block;
-        bottom: 205px;
+        bottom: 290px;
     }
 
     .info {
@@ -219,7 +219,7 @@
     }
 
     .userInfoContainer {
-        bottom: 100px;
+        bottom: 180px;
         width: 300px;
     }
 
@@ -257,6 +257,18 @@
     }
 
 }
+
+/* @media (max-width: 390px) {
+
+    .startScreen {
+        bottom: 280px;
+    }
+
+    .userInfoContainer {
+        bottom: 170px;
+    }
+
+} */
 
 @media (max-width: 360px) {
 
