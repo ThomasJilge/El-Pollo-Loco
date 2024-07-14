@@ -153,11 +153,12 @@
         gap: 100px;
         justify-content: center;
         max-height: 720px;
+        bottom: 350px;
     }
 
-    /* .startInfoContainer {
-        top: 100px;
-    } */
+    .userInfoContainer {
+        bottom: 230px;
+    }
 
     .info {
         width: 400px;
@@ -205,6 +206,7 @@
 
     .startScreen {
         display: block;
+        bottom: 205px;
     }
 
     .info {
@@ -217,7 +219,7 @@
     }
 
     .userInfoContainer {
-        /* top: 135px; */
+        bottom: 100px;
         width: 300px;
     }
 
