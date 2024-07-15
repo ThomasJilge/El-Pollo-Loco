@@ -153,11 +153,11 @@
         gap: 100px;
         justify-content: center;
         max-height: 720px;
-        bottom: 350px;
+        bottom: 400px;
     }
 
     .userInfoContainer {
-        bottom: 230px;
+        bottom: 280px;
     }
 
     .info {
@@ -204,10 +204,7 @@
         /* top: 80px; */
     }
 
-    .startScreen {
-        display: block;
-        bottom: 290px;
-    }
+    
 
     .info {
         width: 150px;
@@ -218,10 +215,7 @@
         width: 290px;
     }
 
-    .userInfoContainer {
-        bottom: 180px;
-        width: 300px;
-    }
+    
 
     .soundButton {
         height: 20px;
@@ -252,20 +246,40 @@
         margin-bottom: 0;
     }
 
-    .infoButton {
+    /* .infoButton {
         margin-top: 15px;
+    } */
+
+}
+
+@media (max-width: 390px) {
+
+    .startScreen {
+        bottom: 410px;
+        gap: 50px;
+    }
+
+    .userInfoContainer {
+        bottom: 280px;
+        width: 300px;
+    }
+
+    .infoButton {
+        margin-top: 0;
     }
 
 }
 
-/* @media (max-width: 390px) {
+/* @media (max-width: 375px) {
 
     .startScreen {
-        bottom: 280px;
+        bottom: 250px;
+        gap: 70px;
     }
 
     .userInfoContainer {
-        bottom: 170px;
+        bottom: 150px;
+        width: 300px;
     }
 
 } */
@@ -286,6 +300,16 @@
 
     .buttonSmartphone {
         border-radius: 5px;
+    }
+
+    .startScreen {
+        display: block;
+        bottom: 390px;
+    }
+
+    .userInfoContainer {
+        bottom: 265px;
+        width: 300px;
     }
 }
 
