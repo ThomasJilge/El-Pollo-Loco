@@ -233,7 +233,7 @@
 
 }
 
-@media (max-width: 410px) {
+@media only screen and (max-width: 410px) {
 
     .info {
         width: 150px;
@@ -274,10 +274,10 @@
     }
 }
 
-@media (max-width: 390px) {
+@media only screen and (max-width: 390px) and (orientation: portrait) {
 
     .startScreen {
-        bottom: 410px;
+        bottom: 330px;
         gap: 50px;
     }
 
