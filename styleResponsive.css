@@ -1,6 +1,46 @@
 /* Smartphones */
 
-@media only screen and (max-width: 720px) and (orientation: landscape) {
+@media only screen and (max-width: 1368px) and (orientation: landscape) {
+
+    .startScreen {
+        bottom: 290px;
+    }
+
+}
+
+@media only screen and (max-width: 1024px) and (orientation: landscape) {
+
+    .startScreen {
+        bottom: 220px;
+    }
+
+}
+
+@media only screen and (max-width: 932px) and (orientation: landscape) {
+
+    .startScreen {
+        bottom: 135px;
+    }
+
+}
+
+@media only screen and (max-width: 882px) and (orientation: landscape) {
+
+    .startScreen {
+        bottom: 100px;
+    }
+
+}
+
+@media only screen and (max-width: 845px) and (orientation: landscape) {
+
+    .startScreen {
+        bottom: 120px;
+    }
+
+}
+
+@media only screen and (max-width: 740px) and (orientation: landscape) {
 
     canvas {
         width: 100%;
