@@ -1,6 +1,6 @@
 /* Smartphones */
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 720px) and (orientation: landscape) {
 
     canvas {
         width: 100%;
@@ -8,6 +8,10 @@
 
     .mobileButton:hover {
         cursor: pointer;
+    }
+
+    .startScreen {
+        bottom: 100px;
     }
 
 }
@@ -150,7 +154,7 @@
 @media (max-width: 576px) {
 
     .startScreen {
-        gap: 100px;
+        gap: 60px;
         justify-content: center;
         max-height: 720px;
         bottom: 400px;
@@ -158,6 +162,7 @@
 
     .userInfoContainer {
         bottom: 280px;
+        width: 300px;
     }
 
     .info {
