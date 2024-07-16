@@ -22,6 +22,11 @@
         bottom: 135px;
     }
 
+    .buttonStartScreen {
+        width: 170px;
+        height: 40px;
+    }
+
 }
 
 @media only screen and (max-width: 882px) and (orientation: landscape) {
@@ -66,22 +71,13 @@
 
 /* RESPONSIVE DESIGN */
 
-/* @media (max-width: 1500px) {
+/* @media (max-width: 1368px) {
 
-    .button {
-        margin-bottom: 730px;
+    .startScreen {
+        bottom: 390px;
     }
 
 } */
-
-/* @media (max-width: 1368px) and (orientation: landscape) {
-
-    .userInfoContainer {
-        display: none;
-    }
-
-} */
-
 
 @media (max-width: 840px) {
 
@@ -92,10 +88,6 @@
     .fullscreen {
         display: none;
     }
-
-    /* .infoScreen {
-        margin-bottom: 700px;
-    } */
 
     .button {
         margin-bottom: 0;
@@ -126,7 +118,6 @@
         background-color: rgb(133, 130, 130);
         opacity: 0.8;
         width: 400px;
-        /* top: 70px; */
         bottom: 290px;
         height: 100px;
         border-radius: 10px;
@@ -244,13 +235,6 @@
 
 @media (max-width: 410px) {
 
-    .startInfoContainer {
-        /* height: 750px; */
-        /* top: 80px; */
-    }
-
-    
-
     .info {
         width: 150px;
         top: 270px;
@@ -259,8 +243,6 @@
     .infoBox {
         width: 290px;
     }
-
-    
 
     .soundButton {
         height: 20px;
@@ -290,11 +272,6 @@
     .button {
         margin-bottom: 0;
     }
-
-    /* .infoButton {
-        margin-top: 15px;
-    } */
-
 }
 
 @media (max-width: 390px) {
@@ -314,20 +291,6 @@
     }
 
 }
-
-/* @media (max-width: 375px) {
-
-    .startScreen {
-        bottom: 250px;
-        gap: 70px;
-    }
-
-    .userInfoContainer {
-        bottom: 150px;
-        width: 300px;
-    }
-
-} */
 
 @media (max-width: 360px) {
 
@@ -366,48 +329,7 @@
 
 }
 
-/* @media (max-width: 1280px) and (orientation: landscape) {
-
-    canvas {
-        width: 100%;
-        border-radius: 0;
-    }
-
-    .gameOver {
-        width: 100%;
-    }
-
-    .headline {
-        display: none;
-    }
-
-    .fullscreen {
-        display: none;
-    } 
-
-} */
-
-/* @media (max-width: 1024px) and (orientation: landscape) {
-
-    .info {
-        top: 120px;
-    }
-
-    .headline {
-        display: none;
-    }
-
-    .fullscreen {
-        display: none;
-    }
-
-} */
-
 @media (max-width: 950px) and (orientation: landscape) {
-
-    /* .startInfoContainer {
-        top: 55px;
-    } */
 
     .info {
         top: 70px;
@@ -418,32 +340,3 @@
     }
 
 }
-
-/* @media (max-width: 740px) and (orientation: landscape) {
-
-    .infoBox {
-        height: 200px;
-    }
-
-} */
-
-/* @media (max-width: 670px) and (orientation: landscape) {
-
-    .startInfoContainer {
-        top: 55px;
-    }
-
-    .startButton .infoButton {
-        width: 120px;
-        height: 40px;
-    }
-
-    .info {
-        top: 50px;
-    }
-
-    .infoBox {
-        height: 250px;
-    }
-
-} */
