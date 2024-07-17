@@ -1,5 +1,13 @@
 /* Smartphones */
 
+@media (orientation: landscape) {
+
+    .userInfoContainer {
+        display: none;
+    }
+
+}
+
 @media only screen and (max-width: 1368px) and (orientation: landscape) {
 
     .startScreen {
@@ -12,6 +20,18 @@
 
     .startScreen {
         bottom: 220px;
+    }
+
+}
+
+@media (max-width: 950px) and (orientation: landscape) {
+
+    .info {
+        top: 70px;
+    }
+
+    .infoBox {
+        height: 200px;
     }
 
 }
@@ -277,7 +297,7 @@
 @media only screen and (max-width: 390px) and (orientation: portrait) {
 
     .startScreen {
-        bottom: 330px;
+        bottom: 410px;
         gap: 50px;
     }
 
@@ -321,22 +341,6 @@
     }
 }
 
-@media (orientation: landscape) {
 
-    .userInfoContainer {
-        display: none;
-    }
 
-}
 
-@media (max-width: 950px) and (orientation: landscape) {
-
-    .info {
-        top: 70px;
-    }
-
-    .infoBox {
-        height: 200px;
-    }
-
-}
