@@ -14,6 +14,23 @@
         bottom: 290px;
     }
 
+    canvas {
+        width: 100%;
+        height: 100vh;
+        border-radius: 0;
+    }
+
+    .headline {
+        display: none;
+    }
+
+    .gameOver {
+        width: 100%;
+        height: 100vh;
+    }
+
+
+
 }
 
 @media only screen and (max-width: 1024px) and (orientation: landscape) {
@@ -21,6 +38,8 @@
     .startScreen {
         bottom: 220px;
     }
+
+
 
 }
 
