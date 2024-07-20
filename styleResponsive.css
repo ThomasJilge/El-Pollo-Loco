@@ -10,9 +10,9 @@
 
 @media (max-width: 1368px) and (orientation: landscape) {
 
-    /* .startScreen {
-        bottom: 290px;
-    } */
+    .startScreen {
+        margin-top: 50px;
+    }
 
     canvas {
         width: 100%;
@@ -151,7 +151,7 @@
 
 }
 
-@media only screen and (max-width: 740px) and (orientation: landscape) {
+@media only screen and (max-width: 720px) and (orientation: landscape) {
 
     canvas {
         width: 100%;
@@ -418,6 +418,40 @@
         width: 300px;
         top: 220px;
     }
+}
+
+@media (max-height: 430px) {
+
+    .info {
+        top: 75px;
+        width: 100%;
+    }
+
+}
+
+@media (max-height: 375px) {
+
+    .userInfoContainer {
+        top: 100px;
+        height: 65px;
+    }
+
+    .info {
+        top: 125px;
+    }
+
+    .infoBox {
+        height: 185px;
+    }
+}
+
+@media (max-height: 360px) {
+
+    .info {
+        top: 75px;
+        width: 100%;
+    }
+
 }
 
 
