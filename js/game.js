@@ -140,6 +140,7 @@ function startGame() {
     document.getElementById('menuButton').classList.remove('d-none');
     document.getElementById('userInfoContainer').classList.add('d-none');
     mobileButtonPressEvents();
+    document.getElementById('button').style.height = 'auto';
 
     if (window.innerWidth <= 720) {
         document.getElementById('userInfoContainer').classList.add('d-none');
