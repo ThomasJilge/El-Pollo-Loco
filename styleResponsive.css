@@ -49,6 +49,47 @@
         border-radius: none;
     }
 
+    .mobileButtonContainerOne {
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        width: 100%;
+        bottom: 10px;
+    }
+
+    .mobileButtonContainerTwo {
+        display: flex;
+        justify-content: space-between;
+        width: 1368px;
+    }
+
+    .mobileButton {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .buttonSmartphone {
+        padding: 0;
+        width: 40px;
+        height: 40px;
+        border: 0;
+        border-radius: 10px;
+    }
+    
+    .mobileButtonsOne {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-left: 10px;
+    }
+
+    .mobileButtonsTwo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-right: 10px;
+    }
+
 
 
 }
