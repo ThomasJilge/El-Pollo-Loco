@@ -10,9 +10,9 @@
 
 @media (max-width: 1368px) and (orientation: landscape) {
 
-    .startScreen {
+    /* .startScreen {
         margin-top: 50px;
-    }
+    } */
 
     canvas {
         width: 100%;
@@ -287,7 +287,7 @@
 
     .startScreen {
         gap: 60px;
-        justify-content: center;
+
     }
 
     .userInfoContainer {
@@ -370,21 +370,25 @@
     .button {
         margin-bottom: 0;
     }
+
+    .startScreen {
+        gap: 30px;
+    }
 }
 
 @media only screen and (max-width: 390px) and (orientation: portrait) {
 
-    .startScreen {
+    /* .startScreen {
         gap: 50px;
-    }
+    } */
 
     .userInfoContainer {
         width: 300px;
     }
 
-    .infoButton {
+    /* .infoButton {
         margin-top: 0;
-    }
+    } */
 
     .infoBox {
         height: 250px;
@@ -411,7 +415,8 @@
     }
 
     .startScreen {
-        display: block;
+        gap: 10px;
+        /* display: block; */
     }
 
     .userInfoContainer {
