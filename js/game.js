@@ -74,42 +74,42 @@ function mobileButtonPressEvents() {
     document.getElementById('leftButton').addEventListener('touchstart', (e) => {
         e.preventDefault();
         keyboard.left = true;
-    }, { passive: true });
+    });
     
     document.getElementById('leftButton').addEventListener('touchend', (e) => {
         e.preventDefault();
         keyboard.left = false;
-    }, { passive: true });
+    });
     
     document.getElementById('rightButton').addEventListener('touchstart', (e) => {
         e.preventDefault();
         keyboard.right = true;
-    }, { passive: true });
+    });
     
     document.getElementById('rightButton').addEventListener('touchend', (e) => {
         e.preventDefault();
         keyboard.right = false;
-    }, { passive: true });
+    });
     
     document.getElementById('spaceButton').addEventListener('touchstart', (e) => {
         e.preventDefault();
         keyboard.space = true;
-    }, { passive: true });
+    });
     
     document.getElementById('spaceButton').addEventListener('touchend', (e) => {
         e.preventDefault();
         keyboard.space = false;
-    }, { passive: true });
+    });
     
     document.getElementById('dButton').addEventListener('touchstart', (e) => {
         e.preventDefault();
         keyboard.d = true;
-    }, { passive: true });
+    });
     
     document.getElementById('dButton').addEventListener('touchend', (e) => {
         e.preventDefault();
         keyboard.d = false;
-    }, { passive: true });
+    });
 }
 
 
