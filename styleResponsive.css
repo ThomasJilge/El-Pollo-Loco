@@ -429,7 +429,7 @@
 @media (max-height: 430px) {
 
     .info {
-        top: 75px;
+        top: 170px;
         width: 100%;
     }
 
@@ -437,13 +437,17 @@
 
 @media (max-height: 375px) {
 
+    .buttonStartScreen {
+        margin-top: 50px;
+    }
+
     .userInfoContainer {
         top: 100px;
         height: 65px;
     }
 
     .info {
-        top: 125px;
+        top: 175px;
     }
 
     .infoBox {
@@ -454,7 +458,7 @@
 @media (max-height: 360px) {
 
     .info {
-        top: 75px;
+        top: 120px;
         width: 100%;
     }
 
