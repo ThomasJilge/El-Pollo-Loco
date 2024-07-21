@@ -175,7 +175,7 @@
 @media (max-width: 1024px) {
 
     .info {
-        top: 150px;
+        top: 200px;
     }
 
 }
@@ -238,7 +238,7 @@
 
     .info {
         width: 500px;
-        top: 200px;
+        top: 320px;
     }
 
     .mobileButtonContainerOne {
@@ -295,7 +295,7 @@
     }
 
     .info {
-        width: 400px;
+        width: 100%;
     }
 
     .infoBox {
@@ -334,12 +334,13 @@
 @media only screen and (max-width: 410px) {
 
     .info {
-        width: 150px;
-        top: 270px;
+        /* width: 150px; */
+        top: 320px;
     }
 
     .infoBox {
         width: 290px;
+        height: 250px;
     }
 
     .soundButton {
@@ -421,7 +422,7 @@
 
     .userInfoContainer {
         width: 300px;
-        top: 220px;
+        top: 180px;
     }
 }
 
