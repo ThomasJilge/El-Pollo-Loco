@@ -241,7 +241,7 @@
         top: 320px;
     }
 
-    .mobileButtonContainerOne {
+    /* .mobileButtonContainerOne {
         display: flex;
         justify-content: space-between;
         position: absolute;
@@ -280,7 +280,7 @@
         align-items: center;
         gap: 10px;
         margin-right: 10px;
-    }
+    } */
 }
 
 @media (max-width: 576px) {
