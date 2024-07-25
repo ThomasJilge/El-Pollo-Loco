@@ -36,18 +36,12 @@ h1 {
     justify-content: center;
     width: 100%;
     position: absolute;
-    /* top: 50px; */
-    /* top: 290px; */
-    /* height: 100vh; */
 }
 
 .startScreen {
     display: flex;
     gap: 200px;
-    /* bottom: 400px; */
     position: relative;
-    /* margin-top: 100px; */
-    /* height: 100vh; */
 }
 
 .button {
@@ -177,7 +171,6 @@ h1 {
     gap: 10px;
     position: relative;
     top: 90px;
-    /* bottom: -90px; */
     left: 278px;
 }
 
@@ -262,9 +255,6 @@ h1 {
     cursor: pointer;
 }
 
-/* .spanUserInfoContainer {
-    display: none;
-} */
 
 
 

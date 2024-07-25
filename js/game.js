@@ -65,6 +65,13 @@ window.addEventListener('keyup', (e) => {
     }
 });
 
+/**
+ * Adds touch event listeners to an element to handle touchstart, touchend, and touchmove events
+ * @param {HTMLElement} element - The element to which touch listeners will be added
+ * @param {Function} startCallback - The callback function to be called on touchstart event
+ * @param {Function} endCallback - The callback function to be called on touchend event
+ */
+
 function addTouchListener(element, startCallback, endCallback) {
     let active = false;
 
@@ -88,33 +95,30 @@ function addTouchListener(element, startCallback, endCallback) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    addTouchListener(document.getElementById('leftButton'), (e) => {
+    addTouchListener(document.getElementById('leftButton'), () => {
         keyboard.left = true;
-    }, (e) => {
+    }, () => {
         keyboard.left = false;
     });
 
-    addTouchListener(document.getElementById('rightButton'), (e) => {
+    addTouchListener(document.getElementById('rightButton'), () => {
         keyboard.right = true;
-    }, (e) => {
+    }, () => {
         keyboard.right = false;
     });
 
-    addTouchListener(document.getElementById('spaceButton'), (e) => {
+    addTouchListener(document.getElementById('spaceButton'), () => {
         keyboard.space = true;
-    }, (e) => {
+    }, () => {
         keyboard.space = false;
     });
 
-    addTouchListener(document.getElementById('dButton'), (e) => {
+    addTouchListener(document.getElementById('dButton'), () => {
         keyboard.d = true;
-    }, (e) => {
+    }, () => {
         keyboard.d = false;
     });
 });
-
-
-
 
 /**
  * Starts the game by initializing the level and setting up the world
@@ -137,7 +141,6 @@ function startGame() {
     document.getElementById('soundButtonOff').classList.remove('d-none');
     document.getElementById('mobileButtonContainerOne').classList.remove('d-none');
     document.getElementById('mobileButtonContainerTwo').classList.remove('d-none');
-    // document.getElementById('startInfoContainer').style.top = '290px';
     document.getElementById('imprint').classList.add('d-none');
     document.getElementById('dataprotection').classList.add('d-none');
     document.getElementById('menuButton').classList.remove('d-none');
@@ -147,7 +150,7 @@ function startGame() {
     if (window.innerWidth <= 720) {
         document.getElementById('userInfoContainer').classList.add('d-none');
     } 
-
+    
     background_sound.play();
 }
 
