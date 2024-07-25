@@ -217,7 +217,6 @@ function soundOff() {
         background_sound.pause();
         if (world && world.character && world.character.snoring_sound) {
             world.character.snoring_sound.pause();
-            console.log('stop snoring sound');
         }
     }
     world.soundEnabled = false;

@@ -61,7 +61,6 @@ class World {
             this.enemyCollision();
             this.removeThrowableObject();
             this.checkCollisionBottleWithEnemies();
-            // this.checkCollisionWithEndboss();
             this.checkThrowableObjects();
             this.bottleCollision();
             this.coinCollision();
@@ -97,30 +96,6 @@ class World {
      * Checks for collisions between the character and enemies
      */
 
-    // checkCollisionEnemies() {
-    //     this.level.enemies.forEach((enemy) => {
-    //         if (!enemy.enemyDeath && (enemy instanceof Chicken || enemy instanceof ChickenSmall)) {
-    //             if (this.character.isColliding(enemy)) {
-    //                 if (this.character.isAboveGround()) {
-    //                     enemy.enemyDeath = true;
-    //                     setTimeout(() => {
-    //                         const index = this.level.enemies.indexOf(enemy);
-    //                         this.level.enemies.splice(index, 1);
-    //                     }, 500);
-    //                     this.character.jump();
-    //                 } else {
-    //                     this.character.hit();
-    //                     this.statusBar.setPercentage(this.character.energy);
-    //                 }
-    //             }
-    //         }
-    //     });
-    // }
-
-    /**
-     * Checks for collisions between the character and enemies
-     */
-
     checkCollisionEnemies() {
         this.level.enemies.forEach((enemy) => {
             if (!enemy.enemyDeath && (enemy instanceof Chicken || enemy instanceof ChickenSmall)) {
@@ -150,26 +125,9 @@ class World {
         this.character.jump();
     }
 
-    
-
     /**
      * Checks for collisions between the character and the endboss
      */
-
-    // checkCollisionWithEndboss() {
-    //     this.level.enemies.forEach((enemy) => {
-    //         if (!enemy.enemyDeath && enemy instanceof Endboss) {
-    //             if (this.character.isColliding(enemy)) {
-    //                 if (this.character.isAboveGround()) {
-    //                     this.character.jump();
-    //                 } else {
-    //                     this.character.hit();
-    //                     this.statusBar.setPercentage(this.character.energy);
-    //                 }
-    //             }
-    //         }
-    //     });
-    // }
 
     endbossCollision(enemy, index) {
         if (!enemy) return;
@@ -191,41 +149,6 @@ class World {
     /**
      * Checks for collisions between throwable objects (bottles) and enemies
      */
-
-    // checkCollisionBottleWithEnemies() {
-    //     this.throwableObjects.forEach((throwableObject) => {
-    //         this.level.enemies.forEach((enemy, i) => {
-    //             if (throwableObject.isColliding(enemy)) {
-    //                 if (enemy instanceof Endboss) {
-    //                     console.log('test');
-    //                     enemy.energy -= 20;
-    //                     enemy.isHurt = true;
-    //                     enemy.noSoundEndbossIsHurt = true;
-    //                     console.log('endboss reduce energy');
-    //                     this.statusBarEndboss.setPercentageEndboss(enemy.energy);
-    //                     setTimeout(() => {
-    //                         enemy.isHurt = false;
-    //                     }, 1000);
-    //                     if (enemy.energy <= 0) {
-    //                         console.log('endboss is dead');
-    //                         enemy.enemyDeath = true;
-    //                         setTimeout(() => {
-    //                             this.level.enemies.splice(i, 1);
-    //                         }, 500);
-    //                     }
-    //                     console.log(`Endboss energy: ${enemy.energy}`);
-    //                 } else {
-    //                     enemy.enemyDeath = true;
-    //                     setTimeout(() => {
-    //                         this.level.enemies.splice(i, 1);
-    //                     }, 500);
-    //                 }
-    //                 const y = this.throwableObjects.indexOf(throwableObject);
-    //                 this.throwableObjects.splice(y, 1);
-    //             }
-    //         });
-    //     });
-    // }
 
     checkCollisionBottleWithEnemies() {
         this.throwableObjects.forEach((throwableObject) => {
@@ -279,7 +202,6 @@ class World {
         }
     }
     
-
     /**
      * Checks for collisions between the character and coins to collect them
      */
@@ -457,11 +379,24 @@ class World {
         });
     }
 
+    /**
+    * Triggers the endboss to start walking when the character is within a certain distance
+    * @param {Object} enemy - The endboss object
+    * @param {number} distance - The distance between the character and the endboss
+    */
+
     endbossWalking(enemy, distance) {
         if (distance <= 430 && !enemy.walkingDone) {
             enemy.startWalking();
         }
     }
+
+    /**
+    * Triggers the endboss to start attacking when the character is within a certain distance
+    * Stops the attack if the character moves away
+    * @param {Object} enemy - The endboss object
+    * @param {number} distance - The distance between the character and the endboss
+    */
 
     endbossAttack(enemy, distance) {
         if (distance <= 150 && !enemy.isAttack) {
