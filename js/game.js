@@ -6,20 +6,16 @@ background_sound = new Audio('audio/backgroundSound.mp3');
 background_sound.volume = 0.1;
 
 /**
- * Initializes the game environment by setting up the canvas.
+ * Initializes the game environment by setting up the canvas
  */
 
 function init() {
-    // initLevel();
-    canvas = document.getElementById('canvas');
-    // world = new World(canvas, keyboard);
-    // startGame();
-    // console.log('My Character is', world.character);  
+    canvas = document.getElementById('canvas'); 
 }
 
 /**
- * Event listener for keydown events to update the keyboard state.
- * @param {KeyboardEvent} e - The keydown event.
+ * Event listener for keydown events to update the keyboard state
+ * @param {KeyboardEvent} e - The keydown event
  */
 
 window.addEventListener('keydown', (e) => {
@@ -41,12 +37,11 @@ window.addEventListener('keydown', (e) => {
     if(e.keyCode == 68) {
         keyboard.d = true;
     }
-    // console.log(e);
 });
 
 /**
- * Event listener for keyup events to update the keyboard state.
- * @param {KeyboardEvent} e - The keyup event.
+ * Event listener for keyup events to update the keyboard state
+ * @param {KeyboardEvent} e - The keyup event
  */
 
 window.addEventListener('keyup', (e) => {
@@ -70,51 +65,59 @@ window.addEventListener('keyup', (e) => {
     }
 });
 
-function mobileButtonPressEvents() {
-    document.getElementById('leftButton').addEventListener('touchstart', (e) => {
-        e.preventDefault();
+function addTouchListener(element, startCallback, endCallback) {
+    let active = false;
+
+    element.addEventListener('touchstart', (e) => {
+        active = true;
+        startCallback(e);
+    }, { passive: true });
+
+    element.addEventListener('touchend', (e) => {
+        if (active) {
+            active = false;
+            endCallback(e);
+        }
+    }, { passive: true });
+
+    element.addEventListener('touchmove', (e) => {
+        if (active) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    addTouchListener(document.getElementById('leftButton'), (e) => {
         keyboard.left = true;
-    });
-    
-    document.getElementById('leftButton').addEventListener('touchend', (e) => {
-        e.preventDefault();
+    }, (e) => {
         keyboard.left = false;
     });
-    
-    document.getElementById('rightButton').addEventListener('touchstart', (e) => {
-        e.preventDefault();
+
+    addTouchListener(document.getElementById('rightButton'), (e) => {
         keyboard.right = true;
-    });
-    
-    document.getElementById('rightButton').addEventListener('touchend', (e) => {
-        e.preventDefault();
+    }, (e) => {
         keyboard.right = false;
     });
-    
-    document.getElementById('spaceButton').addEventListener('touchstart', (e) => {
-        e.preventDefault();
+
+    addTouchListener(document.getElementById('spaceButton'), (e) => {
         keyboard.space = true;
-    });
-    
-    document.getElementById('spaceButton').addEventListener('touchend', (e) => {
-        e.preventDefault();
+    }, (e) => {
         keyboard.space = false;
     });
-    
-    document.getElementById('dButton').addEventListener('touchstart', (e) => {
-        e.preventDefault();
+
+    addTouchListener(document.getElementById('dButton'), (e) => {
         keyboard.d = true;
-    });
-    
-    document.getElementById('dButton').addEventListener('touchend', (e) => {
-        e.preventDefault();
+    }, (e) => {
         keyboard.d = false;
     });
-}
+});
+
+
 
 
 /**
- * Starts the game by initializing the level and setting up the world.
+ * Starts the game by initializing the level and setting up the world
  */
 
 function startGame() {
@@ -139,7 +142,6 @@ function startGame() {
     document.getElementById('dataprotection').classList.add('d-none');
     document.getElementById('menuButton').classList.remove('d-none');
     document.getElementById('userInfoContainer').classList.add('d-none');
-    mobileButtonPressEvents();
     document.getElementById('button').style.height = 'auto';
 
     if (window.innerWidth <= 720) {
@@ -149,10 +151,8 @@ function startGame() {
     background_sound.play();
 }
 
-// document.getElementById('startButton').addEventListener('click', startGame);
-
 /**
- * Opens the information box.
+ * Opens the information box
  */
 
 function openInfoBox() {
@@ -160,8 +160,8 @@ function openInfoBox() {
 }
 
 /**
- * Event listener for click events to close the information box if clicked outside.
- * @param {MouseEvent} event - The click event.
+ * Event listener for click events to close the information box if clicked outside
+ * @param {MouseEvent} event - The click event
  */
 
 document.addEventListener('click', function(event) {
@@ -174,7 +174,7 @@ document.addEventListener('click', function(event) {
 });
 
 /**
- * Activates fullscreen mode for the canvas.
+ * Activates fullscreen mode for the canvas
  */
 
 function fullscreen() {
@@ -183,8 +183,8 @@ function fullscreen() {
 }
 
 /**
- * Requests fullscreen mode for a given element.
- * @param {HTMLElement} element - The element to display in fullscreen.
+ * Requests fullscreen mode for a given element
+ * @param {HTMLElement} element - The element to display in fullscreen
  */
 
 function enterFullscreen(element) {
@@ -198,7 +198,7 @@ function enterFullscreen(element) {
 }
 
 /**
- * Enables the background sound.
+ * Enables the background sound
  */
 
 function soundOn() {
@@ -209,7 +209,7 @@ function soundOn() {
 }
 
 /**
- * Disables the background sound and stops the character's snoring sound if active.
+ * Disables the background sound and stops the character's snoring sound if active
  */
 
 function soundOff() {
@@ -224,7 +224,7 @@ function soundOff() {
 }
 
 /**
- * Loops the background sound when it ends.
+ * Loops the background sound when it ends
  */
 
 background_sound.addEventListener('ended', function() {
@@ -233,7 +233,7 @@ background_sound.addEventListener('ended', function() {
 }, false);
 
 /**
- * Reloads the game to start a new game.
+ * Reloads the game to start a new game
  */
 
 function newGame() {
@@ -241,7 +241,7 @@ function newGame() {
 }
 
 /**
- * Reloads the game to go back to the menu.
+ * Reloads the game to go back to the menu
  */
 
 function goToMenu() {
