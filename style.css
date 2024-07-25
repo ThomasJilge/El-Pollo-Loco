@@ -6,6 +6,7 @@ body {
     margin: 0;
     height: 100vh;
     background-color: black;
+    font-family: 'roboto', sans-serif;
 }
 
 canvas {
@@ -24,6 +25,7 @@ h1 {
     -webkit-text-fill-color: transparent;
     margin-bottom: 650px;
     font-size: 46px;
+    font-family: 'roboto', sans-serif;
 }
 
 .startScreenImg {
@@ -93,6 +95,7 @@ h1 {
     color:rgb(255, 200, 0);
     font-weight: bold;
     font-size: 16px;
+    font-family: 'roboto', sans-serif;
 }
 
 .menuButton {
@@ -103,6 +106,7 @@ h1 {
     color:rgb(255, 200, 0);
     font-weight: bold;
     font-size: 16px;
+    font-family: 'roboto', sans-serif;
 }
 
 .menuButton:hover {
