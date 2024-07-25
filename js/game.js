@@ -126,7 +126,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function startGame() {
     initLevel();
-    // init();
     world = new World(canvas, keyboard);
     document.getElementById('startButton').classList.add('d-none');
     document.getElementById('startScreenImg').classList.add('d-none');

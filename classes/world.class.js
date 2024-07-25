@@ -180,7 +180,6 @@ class World {
         }
     }
 
-  
     /**
      * Checks for collisions between the character and bottles to collect them
      */

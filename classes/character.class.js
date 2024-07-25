@@ -10,8 +10,6 @@ class Character extends MovableObject {
     CharacterIsHurt_sound = new Audio('audio/characterHurt.mp3');
     noSoundCharacterIsHurt = true;
 
-    // bottles = 0;
-
     offset = {
         top: 80,
         bottom: 5,
@@ -100,7 +98,6 @@ class Character extends MovableObject {
         this.loadImages(this.imagesLongIdle);
         this.applyGravity();
         this.animate();
-        // this.bottlesCollected = 0;
     }
 
     /**
@@ -151,6 +148,11 @@ class Character extends MovableObject {
         }, 200);
     }
 
+    /**
+     * Moves the character to the right if the right key is pressed
+     * and the character is not at the end of the level
+     */
+
     characterMoveRight() {
         if (this.world.keyboard.right && this.x < this.world.level.levelEndx) {
             this.moveRight();
@@ -159,6 +161,11 @@ class Character extends MovableObject {
             this.resetIdleTimers();
         }
     }
+
+    /**
+     * Moves the character to the left if the left key is pressed
+     * and the character is not at the start of the level
+     */
 
     characterMoveLeft() {
         if (this.world.keyboard.left && this.x > 0) {
@@ -169,12 +176,21 @@ class Character extends MovableObject {
         }
     }
 
+    /**
+     * Makes the character jump if the space key is pressed
+     * and the character is on the ground
+     */
+
     characterJump() {
         if (this.world.keyboard.space && !this.isAboveGround()) {
             this.jump();
             this.resetIdleTimers();
         }
     }
+
+    /**
+     * Activates the idle timers if no movement keys are pressed
+     */
 
     activateSetIdleTimers() {
         if (!this.world.keyboard.space && !this.world.keyboard.right && !this.world.keyboard.left && !this.world.keyboard.d) {
@@ -225,7 +241,7 @@ class Character extends MovableObject {
     }
 
     /**
-     * Checks if the character is about to fall.
+     * Checks if the character is about to fall
      * @returns {boolean} - True if the character is about to fall, otherwise false
      */
 
@@ -234,7 +250,7 @@ class Character extends MovableObject {
     }
 
     /**
-     * Checks if the character is above the ground.
+     * Checks if the character is above the ground
      * @returns {boolean} - True if the character is above the ground, otherwise false
      */
 

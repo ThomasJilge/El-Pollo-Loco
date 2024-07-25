@@ -106,24 +106,3 @@ class ChickenSmall extends MovableObject {
         }, 200);
     }
 }
-
-//     animateSmallChicken() {
-//         setInterval( () => {
-//             this.moveLeft();
-//         }, 1000 / 60);
-
-//         setInterval(() => {
-//             if (this.enemyDeath) {
-//                     this.playAnimation(this.imagesDead);
-//                     if (this.noSoundSmallChickenHit == true) {
-//                         this.noSoundSmallChickenHit.play();
-//                     }
-//                     setTimeout(() => {
-//                         this.noSoundSmallChickenHit = false;
-//                     });
-//             } else {
-//                 this.playAnimation(this.imagesWalking);
-//             }
-//         }, 200);     
-//     }
-// }

@@ -101,24 +101,3 @@ class Chicken extends MovableObject {
         }, 200);
     }
 }
-
-
-//     animateChicken() {
-//         setInterval( () => {
-//             this.moveLeft();
-//         }, 1000 / 60);
-//         setInterval(() => {
-//             if (this.enemyDeath) {
-//                     this.playAnimation(this.imagesDead);
-//                     if (this.noSoundChickenHit == true) {
-//                         this.chickenHitSound.play();
-//                     }
-//                     setTimeout(() => {
-//                         this.noSoundChickenHit = false;
-//                     });
-//             } else {
-//                 this.playAnimation(this.imagesWalking);
-//             }
-//         }, 200);      
-//     }
-// }

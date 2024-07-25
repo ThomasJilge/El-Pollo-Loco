@@ -43,8 +43,8 @@ class Coins extends MovableObject {
     ];
 
     /**
-     * Creates an instance of Coins.
-     * Loads the initial image and starts the animation.
+     * Creates an instance of Coins
+     * Loads the initial image and starts the animation
      */
 
     constructor() {
@@ -64,7 +64,6 @@ class Coins extends MovableObject {
          */
 
         this.y = 100 + Math.random() * 200;
-        // this.speed = 0.15 + Math.random() * 0.5;
         this.animate();
     }
 

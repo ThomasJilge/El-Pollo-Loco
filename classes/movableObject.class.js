@@ -122,22 +122,6 @@ class MovableObject extends DrawableObject {
         }
     }
 
-
-    // isColliding(obj) {
-    //     return  (this.x + this.width) >= obj.x && this.x <= (obj.x + obj.width) && 
-    //             (this.y + this.offsetY + this.height) >= obj.y &&
-    //             (this.y + this.offsetY) <= (obj.y + obj.height) && 
-    // }
-
-    /** */
-
-    // isColliding(mo) {
-    //     return this.x + this.width > mo.x &&
-    //         this.y + this.height > mo.y &&
-    //         this.x < mo.x &&
-    //         this.y < mo.y + mo.height;
-    // }
-
     /** 
      * Checks if the object is colliding with another object
      * @param {Object} mo - The object to check collision with
@@ -150,22 +134,6 @@ class MovableObject extends DrawableObject {
           this.x + this.offset.left <= mo.x + mo.width - mo.offset.right &&
           this.y + this.offset.top <= mo.y + mo.height - mo.offset.bottom;
       }
-
-    // isCollidingOffset(mo) {
-    //     return this.x + this.width - this.offset.right >= mo.x + mo.offset.left &&
-    //       this.y + this.height - this.offset.bottom >= mo.y + mo.offset.top &&
-    //       this.x + this.offset.left <= mo.x + mo.width - mo.offset.right &&
-    //       this.y + this.offset.top <= mo.y + mo.height - mo.offset.bottom;
-    //   }
-
-
-    // jumpOnEnemies(enemy) { 
-    //     return this.x + this.width - this.offset.right > enemy.x + enemy.offset.left &&
-    //         this.y + this.height > enemy.y &&
-    //         this.x + this.offset.left < enemy.x + enemy.width - enemy.offset.right &&
-    //         this.y < enemy.y + enemy.height;
-
-    // }
 
     /** 
      * Collects bottles and updates the quantity

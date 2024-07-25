@@ -1,7 +1,7 @@
 let level1;
 
 /**
- * Initializes level1 with a set of game objects including enemies, collectibles, clouds, and background objects.
+ * Initializes level1 with a set of game objects including enemies, collectibles, clouds, and background objects
  */
 
 function initLevel() {

@@ -124,6 +124,7 @@ class Endboss extends MovableObject {
     /**
      * Handles the animations based on the endboss's state
      */
+    
     animations() {
         if (this.enemyDeath) {
             this.animateDeath();
@@ -143,6 +144,7 @@ class Endboss extends MovableObject {
     /**
      * Handles the death animation and sound
      */
+
     animateDeath() {
         this.playAnimation(this.imagesDead);
         if (this.noSoundEndbossDead) {
@@ -155,6 +157,7 @@ class Endboss extends MovableObject {
     /**
      * Handles the hurt animation and sound
      */
+
     animateHurt() {
         this.playAnimation(this.imagesHurt);
         if (this.noSoundEndbossIsHurt) {
@@ -163,40 +166,6 @@ class Endboss extends MovableObject {
         }
     }
     
-    // animateEndboss() {
-    //     setInterval(() => {
-    //         if (this.walkingDone && !this.enemyDeath) {
-    //             this.moveLeft();
-    //         }
-    //     }, 100);
-        
-    //     setInterval(() => {
-    //         if (this.enemyDeath) {
-    //             this.playAnimation(this.imagesDead);
-    //             if (this.noSoundEndbossDead) {
-    //                 this.endbossDeadSound.play();
-    //                 this.noSoundEndbossDead = false;
-    //             }
-    //             background_sound.pause();
-    //         } else if (this.isHurt) {
-    //             this.playAnimation(this.imagesHurt);
-    //             if (this.noSoundEndbossIsHurt) {
-    //                 this.endBossIsHurt.play();
-    //                 this.noSoundEndbossIsHurt = false;
-    //                 console.log('endboss is hurt');
-    //             }
-    //         } else if (this.alertDone) {
-    //             this.playAnimation(this.imagesAlert);
-    //         } else if (this.isAttack) {
-    //             this.playAnimation(this.imagesAttack);
-    //         } else if (this.walkingDone) {
-    //             this.playAnimation(this.imagesWalking);
-    //         } else {
-    //             this.playAnimation(this.imagesAlert);
-    //         }
-    //     }, 200);
-    // }
-
     /** 
      * Starts the walking animation of the endboss
      */

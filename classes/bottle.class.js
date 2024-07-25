@@ -12,7 +12,7 @@ class Bottle extends MovableObject {
     };
 
     /**
-     * @type {string[]} imagesBottle - Array of paths to bottle images.
+     * @type {string[]} imagesBottle - Array of paths to bottle images
      */
 
     imagesBottle = [
@@ -30,7 +30,6 @@ class Bottle extends MovableObject {
         this.loadImages(this.imagesBottle);
         this.x = 200 + Math.random() * 2000;
         this.y = 100 + Math.random() * 200;
-        // this.speed = 0.15 + Math.random() * 0.5;
         this.animate();
     }
 
@@ -45,5 +44,4 @@ class Bottle extends MovableObject {
         }, 400);
     
     }
-
 }
