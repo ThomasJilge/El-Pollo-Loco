@@ -57,6 +57,7 @@ class World {
     run() {
         setInterval(() => {
             this.checkCollisionEnemies();
+            this.checkCollisionEndboss(); 
             this.endbossCollision();
             this.enemyCollision();
             this.removeThrowableObject();
@@ -142,8 +143,23 @@ class World {
             enemy.enemyDeath = true;
             setTimeout(() => {
                 this.level.enemies.splice(index, 1);
-            }, 500);
+            }, 200);
         }
+    }
+
+    /**
+    * Checks for collisions between the character and the endboss to inflict damage
+    */
+
+    checkCollisionEndboss() {
+        this.level.enemies.forEach((enemy) => {
+            if (enemy instanceof Endboss && !enemy.enemyDeath) {
+                if (this.character.isColliding(enemy)) {
+                    this.character.hit();
+                    this.statusBar.setPercentage(this.character.energy);
+                }
+            }
+        });
     }
     
     /**
