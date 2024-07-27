@@ -1,51 +1,16 @@
 class DrawableObject {
 
-    /**
-     * The image of the drawable object
-     * @type {HTMLImageElement}
-     */
-
     img;
-
-    /**
-     * A cache for storing loaded images
-     * @type {Object.<string, HTMLImageElement>}
-     */
 
     imageCache = {};
 
-    /**
-     * The index of the current image in the image cache
-     * @type {number}
-     */
-
     currentImage = 0;
-
-    /**
-     * The x-coordinate of the drawable object
-     * @type {number}
-     */
 
     x = 120;
 
-    /**
-     * The y-coordinate of the drawable object
-     * @type {number}
-     */
-
     y = 280;
 
-    /**
-     * The height of the drawable object
-     * @type {number}
-     */
-
     height = 150;
-
-    /**
-     * The width of the drawable object
-     * @type {number}
-     */
 
     width = 100;
 

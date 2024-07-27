@@ -1,94 +1,16 @@
 class MovableObject extends DrawableObject {
 
-    /** 
-     * The speed of the object
-     * @type {number}
-     * @default 0.15
-     */
-
     speed = 0.15;
-
-    /** 
-     * Indicates if the object is moving in the other direction
-     * @type {boolean}
-     * @default false
-     */
-
     otherDirection = false;
-
-    /** 
-     * The vertical speed of the object
-     * @type {number}
-     * @default 0
-     */
-
     speedY = 0;
-
-    /** 
-     * The acceleration due to gravity
-     * @type {number}
-     * @default 2.5
-     */
-
     acceleration = 2.5;
-
-    /** 
-     * The energy level of the object
-     * @type {number}
-     * @default 100
-     */
-
     energy = 100;
-
-    /** 
-     * The timestamp of the last hit
-     * @type {number}
-     * @default 0
-     */
-
     lastHit = 0;
-
-    /** 
-     * The quantity of bottles collected
-     * @type {number}
-     * @default 0
-     */
-
     quantityBottles = 0;
-
-    /** 
-     * The quantity of coins collected
-     * @type {number}
-     * @default 0
-     */
-
     quantityCoins = 0;
-
-    /** 
-     * The Y-axis offset
-     * @type {number}
-     * @default 0
-     */
-
     offsetY = 0;
-
-    /** 
-     * The X-axis offset
-     * @type {number}
-     * @default 0
-     */
-
     offsetX = 0;
-
-    /**
-     * The offset boundaries of the object
-     * @type {Object}
-     * @property {number} top - Top offset
-     * @property {number} bottom - Bottom offset
-     * @property {number} left - Left offset
-     * @property {number} right - Right offset
-     */
-
+    
     offset = {
         top: 0,
         bottom: 0,

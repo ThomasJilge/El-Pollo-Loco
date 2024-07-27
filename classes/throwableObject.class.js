@@ -20,14 +20,6 @@ class ThrowableObject extends MovableObject {
         'img/6_salsa_bottle/bottle_rotation/bottle_splash/6_bottle_splash.png'
     ];
 
-    /**
-     * Create a throwable object
-     * @param {number} x - The x-coordinate of the object
-     * @param {number} y - The y-coordinate of the object
-     * @param {Object} statusBar - The status bar associated with the object
-     * @param {number} direction - The direction of the throw (1 for right, -1 for left)
-     */
-
     constructor(x, y, statusBar, direction) {
         super().loadImage('img/6_salsa_bottle/bottle_rotation/1_bottle_rotation.png');
         this.loadImages(this.throwBottleRotation);

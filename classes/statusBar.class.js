@@ -9,17 +9,7 @@ class StatusBar extends DrawableObject {
         'img/7_statusbars/1_statusbar/2_statusbar_health/blue/100.png'
     ];
 
-    /**
-     * The percentage of the player's health
-     * @type {number}
-     * @default 0
-     */
-
     percentage = 0;
-
-    /** 
-     * Constructs a new StatusBar instance
-     */
 
     constructor() {
         super();

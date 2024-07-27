@@ -2,49 +2,15 @@ let enemyDeath = false;
 
 class Chicken extends MovableObject {
 
-    /**
-     * Height of the chicken
-     * @type {number}
-     */
-
     height = 80;
-
-    /**
-     * Width of the chicken
-     * @type {number}
-     */
 
     width = 70;
 
-    /**
-     * Vertical position of the chicken
-     * @type {number}
-     */
-
     y = 350;
-
-    /**
-     * Sound played when the chicken is hit
-     * @type {Audio}
-     */
 
     chickenHitSound = new Audio ('audio/chicken1.mp3');
 
-    /**
-     * Flag to check if the sound for chicken hit has been played
-     * @type {boolean}
-     */
-
     noSoundChickenHit = true;
-
-    /**
-     * Offset for collision detection
-     * @type {Object}
-     * @property {number} top - Top offset
-     * @property {number} bottom - Bottom offset
-     * @property {number} left - Left offset
-     * @property {number} right - Right offset
-     */
 
     offset = {
         top: -5,
@@ -62,12 +28,6 @@ class Chicken extends MovableObject {
     imagesDead = [
         'img/3_enemies_chicken/chicken_normal/2_dead/dead.png'
     ];
-
-    /**
-     * Creates an instance of Chicken
-     * Loads the initial image, all animation images, sets the initial position and speed
-     * and starts the animation
-     */
 
     constructor() {
         super().loadImage('img/3_enemies_chicken/chicken_normal/1_walk/1_w.png');

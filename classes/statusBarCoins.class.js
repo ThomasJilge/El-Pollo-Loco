@@ -9,17 +9,7 @@ class StatusBarCoins extends DrawableObject {
         'img/7_statusbars/1_statusbar/1_statusbar_coin/orange/100.png'
     ];
 
-    /**
-     * The percentage of coins collected
-     * @type {number}
-     * @default 0
-     */
-
     percentage = 0;
-
-    /**
-     * Creates a new StatusBarCoins instance
-     */
 
     constructor() {
         super();
@@ -47,7 +37,6 @@ class StatusBarCoins extends DrawableObject {
      * @returns {number} The index of the image to display
      */
 
-    
     resolveImageIndex() {
         if(this.percentage == 0) {
             return 0;

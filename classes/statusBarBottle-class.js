@@ -9,17 +9,7 @@ class StatusBarBottles extends DrawableObject {
         'img/7_statusbars/1_statusbar/3_statusbar_bottle/green/100.png'
     ];
 
-     /**
-     * The percentage of bottles collected.
-     * @type {number}
-     * @default 0
-     */
-
     percentage = 0;
-
-    /**
-     * Creates a new StatusBarBottles instance.
-     */
 
     constructor() {
         super();

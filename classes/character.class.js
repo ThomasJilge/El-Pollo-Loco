@@ -84,10 +84,6 @@ class Character extends MovableObject {
     walking_sound = new Audio('audio/running.mp3');
     snoring_sound = new Audio('audio/snoring.mp3');
 
-    /**
-     * Creates an instance of Character and initializes it with images and animations
-     */
-
     constructor() {
         super().loadImage('img/2_character_pepe/2_walk/W-21.png');
         this.loadImages(this.imagesWalking);

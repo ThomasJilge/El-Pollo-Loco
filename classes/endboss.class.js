@@ -11,35 +11,9 @@ class Endboss extends MovableObject {
     isNotAttack = true;
     enemyDeath = false;
 
-    /**
-     * Height of the endboss
-     * @type {number}
-     */
-
     height = 400;
-
-    /**
-     * Width of the endboss
-     * @type {number}
-     */
-
     width = 250;
-
-    /**
-     * Vertical position of the endboss
-     * @type {number}
-     */
-
     y = 55;
-
-    /**
-     * Offset for collision detection
-     * @type {Object}
-     * @property {number} top - Top offset
-     * @property {number} bottom - Bottom offset
-     * @property {number} left - Left offset
-     * @property {number} right - Right offset
-     */
 
     offset = {
         top: 5,
@@ -88,10 +62,6 @@ class Endboss extends MovableObject {
         'img/4_enemie_boss_chicken/5_dead/G25.png',
         'img/4_enemie_boss_chicken/5_dead/G26.png'
     ];
-
-    /** 
-     * Constructs a new Endboss instance and initializes its properties
-     */
 
     constructor() {
         super().loadImage(this.imagesAlert[0]);

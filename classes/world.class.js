@@ -26,12 +26,6 @@ class World {
     enemyDeath = false;
     soundEnabled = true;
 
-    /**
-     * Initializes the World with a canvas and keyboard input
-     * @param {HTMLCanvasElement} canvas - The canvas element where the game is drawn
-     * @param {Object} keyboard - An object to handle keyboard input
-     */
-
     constructor(canvas, keyboard) {
         this.ctx = canvas.getContext('2d');
         this.canvas = canvas;
@@ -68,7 +62,7 @@ class World {
             this.characterIsDead();
             this.endbossIsDead();
             this.updateEndbossAndStatusBar();
-        }, 100);
+        }, 50);
     }
 
     /**
@@ -181,6 +175,12 @@ class World {
         });
     }
 
+    /**
+    * Handles the collision logic when an enemy is hit by a throwable object
+    * @param {Object} enemy - The enemy object that was hit
+    * @param {number} index - The index of the enemy in the enemies array
+    */
+
     enemyCollision(enemy, index) {
         if (!enemy) return;
         enemy.enemyDeath = true;
@@ -188,6 +188,11 @@ class World {
             this.level.enemies.splice(index, 1);
         }, 500);
     }
+
+    /**
+    * Removes a throwable object from the game
+    * @param {Object} throwableObject - The throwable object to be removed
+    */
 
     removeThrowableObject(throwableObject) {
         const index = this.throwableObjects.indexOf(throwableObject);
