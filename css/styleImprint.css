@@ -3,3 +3,13 @@ body {
     background-color: rgb(255,164,0);
     font-family: 'Kaushan Script';
 }
+
+.imprintContainer {
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.imprint {
+    color: black;
+}

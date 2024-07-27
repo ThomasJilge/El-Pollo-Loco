@@ -4,6 +4,16 @@ body, .imprintAndDataprotectionContainer a {
     font-family: 'Kaushan Script';
 }
 
+.dataprotectionContainer {
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.dataprotection {
+    color: black;
+}
+
 ::-webkit-scrollbar {
     width: 20px;
   }
