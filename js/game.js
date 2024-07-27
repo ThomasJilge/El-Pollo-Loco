@@ -238,7 +238,9 @@ background_sound.addEventListener('ended', function() {
  */
 
 function newGame() {
-    window.location.reload();
+    startGame();
+    document.getElementById('gameOver').classList.add('d-none');
+    document.getElementById('gameWon').classList.add('d-none');
 }
 
 /**
