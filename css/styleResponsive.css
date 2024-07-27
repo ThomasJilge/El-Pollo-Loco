@@ -70,14 +70,6 @@
     }
 }
 
-/* @media (pointer: coarse) and (max-width: 940px) {
-
-    .startScreen {
-        bottom: 35px;
-    }
-
-} */
-
 @media (max-width: 950px) and (orientation: landscape) {
 
     .info {
@@ -361,12 +353,6 @@
 }
 
 @media (max-height: 375px) {
-
-
-    /* .userInfoContainer {
-        top: 100px;
-        height: 65px;
-    } */
 
     .info {
         top: 115px;
