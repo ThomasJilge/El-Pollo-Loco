@@ -126,7 +126,7 @@ class World {
 
     endbossCollision(enemy, index) {
         if (!enemy) return;
-        enemy.energy -= 20;
+        enemy.energy -= 25;
         enemy.isHurt = true;
         enemy.noSoundEndbossIsHurt = true;
         this.statusBarEndboss.setPercentageEndboss(enemy.energy);
