@@ -1,6 +1,25 @@
-body {
+body, .imprintAndDataprotectionContainer a {
     margin: 10px;
+    background-color: rgb(255,164,0);
+    font-family: 'Kaushan Script';
 }
+
+::-webkit-scrollbar {
+    width: 20px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: black;
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
 
 @media (max-width: 360px) {
 
