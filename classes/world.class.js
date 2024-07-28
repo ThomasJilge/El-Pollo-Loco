@@ -84,7 +84,8 @@ class World {
             let bottle = new ThrowableObject(this.character.x + offset, this.character.y + 100, this.statusBarBottles, direction);
             this.throwableObjects.push(bottle);
             this.character.resetIdleTimers();
-        }
+            this.throwingBottle = true;
+        } 
     }
 
     /**
@@ -168,6 +169,7 @@ class World {
                         this.endbossCollision(enemy, i);
                     } else {
                         this.enemyCollision(enemy, i);
+                        // this.level.enemies.splice(i, 1);
                     }
                     this.removeThrowableObject(throwableObject);
                 }
