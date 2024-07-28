@@ -101,6 +101,17 @@ class Character extends MovableObject {
      */
 
     animate() {
+        this.characterMovement();
+        this.characterAnimation();
+        this.idleAnimation();
+        this.longIdleAnimation();
+    }
+
+    /**
+     * Handles character movement and camera position
+     */
+
+    characterMovement() {
         setInterval(() => {
             this.walking_sound.pause();
             this.world.camera_x = -this.x + 100;
@@ -109,7 +120,13 @@ class Character extends MovableObject {
             this.characterJump();
             this.activateSetIdleTimers();
         }, 1500 / 60);
+    }
 
+    /**
+     * Handles character animation based on its state
+     */
+
+    characterAnimation() {
         setInterval(() => {
             if (this.isDead()) {
                 this.playAnimation(this.imagesDead);
@@ -125,13 +142,25 @@ class Character extends MovableObject {
                 this.playAnimation(this.imagesWalking);
             } 
         }, 50);  
+    }
 
+    /**
+     * Plays the idle animation
+     */
+
+    idleAnimation() {
         setInterval(() => {
             if (this.characterIdle) {
                 this.playAnimation(this.imagesIdle);
             }
         }, 200);
+    }
 
+    /**
+     * Plays the long idle animation and handles snoring sound
+     */
+
+    longIdleAnimation() {
         setInterval(() => {
             if (this.characterLongIdle) {
                 this.playAnimation(this.imagesLongIdle);
