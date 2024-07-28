@@ -129,6 +129,17 @@ class MovableObject extends DrawableObject {
     }
 
     /** 
+     * Decreases the energy of the object when hit by endboss
+     */
+
+    hitByEndboss() {
+        this.energy -= 25;  // 50 Schaden durch Endboss
+        if (this.energy < 0) {
+            this.energy = 0;
+        }
+    }
+
+    /** 
      * Checks if the object is hurt
      * @returns {boolean} True if the object is hurt, false otherwise
      */

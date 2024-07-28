@@ -157,38 +157,22 @@ class World {
         this.level.enemies.forEach((enemy) => {
             if (enemy instanceof Endboss && !enemy.enemyDeath) {
                 if (this.character.isColliding(enemy)) {
-                    this.character.hit();
+                    this.character.hitByEndboss();
                     this.statusBar.setPercentage(this.character.energy);
                 }
             }
         });
     }
-    
+
     /**
      * Checks for collisions between throwable objects (bottles) and enemies
      */
-
-    // checkCollisionBottleWithEnemies() {
-    //     this.throwableObjects.forEach((throwableObject) => {
-    //         this.level.enemies.forEach((enemy, i) => {
-    //             if (throwableObject.isColliding(enemy)) {
-    //                 enemy instanceof Endboss ? this.endbossCollision(enemy, i) : this.enemyCollision(enemy, i);
-    //                 this.removeThrowableObject(throwableObject);
-    //             }
-    //         });
-    //     });
-    // }
 
     checkCollisionBottleWithEnemies() {
         this.throwableObjects.forEach((throwableObject) => {
             this.level.enemies.forEach((enemy, i) => {
                 if (throwableObject.isColliding(enemy)) {
-                    if (enemy instanceof Endboss) {
-                        this.endbossCollision(enemy, i);
-                    } else {
-                        this.enemyCollision(enemy, i);
-                        // this.level.enemies.splice(i, 1);
-                    }
+                    enemy instanceof Endboss ? this.endbossCollision(enemy, i) : this.enemyCollision(enemy, i);
                     this.removeThrowableObject(throwableObject);
                 }
             });
@@ -225,35 +209,17 @@ class World {
      * Checks for collisions between the character and bottles to collect them
      */
 
-    // bottleCollision() {
-    //     this.level.bottles.forEach((bottle, i) => {
-    //         if (this.character.isColliding(bottle)) {
-    //             this.character.collectingBottles();
-    //             if (this.noSoundBottles) this.collectedBottlesSound.play();
-    //             this.level.bottles.splice(i, 1);
-    //             this.collectedBottles += 1;
-    //             this.statusBarBottles.setPercentageBottle(this.statusBarBottles.percentage + 20);
-    //         }
-    //     });
-    // }
-
     bottleCollision() {
-        if (this.level && this.level.bottles) {
-            this.level.bottles.forEach((bottle, i) => {
-                if (this.character.isColliding(bottle)) {
-                    this.character.collectingBottles();
-                    if (this.noSoundBottles == true) {
-                        this.collectedBottlesSound.play();
-                    }
-                    this.level.bottles.splice(i, 1);
-                    this.collectedBottles += 1;
-                    let newPercentage = this.statusBarBottles.percentage + 20;
-                    this.statusBarBottles.setPercentageBottle(newPercentage);
-                }
-            });
-        }
+        this.level.bottles.forEach((bottle, i) => {
+            if (this.character.isColliding(bottle)) {
+                this.character.collectingBottles();
+                if (this.noSoundBottles) this.collectedBottlesSound.play();
+                this.level.bottles.splice(i, 1);
+                this.collectedBottles += 1;
+                this.statusBarBottles.setPercentageBottle(this.statusBarBottles.percentage + 20);
+            }
+        });
     }
-    
 
     /**
      * Checks for collisions between the character and coins to collect them
