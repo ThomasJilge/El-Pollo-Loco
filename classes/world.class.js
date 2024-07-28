@@ -85,18 +85,30 @@ class World {
 
     checkThrowableObjects() {
         let currentTime = Date.now();
-        let throwInterval = 500;
-
-        if (this.collectedBottles > 0 && this.keyboard.d && (currentTime - this.lastThrowTime > throwInterval)) {
+        if (this.collectedBottles > 0 && this.keyboard.d && currentTime - this.lastThrowTime > 500) {
             let direction = this.character.otherDirection ? -1 : 1;
             let offset = this.character.otherDirection ? -100 : 100;
-            let bottle = new ThrowableObject(this.character.x + offset, this.character.y + 100, this.statusBarBottles, direction);
-            this.throwableObjects.push(bottle);
+            this.throwableObjects.push(new ThrowableObject(this.character.x + offset, this.character.y + 100, this.statusBarBottles, direction));
             this.character.resetIdleTimers();
             this.throwingBottle = true;
-            this.lastThrowTime = currentTime; 
-        } 
+            this.lastThrowTime = currentTime;
+        }
     }
+
+    // checkThrowableObjects() {
+    //     let currentTime = Date.now();
+    //     let throwInterval = 500;
+
+    //     if (this.collectedBottles > 0 && this.keyboard.d && (currentTime - this.lastThrowTime > throwInterval)) {
+    //         let direction = this.character.otherDirection ? -1 : 1;
+    //         let offset = this.character.otherDirection ? -100 : 100;
+    //         let bottle = new ThrowableObject(this.character.x + offset, this.character.y + 100, this.statusBarBottles, direction);
+    //         this.throwableObjects.push(bottle);
+    //         this.character.resetIdleTimers();
+    //         this.throwingBottle = true;
+    //         this.lastThrowTime = currentTime; 
+    //     } 
+    // }
 
     /**
      * Checks for collisions between the character and enemies
