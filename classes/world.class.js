@@ -170,17 +170,28 @@ class World {
         this.throwableObjects.forEach((throwableObject) => {
             this.level.enemies.forEach((enemy, i) => {
                 if (throwableObject.isColliding(enemy)) {
-                    if (enemy instanceof Endboss) {
-                        this.endbossCollision(enemy, i);
-                    } else {
-                        this.enemyCollision(enemy, i);
-                        // this.level.enemies.splice(i, 1);
-                    }
+                    enemy instanceof Endboss ? this.endbossCollision(enemy, i) : this.enemyCollision(enemy, i);
                     this.removeThrowableObject(throwableObject);
                 }
             });
         });
     }
+
+    // checkCollisionBottleWithEnemies() {
+    //     this.throwableObjects.forEach((throwableObject) => {
+    //         this.level.enemies.forEach((enemy, i) => {
+    //             if (throwableObject.isColliding(enemy)) {
+    //                 if (enemy instanceof Endboss) {
+    //                     this.endbossCollision(enemy, i);
+    //                 } else {
+    //                     this.enemyCollision(enemy, i);
+    //                     // this.level.enemies.splice(i, 1);
+    //                 }
+    //                 this.removeThrowableObject(throwableObject);
+    //             }
+    //         });
+    //     });
+    // }
 
     /**
     * Handles the collision logic when an enemy is hit by a throwable object
@@ -224,23 +235,7 @@ class World {
         });
     }
     
-    // bottleCollision() {
-    //     if (this.level && this.level.bottles) {
-    //         this.level.bottles.forEach((bottle, i) => {
-    //             if (this.character.isColliding(bottle)) {
-    //                 this.character.collectingBottles();
-    //                 if (this.noSoundBottles == true) {
-    //                     this.collectedBottlesSound.play();
-    //                 }
-    //                 this.level.bottles.splice(i, 1);
-    //                 this.collectedBottles += 1;
-    //                 let newPercentage = this.statusBarBottles.percentage + 20;
-    //                 this.statusBarBottles.setPercentageBottle(newPercentage);
-    //             }
-    //         });
-    //     }
-    // }
-    
+
     /**
      * Checks for collisions between the character and coins to collect them
      */
@@ -257,22 +252,6 @@ class World {
         });
     }
     
-    // coinCollision() {
-    //     if (this.level && this.level.coins) {
-    //         this.level.coins.forEach((coin, i) => {
-    //             if (this.character.isColliding(coin)) {
-    //                 this.character.collectingCoins();
-    //                 if (this.noSoundCoins == true) {
-    //                     this.collectedCoinsSound.play();
-    //                 }
-    //                 this.level.coins.splice(i, 1);
-    //                 this.statusBarCoins.setPercentageCoins(this.character.quantityCoins);
-    //                 this.collectedCoins += 1;
-    //             }
-    //         });
-    //     }
-    // }
-
     /**
      * Draws the game elements on the canvas
      */
@@ -285,11 +264,9 @@ class World {
         this.addToMap(this.statusBar);
         this.addToMap(this.statusBarCoins);
         this.addToMap(this.statusBarBottles);
-
         if (this.showEndbossStatusBar) {
             this.addToMap(this.statusBarEndboss);
         }
-
         this.ctx.translate(this.camera_x, 0);
         this.addToMap(this.character);
         this.addObjectsToMap(this.level.clouds);
@@ -298,7 +275,6 @@ class World {
         this.addObjectsToMap(this.level.coins);
         this.addObjectsToMap(this.throwableObjects);
         this.ctx.translate(-this.camera_x, 0);
-        
         let self = this;
         requestAnimationFrame(function() {
             self.draw();
