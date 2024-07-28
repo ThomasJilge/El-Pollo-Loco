@@ -1,9 +1,7 @@
 class Coins extends MovableObject {
 
     height = 170;
-
     width = 170;
-
     y = 100;
 
     offset = {
@@ -29,7 +27,6 @@ class Coins extends MovableObject {
     /**
      * Starts the animation for the coin, changing images every 400 milliseconds
      */
-
     animate() {
         setInterval(() => {
             this.playAnimation(this.imagesCoins);

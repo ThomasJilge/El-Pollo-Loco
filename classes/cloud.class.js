@@ -1,11 +1,8 @@
 class Cloud extends MovableObject {
 
     y = 50;
-
     width = 500;
-
     height = 250;
-
     speed = 0.15;
 
     constructor() {
@@ -17,7 +14,6 @@ class Cloud extends MovableObject {
     /**
      * Animates the cloud by moving it to the left
      */
-
     animate() {
         this.moveLeft();
     }
@@ -25,7 +21,6 @@ class Cloud extends MovableObject {
     /**
      * Moves the cloud to the left continuously at the defined speed
      */
-
     moveLeft() {
         setInterval( () => {
             this.x -= this.speed;

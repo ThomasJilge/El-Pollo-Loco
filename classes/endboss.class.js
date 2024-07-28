@@ -77,7 +77,6 @@ class Endboss extends MovableObject {
     /** 
      * Animates the endboss by moving it and changing its images based on its state
      */
-
     animateEndboss() {
         setInterval(() => {
             if (this.walkingDone && !this.enemyDeath) {
@@ -93,7 +92,6 @@ class Endboss extends MovableObject {
     /**
      * Handles the animations based on the endboss's state
      */
-    
     animations() {
         if (this.enemyDeath) {
             this.animateDeath();
@@ -113,7 +111,6 @@ class Endboss extends MovableObject {
     /**
      * Handles the death animation and sound
      */
-
     animateDeath() {
         this.playAnimation(this.imagesDead);
         if (this.noSoundEndbossDead) {
@@ -126,7 +123,6 @@ class Endboss extends MovableObject {
     /**
      * Handles the hurt animation and sound
      */
-
     animateHurt() {
         this.playAnimation(this.imagesHurt);
         if (this.noSoundEndbossIsHurt) {
@@ -138,7 +134,6 @@ class Endboss extends MovableObject {
     /** 
      * Starts the walking animation of the endboss
      */
-
     startWalking() {
         this.walkingDone = true;
     }
@@ -146,7 +141,6 @@ class Endboss extends MovableObject {
     /** 
      * Starts the attack animation of the endboss
      */
-
     startAttack() {
         this.isAttack = true;
         this.isNotAttack = false;
@@ -155,7 +149,6 @@ class Endboss extends MovableObject {
     /** 
      * Stops the attack animation of the endboss
      */
-    
     stopAttack() {
         this.isAttack = false;
         this.isNotAttack = true;
@@ -166,46 +159,41 @@ class Endboss extends MovableObject {
     * @param {Object} enemy - The endboss object
     * @param {number} distance - The distance between the character and the endboss
     */
-
-        endbossWalking(enemy, distance) {
-            if (distance <= 430 && !enemy.walkingDone) {
-                enemy.startWalking();
-            }
+    endbossWalking(enemy, distance) {
+        if (distance <= 430 && !enemy.walkingDone) {
+            enemy.startWalking();
         }
+    }
     
-        /**
-        * Triggers the endboss to start attacking when the character is within a certain distance
-        * Stops the attack if the character moves away
-        * @param {Object} enemy - The endboss object
-        * @param {number} distance - The distance between the character and the endboss
-        */
-    
-        endbossAttack(enemy, distance) {
-            if (distance <= 150 && !enemy.isAttack) {
-                enemy.startAttack();
-            }
-            if (distance >= 151 && enemy.isAttack) {
-                enemy.stopAttack();
-            }
+    /**
+    * Triggers the endboss to start attacking when the character is within a certain distance
+    * Stops the attack if the character moves away
+    * @param {Object} enemy - The endboss object
+    * @param {number} distance - The distance between the character and the endboss
+    */
+     endbossAttack(enemy, distance) {
+        if (distance <= 150 && !enemy.isAttack) {
+            enemy.startAttack();
         }
+        if (distance >= 151 && enemy.isAttack) {
+            enemy.stopAttack();
+        }
+    }
     
-        /**
-         * Checks if the endboss is dead and triggers the game won sequence if so
-         */
-    
-        endbossIsDead() {
-            this.level.enemies.forEach((enemy) => {
-                if (enemy instanceof Endboss && enemy.energy <= 0) {
-                    enemy.enemyDeath = true;
-                    if (!this.displayGameWon) {
-                        this.displayGameWon = true;
-                        this.gameWon();
-                    }
+    /**
+    * Checks if the endboss is dead and triggers the game won sequence if so
+    */
+    endbossIsDead() {
+        this.level.enemies.forEach((enemy) => {
+            if (enemy instanceof Endboss && enemy.energy <= 0) {
+                enemy.enemyDeath = true;
+                if (!this.displayGameWon) {
+                    this.displayGameWon = true;
+                    this.gameWon();
                 }
-            });
-        }
-
-
+            }
+        });
+    }
 }
 
 

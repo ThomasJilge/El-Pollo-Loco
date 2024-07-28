@@ -38,7 +38,6 @@ class Chicken extends MovableObject {
      * Moves the chicken to the left continuously
      * Plays the walking or dead animation based on the state of the chicken
      */
-
     animateChicken() {
         setInterval(() => {
             this.moveLeft();

@@ -99,7 +99,6 @@ class Character extends MovableObject {
     /**
      * Handles the character's animations and movements
      */
-
     animate() {
         this.characterMovement();
         this.characterAnimation();
@@ -110,7 +109,6 @@ class Character extends MovableObject {
     /**
      * Handles character movement and camera position
      */
-
     characterMovement() {
         setInterval(() => {
             this.walking_sound.pause();
@@ -125,7 +123,6 @@ class Character extends MovableObject {
     /**
      * Handles character animation based on its state
      */
-
     characterAnimation() {
         setInterval(() => {
             if (this.isDead()) {
@@ -147,7 +144,6 @@ class Character extends MovableObject {
     /**
      * Plays the idle animation
      */
-
     idleAnimation() {
         setInterval(() => {
             if (this.characterIdle) {
@@ -159,7 +155,6 @@ class Character extends MovableObject {
     /**
      * Plays the long idle animation and handles snoring sound
      */
-
     longIdleAnimation() {
         setInterval(() => {
             if (this.characterLongIdle) {
@@ -177,7 +172,6 @@ class Character extends MovableObject {
      * Moves the character to the right if the right key is pressed
      * and the character is not at the end of the level
      */
-
     characterMoveRight() {
         if (this.world.keyboard.right && this.x < this.world.level.levelEndx) {
             this.moveRight();
@@ -191,7 +185,6 @@ class Character extends MovableObject {
      * Moves the character to the left if the left key is pressed
      * and the character is not at the start of the level
      */
-
     characterMoveLeft() {
         if (this.world.keyboard.left && this.x > 0) {
             this.moveLeft();
@@ -205,7 +198,6 @@ class Character extends MovableObject {
      * Makes the character jump if the space key is pressed
      * and the character is on the ground
      */
-
     characterJump() {
         if (this.world.keyboard.space && !this.isAboveGround()) {
             this.jump();
@@ -216,7 +208,6 @@ class Character extends MovableObject {
     /**
      * Activates the idle timers if no movement keys are pressed
      */
-
     activateSetIdleTimers() {
         if (!this.world.keyboard.space && !this.world.keyboard.right && !this.world.keyboard.left && !this.world.keyboard.d) {
             this.setIdleTimers();
@@ -226,7 +217,6 @@ class Character extends MovableObject {
     /**
      * Sets the idle and long idle timers
      */
-
     setIdleTimers() {
         if (!this.idleTimer) {
             this.idleTimer = setTimeout(() => {
@@ -243,7 +233,6 @@ class Character extends MovableObject {
     /**
      * Resets the idle and long idle timers
      */
-
     resetIdleTimers() {
         if (this.idleTimer) {
             clearTimeout(this.idleTimer);
@@ -260,7 +249,6 @@ class Character extends MovableObject {
     /**
      * Makes the character jump
      */
-
     jump() {
         this.speedY = 30;
     }
@@ -269,7 +257,6 @@ class Character extends MovableObject {
      * Checks if the character is about to fall
      * @returns {boolean} - True if the character is about to fall, otherwise false
      */
-
     isAboutToFall() {
         return this.speedY > 0;
     }
@@ -278,7 +265,6 @@ class Character extends MovableObject {
      * Checks if the character is above the ground
      * @returns {boolean} - True if the character is above the ground, otherwise false
      */
-
     isAboveGround() {
         return this.y < 180; 
     }

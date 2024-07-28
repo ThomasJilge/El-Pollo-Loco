@@ -28,7 +28,6 @@ class Bottle extends MovableObject {
      * Animates the bottle by continuously playing through its images
      * Uses setInterval to change images
      */
-
     animate() {
         setInterval(() => {
             this.playAnimation(this.imagesBottle);

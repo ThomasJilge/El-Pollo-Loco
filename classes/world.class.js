@@ -27,7 +27,6 @@ class World {
     soundEnabled = true;
     lastThrowTime = 0;
 
-
     constructor(canvas, keyboard) {
         this.ctx = canvas.getContext('2d');
         this.canvas = canvas;
@@ -41,7 +40,6 @@ class World {
     /**
      * Sets the world property of the character to this instance of the World
      */
-
     setWorld() {
         this.character.world = this;
     }
@@ -49,7 +47,6 @@ class World {
     /**
      * Starts the game loop, checking various conditions and updating the game state
      */
-
     run() {
         setInterval(() => {
             this.checkCollisions();
@@ -60,7 +57,6 @@ class World {
     /**
     * Checks for and handles all collisions in the game.
     */
-
     checkCollisions() {
         this.checkCollisionEnemies();
         this.checkCollisionEndboss();
@@ -75,7 +71,6 @@ class World {
     /**
      * Clears all intervals to stop the game loop
      */
-
     clearIntervals() {
         for (let i = 1; i < 9999; i++) window.clearInterval(i);
     };
@@ -83,7 +78,6 @@ class World {
     /**
      * Checks if throwable objects (bottles) should be created and added to the game
      */
-
     checkThrowableObjects() {
         let currentTime = Date.now();
         if (this.collectedBottles > 0 && this.keyboard.d && currentTime - this.lastThrowTime > 500) {
@@ -99,32 +93,27 @@ class World {
     /**
      * Checks for collisions between the character and enemies
      */
-
     checkCollisionEnemies() {
         this.level.enemies.forEach((enemy) => {
-            if (!enemy.enemyDeath && (enemy instanceof Chicken || enemy instanceof ChickenSmall)) {
-                if (this.character.isColliding(enemy)) {
-                    if (this.character.isAboveGround()) {
-                        this.setTimeOutEnemyDeath(enemy);
-                    } else {
-                        this.character.hit();
-                        this.statusBar.setPercentage(this.character.energy);
-                    }
+            if (!enemy.enemyDeath && (enemy instanceof Chicken || enemy instanceof ChickenSmall) && this.character.isColliding(enemy)) {
+                if (this.character.isAboveGround()) {
+                    this.setTimeOutEnemyDeath(enemy);
+                } else {
+                    this.character.hit();
+                    this.statusBar.setPercentage(this.character.energy);
                 }
             }
         });
     }
-    
+
     /**
     * Handles the logic when an enemy is killed
     * @param {Object} enemy - The enemy object that was killed
     */
-
     setTimeOutEnemyDeath(enemy) {
         enemy.enemyDeath = true;
         setTimeout(() => {
-            const index = this.level.enemies.indexOf(enemy);
-            this.level.enemies.splice(index, 1);
+            this.level.enemies.splice(this.level.enemies.indexOf(enemy), 1);
         }, 500);
         this.character.jump();
     }
@@ -132,7 +121,6 @@ class World {
     /**
      * Checks for collisions between the character and the endboss
      */
-
     endbossCollision(enemy, index) {
         if (!enemy) return;
         enemy.energy -= 20;
@@ -153,7 +141,6 @@ class World {
     /**
     * Checks for collisions between the character and the endboss to inflict damage
     */
-
     checkCollisionEndboss() {
         this.level.enemies.forEach((enemy) => {
             if (enemy instanceof Endboss && !enemy.enemyDeath) {
@@ -168,7 +155,6 @@ class World {
     /**
      * Checks for collisions between throwable objects (bottles) and enemies
      */
-
     checkCollisionBottleWithEnemies() {
         this.throwableObjects.forEach((throwableObject) => {
             this.level.enemies.forEach((enemy, i) => {
@@ -185,7 +171,6 @@ class World {
     * @param {Object} enemy - The enemy object that was hit
     * @param {number} index - The index of the enemy in the enemies array
     */
-
     enemyCollision(enemy, index) {
         if (!enemy) return;
         enemy.enemyDeath = true;
@@ -198,7 +183,6 @@ class World {
     * Removes a throwable object from the game
     * @param {Object} throwableObject - The throwable object to be removed
     */
-
     removeThrowableObject(throwableObject) {
         const index = this.throwableObjects.indexOf(throwableObject);
         if (index > -1) {
@@ -209,7 +193,6 @@ class World {
     /**
      * Checks for collisions between the character and bottles to collect them
      */
-
     bottleCollision() {
         this.level.bottles.forEach((bottle, i) => {
             if (this.character.isColliding(bottle)) {
@@ -225,7 +208,6 @@ class World {
     /**
      * Checks for collisions between the character and coins to collect them
      */
-
     coinCollision() {
         this.level.coins.forEach((coin, i) => {
             if (this.character.isColliding(coin)) {
@@ -241,7 +223,6 @@ class World {
     /**
      * Draws the game elements on the canvas
      */
-
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.ctx.translate(this.camera_x, 0);
@@ -271,7 +252,6 @@ class World {
      * Adds multiple objects to the map
      * @param {Array} objects - An array of objects to be added to the map
      */
-
     addObjectsToMap(objects) {
         objects.forEach(o => {
             this.addToMap(o);
@@ -282,14 +262,12 @@ class World {
      * Adds a single movable object to the map
      * @param {Object} mo - A movable object to be added to the map
      */
-
     addToMap(mo) {
         if(mo.otherDirection) {
             this.flipImage(mo);
         }
         mo.draw(this.ctx);
         mo.drawFrame(this.ctx);
-    
         if(mo.otherDirection) {
             this.flipImageBack(mo);
         }
@@ -299,7 +277,6 @@ class World {
      * Flips the image horizontally for drawing
      * @param {Object} mo - A movable object to be flipped
      */
-
     flipImage(mo) {
         this.ctx.save();
         this.ctx.translate(mo.width, 0);
@@ -311,7 +288,6 @@ class World {
      * Restores the flipped image back to its original orientation
      * @param {Object} mo - A movable object to be restored
      */
-
     flipImageBack(mo) {
         mo.x = mo.x * -1;
         this.ctx.restore();
@@ -320,7 +296,6 @@ class World {
     /**
      * Checks if the character is dead and triggers the game over sequence
      */
-
     characterIsDead() {
         if (!this.displayGameOver && this.character.energy <= 0) {
             this.displayGameOver = true;
@@ -331,15 +306,9 @@ class World {
     /**
      * Show the game over screen and stops the game
      */
-
     gameOver() {
         let gameIsOver = document.getElementById('gameOver');
-        if (this.character.energy <= 0) {
-            gameIsOver.classList.remove('d-none');
-        } else {
-            gameIsOver.classList.add('d-none');
-            this.displayGameOver = false;
-        }
+        gameIsOver.classList.toggle('d-none', this.character.energy > 0);
         background_sound.pause();
         this.clearIntervals();
         this.character.snoring_sound.pause();
@@ -349,15 +318,9 @@ class World {
     /**
      * Show the game won screen and stops the game
      */
-
     gameWon() {
         let gameIsWon = document.getElementById('gameWon');
-        let endbossDefeated = false;
-        this.level.enemies.forEach((enemy) => {
-            if (enemy instanceof Endboss && enemy.energy <= 0) {
-                endbossDefeated = true;
-            }
-        });   
+        let endbossDefeated = this.level.enemies.some(enemy => enemy instanceof Endboss && enemy.energy <= 0);
         this.setIntervalGameWon(endbossDefeated, gameIsWon);
     }
 
@@ -367,7 +330,6 @@ class World {
      * @param {boolean} endbossDefeated - A flag indicating if the endboss has been defeated
      * @param {HTMLElement} gameIsWon - The HTML element representing the game won screen
      */
-    
     setIntervalGameWon(endbossDefeated, gameIsWon) {
         setInterval(() => {
             if (endbossDefeated) {
@@ -385,7 +347,6 @@ class World {
     /**
      * Updates the status bar and triggers the endboss behavior
      */
-
     updateEndbossAndStatusBar() {
         this.level.enemies.forEach(enemy => {
             if (enemy instanceof Endboss) {
@@ -404,7 +365,6 @@ class World {
     * @param {Object} enemy - The endboss object
     * @param {number} distance - The distance between the character and the endboss
     */
-
     endbossWalking(enemy, distance) {
         if (distance <= 430 && !enemy.walkingDone) {
             enemy.startWalking();
@@ -417,7 +377,6 @@ class World {
     * @param {Object} enemy - The endboss object
     * @param {number} distance - The distance between the character and the endboss
     */
-
     endbossAttack(enemy, distance) {
         if (distance <= 150 && !enemy.isAttack) {
             enemy.startAttack();
@@ -430,7 +389,6 @@ class World {
     /**
      * Checks if the endboss is dead and triggers the game won sequence if so
      */
-
     endbossIsDead() {
         this.level.enemies.forEach((enemy) => {
             if (enemy instanceof Endboss && enemy.energy <= 0) {
@@ -442,5 +400,4 @@ class World {
             }
         });
     }
-
 }

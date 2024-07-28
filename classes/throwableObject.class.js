@@ -37,7 +37,6 @@ class ThrowableObject extends MovableObject {
     /**
      * Animate the throwable object
      */
-
     animateThrowable() {
         setInterval(() => {
             if (this.y < this.floor) {
@@ -57,7 +56,6 @@ class ThrowableObject extends MovableObject {
     /**
      * Throw the object with gravity applied
      */
-
     throw() {
         this.speedY = 30;
         this.applyGravity();
