@@ -1,15 +1,10 @@
 class ChickenSmall extends MovableObject {
 
     height = 60;
-
     width = 50;
-
     y = 370;
-
     smallChickenHitSound = new Audio ('audio/chicken1.mp3');
-
     noSoundSmallChickenHit = true;
-
     enemyDeath = false;
 
     offset = {

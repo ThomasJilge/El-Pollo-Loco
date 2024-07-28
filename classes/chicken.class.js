@@ -1,16 +1,11 @@
-let enemyDeath = false;
-
 class Chicken extends MovableObject {
 
     height = 80;
-
     width = 70;
-
     y = 350;
-
     chickenHitSound = new Audio ('audio/chicken1.mp3');
-
     noSoundChickenHit = true;
+    enemyDeath = false;
 
     offset = {
         top: -5,

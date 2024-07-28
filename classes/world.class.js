@@ -232,22 +232,34 @@ class World {
     /**
      * Checks for collisions between the character and coins to collect them
      */
-    
+
     coinCollision() {
-        if (this.level && this.level.coins) {
-            this.level.coins.forEach((coin, i) => {
-                if (this.character.isColliding(coin)) {
-                    this.character.collectingCoins();
-                    if (this.noSoundCoins == true) {
-                        this.collectedCoinsSound.play();
-                    }
-                    this.level.coins.splice(i, 1);
-                    this.statusBarCoins.setPercentageCoins(this.character.quantityCoins);
-                    this.collectedCoins += 1;
-                }
-            });
-        }
+        this.level.coins.forEach((coin, i) => {
+            if (this.character.isColliding(coin)) {
+                this.character.collectingCoins();
+                if (this.noSoundCoins) this.collectedCoinsSound.play();
+                this.level.coins.splice(i, 1);
+                this.statusBarCoins.setPercentageCoins(this.character.quantityCoins);
+                this.collectedCoins += 1;
+            }
+        });
     }
+    
+    // coinCollision() {
+    //     if (this.level && this.level.coins) {
+    //         this.level.coins.forEach((coin, i) => {
+    //             if (this.character.isColliding(coin)) {
+    //                 this.character.collectingCoins();
+    //                 if (this.noSoundCoins == true) {
+    //                     this.collectedCoinsSound.play();
+    //                 }
+    //                 this.level.coins.splice(i, 1);
+    //                 this.statusBarCoins.setPercentageCoins(this.character.quantityCoins);
+    //                 this.collectedCoins += 1;
+    //             }
+    //         });
+    //     }
+    // }
 
     /**
      * Draws the game elements on the canvas
@@ -374,6 +386,13 @@ class World {
         });   
         this.setIntervalGameWon(endbossDefeated, gameIsWon);
     }
+
+    /**
+     * Periodically checks if the endboss is defeated and updates the game won status
+     * If the endboss is defeated, it shows the game won screen and stops the game
+     * @param {boolean} endbossDefeated - A flag indicating if the endboss has been defeated
+     * @param {HTMLElement} gameIsWon - The HTML element representing the game won screen
+     */
     
     setIntervalGameWon(endbossDefeated, gameIsWon) {
         setInterval(() => {
