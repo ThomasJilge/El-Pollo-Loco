@@ -211,23 +211,35 @@ class World {
     /**
      * Checks for collisions between the character and bottles to collect them
      */
-    
+
     bottleCollision() {
-        if (this.level && this.level.bottles) {
-            this.level.bottles.forEach((bottle, i) => {
-                if (this.character.isColliding(bottle)) {
-                    this.character.collectingBottles();
-                    if (this.noSoundBottles == true) {
-                        this.collectedBottlesSound.play();
-                    }
-                    this.level.bottles.splice(i, 1);
-                    this.collectedBottles += 1;
-                    let newPercentage = this.statusBarBottles.percentage + 20;
-                    this.statusBarBottles.setPercentageBottle(newPercentage);
-                }
-            });
-        }
+        this.level.bottles.forEach((bottle, i) => {
+            if (this.character.isColliding(bottle)) {
+                this.character.collectingBottles();
+                if (this.noSoundBottles) this.collectedBottlesSound.play();
+                this.level.bottles.splice(i, 1);
+                this.collectedBottles += 1;
+                this.statusBarBottles.setPercentageBottle(this.statusBarBottles.percentage + 20);
+            }
+        });
     }
+    
+    // bottleCollision() {
+    //     if (this.level && this.level.bottles) {
+    //         this.level.bottles.forEach((bottle, i) => {
+    //             if (this.character.isColliding(bottle)) {
+    //                 this.character.collectingBottles();
+    //                 if (this.noSoundBottles == true) {
+    //                     this.collectedBottlesSound.play();
+    //                 }
+    //                 this.level.bottles.splice(i, 1);
+    //                 this.collectedBottles += 1;
+    //                 let newPercentage = this.statusBarBottles.percentage + 20;
+    //                 this.statusBarBottles.setPercentageBottle(newPercentage);
+    //             }
+    //         });
+    //     }
+    // }
     
     /**
      * Checks for collisions between the character and coins to collect them
