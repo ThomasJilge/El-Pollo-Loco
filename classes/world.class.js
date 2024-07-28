@@ -95,21 +95,6 @@ class World {
         }
     }
 
-    // checkThrowableObjects() {
-    //     let currentTime = Date.now();
-    //     let throwInterval = 500;
-
-    //     if (this.collectedBottles > 0 && this.keyboard.d && (currentTime - this.lastThrowTime > throwInterval)) {
-    //         let direction = this.character.otherDirection ? -1 : 1;
-    //         let offset = this.character.otherDirection ? -100 : 100;
-    //         let bottle = new ThrowableObject(this.character.x + offset, this.character.y + 100, this.statusBarBottles, direction);
-    //         this.throwableObjects.push(bottle);
-    //         this.character.resetIdleTimers();
-    //         this.throwingBottle = true;
-    //         this.lastThrowTime = currentTime; 
-    //     } 
-    // }
-
     /**
      * Checks for collisions between the character and enemies
      */
@@ -149,7 +134,7 @@ class World {
 
     endbossCollision(enemy, index) {
         if (!enemy) return;
-        enemy.energy -= 25;
+        enemy.energy -= 20;
         enemy.isHurt = true;
         enemy.noSoundEndbossIsHurt = true;
         this.statusBarEndboss.setPercentageEndboss(enemy.energy);
@@ -183,11 +168,27 @@ class World {
      * Checks for collisions between throwable objects (bottles) and enemies
      */
 
+    // checkCollisionBottleWithEnemies() {
+    //     this.throwableObjects.forEach((throwableObject) => {
+    //         this.level.enemies.forEach((enemy, i) => {
+    //             if (throwableObject.isColliding(enemy)) {
+    //                 enemy instanceof Endboss ? this.endbossCollision(enemy, i) : this.enemyCollision(enemy, i);
+    //                 this.removeThrowableObject(throwableObject);
+    //             }
+    //         });
+    //     });
+    // }
+
     checkCollisionBottleWithEnemies() {
         this.throwableObjects.forEach((throwableObject) => {
             this.level.enemies.forEach((enemy, i) => {
                 if (throwableObject.isColliding(enemy)) {
-                    enemy instanceof Endboss ? this.endbossCollision(enemy, i) : this.enemyCollision(enemy, i);
+                    if (enemy instanceof Endboss) {
+                        this.endbossCollision(enemy, i);
+                    } else {
+                        this.enemyCollision(enemy, i);
+                        // this.level.enemies.splice(i, 1);
+                    }
                     this.removeThrowableObject(throwableObject);
                 }
             });
@@ -224,16 +225,33 @@ class World {
      * Checks for collisions between the character and bottles to collect them
      */
 
+    // bottleCollision() {
+    //     this.level.bottles.forEach((bottle, i) => {
+    //         if (this.character.isColliding(bottle)) {
+    //             this.character.collectingBottles();
+    //             if (this.noSoundBottles) this.collectedBottlesSound.play();
+    //             this.level.bottles.splice(i, 1);
+    //             this.collectedBottles += 1;
+    //             this.statusBarBottles.setPercentageBottle(this.statusBarBottles.percentage + 20);
+    //         }
+    //     });
+    // }
+
     bottleCollision() {
-        this.level.bottles.forEach((bottle, i) => {
-            if (this.character.isColliding(bottle)) {
-                this.character.collectingBottles();
-                if (this.noSoundBottles) this.collectedBottlesSound.play();
-                this.level.bottles.splice(i, 1);
-                this.collectedBottles += 1;
-                this.statusBarBottles.setPercentageBottle(this.statusBarBottles.percentage + 20);
-            }
-        });
+        if (this.level && this.level.bottles) {
+            this.level.bottles.forEach((bottle, i) => {
+                if (this.character.isColliding(bottle)) {
+                    this.character.collectingBottles();
+                    if (this.noSoundBottles == true) {
+                        this.collectedBottlesSound.play();
+                    }
+                    this.level.bottles.splice(i, 1);
+                    this.collectedBottles += 1;
+                    let newPercentage = this.statusBarBottles.percentage + 20;
+                    this.statusBarBottles.setPercentageBottle(newPercentage);
+                }
+            });
+        }
     }
     
 
