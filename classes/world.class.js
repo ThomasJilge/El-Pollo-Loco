@@ -51,19 +51,24 @@ class World {
 
     run() {
         setInterval(() => {
-            this.checkCollisionEnemies();
-            this.checkCollisionEndboss(); 
-            this.endbossCollision();
-            this.enemyCollision();
-            this.removeThrowableObject();
-            this.checkCollisionBottleWithEnemies();
-            this.checkThrowableObjects();
-            this.bottleCollision();
-            this.coinCollision();
-            this.characterIsDead();
-            this.endbossIsDead();
+            this.checkCollisions();
             this.updateEndbossAndStatusBar();
         }, 50);
+    }
+
+    /**
+    * Checks for and handles all collisions in the game.
+    */
+
+    checkCollisions() {
+        this.checkCollisionEnemies();
+        this.checkCollisionEndboss();
+        this.checkCollisionBottleWithEnemies();
+        this.checkThrowableObjects();
+        this.bottleCollision();
+        this.coinCollision();
+        this.characterIsDead();
+        this.endbossIsDead();
     }
 
     /**
@@ -176,22 +181,6 @@ class World {
             });
         });
     }
-
-    // checkCollisionBottleWithEnemies() {
-    //     this.throwableObjects.forEach((throwableObject) => {
-    //         this.level.enemies.forEach((enemy, i) => {
-    //             if (throwableObject.isColliding(enemy)) {
-    //                 if (enemy instanceof Endboss) {
-    //                     this.endbossCollision(enemy, i);
-    //                 } else {
-    //                     this.enemyCollision(enemy, i);
-    //                     // this.level.enemies.splice(i, 1);
-    //                 }
-    //                 this.removeThrowableObject(throwableObject);
-    //             }
-    //         });
-    //     });
-    // }
 
     /**
     * Handles the collision logic when an enemy is hit by a throwable object
