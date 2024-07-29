@@ -65,7 +65,7 @@ class World {
         this.bottleCollision();
         this.coinCollision();
         this.characterIsDead();
-        this.endbossIsDead();
+        // this.endbossIsDead();
     }
 
     /**
@@ -123,7 +123,7 @@ class World {
      */
     endbossCollision(enemy, index) {
         if (!enemy) return;
-        enemy.energy -= 10;
+        enemy.energy -= 20;
         enemy.isHurt = true;
         enemy.noSoundEndbossIsHurt = true;
         this.statusBarEndboss.setPercentageEndboss(enemy.energy);
@@ -364,7 +364,7 @@ class World {
     * @param {number} distance - The distance between the character and the endboss
     */
     endbossWalking(enemy, distance) {
-        if (distance <= 430 && !enemy.walkingDone) {
+        if (distance <= 630 && !enemy.walkingDone) {
             enemy.startWalking();
         }
     }
@@ -376,10 +376,10 @@ class World {
     * @param {number} distance - The distance between the character and the endboss
     */
     endbossAttack(enemy, distance) {
-        if (distance <= 150 && !enemy.isAttack) {
+        if (distance <= 450 && !enemy.isAttack) {
             enemy.startAttack();
         }
-        if (distance >= 151 && enemy.isAttack) {
+        if (distance >= 451 && enemy.isAttack) {
             enemy.stopAttack();
         }
     }
