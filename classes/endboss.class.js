@@ -70,7 +70,7 @@ class Endboss extends MovableObject {
         this.loadImages(this.imagesHurt);
         this.loadImages(this.imagesDead);
         this.x = 2500;
-        this.speed = 2.0;
+        this.speed = 6.0;
         this.animateEndboss();
     }
 
@@ -144,6 +144,7 @@ class Endboss extends MovableObject {
     startAttack() {
         this.isAttack = true;
         this.isNotAttack = false;
+        console.log('Endboss starts attacking');
     }
 
     /** 
@@ -152,6 +153,7 @@ class Endboss extends MovableObject {
     stopAttack() {
         this.isAttack = false;
         this.isNotAttack = true;
+        console.log('Endboss stops attacking');
     }
 
         /**
@@ -160,7 +162,7 @@ class Endboss extends MovableObject {
     * @param {number} distance - The distance between the character and the endboss
     */
     endbossWalking(enemy, distance) {
-        if (distance <= 430 && !enemy.walkingDone) {
+        if (distance <= 730 && !enemy.walkingDone) {
             enemy.startWalking();
         }
     }
