@@ -174,9 +174,7 @@ class World {
     enemyCollision(enemy, index) {
         if (!enemy) return;
         enemy.enemyDeath = true;
-        setTimeout(() => {
-            this.level.enemies.splice(index, 1);
-        }, 500);
+        this.level.enemies.splice(index, 1);
     }
 
     /**
