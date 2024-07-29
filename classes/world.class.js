@@ -50,7 +50,8 @@ class World {
     run() {
         setInterval(() => {
             this.checkCollisions();
-            this.updateEndbossAndStatusBar();
+            // this.updateEndbossAndStatusBar();
+            this.updateStatusBar();
         }, 50);
     }
 
@@ -345,59 +346,31 @@ class World {
     /**
      * Updates the status bar and triggers the endboss behavior
      */
-    updateEndbossAndStatusBar() {
+    updateStatusBar() {
         this.level.enemies.forEach(enemy => {
             if (enemy instanceof Endboss) {
                 let distance = Math.abs(this.character.x - enemy.x);
                 if (distance <= 630) {
                     this.showEndbossStatusBar = true;
-                    this.endbossWalking(enemy, distance);
-                    this.endbossAttack(enemy, distance);
-                } if (enemy.energy <= 0) {
-                    this.endbossIsDead();
+                    enemy.handleBehavior(distance, this.character);
+                }
+                if (enemy.energy <= 0) {
+                    this.endbossIsDead(enemy);
                 }
             }
         });
-    }
-
-    /**
-    * Triggers the endboss to start walking when the character is within a certain distance
-    * @param {Object} enemy - The endboss object
-    * @param {number} distance - The distance between the character and the endboss
-    */
-    endbossWalking(enemy, distance) {
-        if (distance <= 630 && !enemy.walkingDone) {
-            enemy.startWalking();
-        }
-    }
-
-    /**
-    * Triggers the endboss to start attacking when the character is within a certain distance
-    * Stops the attack if the character moves away
-    * @param {Object} enemy - The endboss object
-    * @param {number} distance - The distance between the character and the endboss
-    */
-    endbossAttack(enemy, distance) {
-        if (distance <= 450 && !enemy.isAttack) {
-            enemy.startAttack();
-        }
-        if (distance >= 451 && enemy.isAttack) {
-            enemy.stopAttack();
-        }
     }
 
     /**
      * Checks if the endboss is dead and triggers the game won sequence if so
      */
-    endbossIsDead() {
-        this.level.enemies.forEach((enemy) => {
-            if (enemy instanceof Endboss && enemy.energy <= 0) {
-                enemy.enemyDeath = true;
-                if (!this.displayGameWon) {
-                    this.displayGameWon = true;
-                    this.gameWon();
-                }
+    endbossIsDead(enemy) {
+        if (enemy.energy <= 0) {
+            enemy.enemyDeath = true;
+            if (!this.displayGameWon) {
+                this.displayGameWon = true;
+                this.gameWon();
             }
-        });
+        }
     }
 }

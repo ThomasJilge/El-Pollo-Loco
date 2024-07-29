@@ -153,6 +153,63 @@ class Endboss extends MovableObject {
         this.isAttack = false;
         this.isNotAttack = true;
     }
+
+        /**
+     * Updates the status bar and triggers the endboss behavior
+     */
+        updateEndbossAndStatusBar() {
+            this.level.enemies.forEach(enemy => {
+                if (enemy instanceof Endboss) {
+                    let distance = Math.abs(this.character.x - enemy.x);
+                    if (distance <= 630) {
+                        this.showEndbossStatusBar = true;
+                        this.endbossWalking(enemy, distance);
+                        this.endbossAttack(enemy, distance);
+                    } if (enemy.energy <= 0) {
+                        this.endbossIsDead();
+                    }
+                }
+            });
+        }
+
+    /**
+     * Handles the endboss behavior based on the distance to the character
+     * @param {number} distance - The distance between the character and the endboss
+     * @param {Object} character - The character object
+     */
+    handleBehavior(distance, character) {
+        this.endbossWalking(distance);
+        this.endbossAttack(distance, character);
+    }
+    
+    /**
+    * Triggers the endboss to start walking when the character is within a certain distance
+    * @param {Object} enemy - The endboss object
+    * @param {number} distance - The distance between the character and the endboss
+    */
+    endbossWalking(distance) {
+        if (distance <= 630 && !this.walkingDone) {
+            this.startWalking();
+        }
+    }
+
+    /**
+     * Triggers the endboss to start attacking when the character is within a certain distance
+     * Stops the attack if the character moves away
+     * @param {number} distance - The distance between the character and the endboss
+     * @param {Object} character - The character object
+     */
+    endbossAttack(distance, character) {
+        if (distance <= 450 && !this.isAttack) {
+            this.startAttack();
+        }
+        if (distance >= 451 && this.isAttack) {
+            this.stopAttack();
+        }
+        if (character.isColliding(this)) {
+            character.hitByEndboss();
+        }
+    }
 }
 
 
