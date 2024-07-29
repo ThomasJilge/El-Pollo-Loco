@@ -153,47 +153,6 @@ class Endboss extends MovableObject {
         this.isAttack = false;
         this.isNotAttack = true;
     }
-
-        /**
-    * Triggers the endboss to start walking when the character is within a certain distance
-    * @param {Object} enemy - The endboss object
-    * @param {number} distance - The distance between the character and the endboss
-    */
-    endbossWalking(enemy, distance) {
-        if (distance <= 730 && !enemy.walkingDone) {
-            enemy.startWalking();
-        }
-    }
-    
-    /**
-    * Triggers the endboss to start attacking when the character is within a certain distance
-    * Stops the attack if the character moves away
-    * @param {Object} enemy - The endboss object
-    * @param {number} distance - The distance between the character and the endboss
-    */
-     endbossAttack(enemy, distance) {
-        if (distance <= 150 && !enemy.isAttack) {
-            enemy.startAttack();
-        }
-        if (distance >= 151 && enemy.isAttack) {
-            enemy.stopAttack();
-        }
-    }
-    
-    /**
-    * Checks if the endboss is dead and triggers the game won sequence if so
-    */
-    endbossIsDead() {
-        this.level.enemies.forEach((enemy) => {
-            if (enemy instanceof Endboss && enemy.energy <= 0) {
-                enemy.enemyDeath = true;
-                if (!this.displayGameWon) {
-                    this.displayGameWon = true;
-                    this.gameWon();
-                }
-            }
-        });
-    }
 }
 
 

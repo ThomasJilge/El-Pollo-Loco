@@ -353,7 +353,9 @@ class World {
                     this.showEndbossStatusBar = true;
                     this.endbossWalking(enemy, distance);
                     this.endbossAttack(enemy, distance);
-                } 
+                } if (enemy.energy <= 0) {
+                    this.endbossIsDead();
+                }
             }
         });
     }
