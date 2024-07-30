@@ -133,7 +133,8 @@ class Character extends MovableObject {
                     this.CharacterIsHurt_sound.play();
                     this.noSoundCharacterIsHurt = false;
                 }
-            } else if (this.isAboveGround() && this.world.keyboard.space) {
+            } else if (this.isAboveGround()) {
+                this.jumpingAnimation();
                 this.playAnimation(this.imagesJumping);
             } else if (this.world.keyboard.right || this.world.keyboard.left) {
                 this.playAnimation(this.imagesWalking);
@@ -141,9 +142,19 @@ class Character extends MovableObject {
         }, 50);  
     }
 
-    // playJumpingAnimation() {
-    //     this.playAnimation(this.imagesJumping);
-    // }
+    jumpingAnimation() {
+        if (this.speedY > 0) {
+            if (this.currentImage < 4) {
+                this.currentImage = 4; 
+            } else if (this.currentImage > 6) {
+                this.currentImage = 6; 
+            }
+        } else if (this.speedY < 0) {
+            if (this.currentImage < 7) {
+                this.currentImage = 7;
+            }
+        }
+    }
 
     /**
      * Plays the idle animation
