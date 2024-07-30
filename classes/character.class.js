@@ -133,8 +133,7 @@ class Character extends MovableObject {
                     this.CharacterIsHurt_sound.play();
                     this.noSoundCharacterIsHurt = false;
                 }
-            } else if (this.isAboveGround()) {
-                // this.playAnimation(this.imagesJumping);
+            } else if (this.isAboveGround() && this.world.keyboard.space) {
                 this.playAnimation(this.imagesJumping);
             } else if (this.world.keyboard.right || this.world.keyboard.left) {
                 this.playAnimation(this.imagesWalking);
@@ -142,13 +141,9 @@ class Character extends MovableObject {
         }, 50);  
     }
 
-    playJumpingAnimation() {
-        setInterval(() => {
-            if (this.isAboveGround() && !this.isHurt() && !this.isDead()) {
-                this.playAnimation(this.imagesJumping);
-            }
-        }, 1000 / 60);
-    }
+    // playJumpingAnimation() {
+    //     this.playAnimation(this.imagesJumping);
+    // }
 
     /**
      * Plays the idle animation
@@ -210,6 +205,7 @@ class Character extends MovableObject {
     characterJump() {
         if (this.world.keyboard.space && !this.isAboveGround()) {
             this.jump();
+            // this.playJumpingAnimation();
             this.resetIdleTimers();
         }
     }
