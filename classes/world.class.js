@@ -119,6 +119,14 @@ class World {
         this.character.jump();
     }
 
+    // setTimeOutEnemyDeath(enemy) {
+    //     enemy.enemyDeath = true;
+    //     setTimeout(() => {
+    //         this.level.enemies.splice(this.level.enemies.indexOf(enemy), 1);
+    //     }, 500);
+    //     this.character.jump();
+    // }
+
     /**
      * Checks for collisions between the character and the endboss
      */

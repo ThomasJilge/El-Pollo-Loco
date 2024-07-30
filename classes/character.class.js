@@ -134,11 +134,20 @@ class Character extends MovableObject {
                     this.noSoundCharacterIsHurt = false;
                 }
             } else if (this.isAboveGround()) {
+                // this.playAnimation(this.imagesJumping);
                 this.playAnimation(this.imagesJumping);
             } else if (this.world.keyboard.right || this.world.keyboard.left) {
                 this.playAnimation(this.imagesWalking);
             } 
         }, 50);  
+    }
+
+    playJumpingAnimation() {
+        setInterval(() => {
+            if (this.isAboveGround() && !this.isHurt() && !this.isDead()) {
+                this.playAnimation(this.imagesJumping);
+            }
+        }, 1000 / 60);
     }
 
     /**
@@ -268,5 +277,4 @@ class Character extends MovableObject {
     isAboveGround() {
         return this.y < 180; 
     }
-
 }
