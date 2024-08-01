@@ -9,6 +9,7 @@ class Character extends MovableObject {
     longIdleTimer;
     CharacterIsHurt_sound = new Audio('audio/characterHurt.mp3');
     noSoundCharacterIsHurt = true;
+    jumpingAnimationInterval;
 
     offset = {
         top: 80,
@@ -133,8 +134,6 @@ class Character extends MovableObject {
                     this.CharacterIsHurt_sound.play();
                     this.noSoundCharacterIsHurt = false;
                 }
-            } else if (this.isAboveGround()) {
-                this.playAnimation(this.imagesJumping);
             } else if (this.world.keyboard.right || this.world.keyboard.left) {
                 this.playAnimation(this.imagesWalking);
             } 
@@ -142,10 +141,22 @@ class Character extends MovableObject {
     }
 
     /**
+     * Handles interval for jumping animation
+     */
+    setIntervalJumpingAnimation() {
+        this.jumpingAnimationInterval = setInterval(() => {
+            if (this.isAboveGround()) {
+                this.playAnimation(this.imagesJumping);
+            } else {
+                clearInterval(this.jumpingAnimationInterval);
+            }
+        }, 300);
+    }
+
+    /**
      * Handles jumping animation
      */
     jumpingAnimation() {
-        setInterval(() => {
         if (this.speedY > 0) {
             if (this.currentImage < 4) {
                 this.currentImage = 4; 
@@ -157,8 +168,6 @@ class Character extends MovableObject {
                 this.currentImage = 9;
             }
         }
-        console.log("Interval function is running every 200 ms");
-    }, 200); 
     }
 
     /**
@@ -222,8 +231,9 @@ class Character extends MovableObject {
         if (this.world.keyboard.space && !this.isAboveGround()) {
             this.jump();
             this.jumpingAnimation();
+            this.setIntervalJumpingAnimation();
             this.resetIdleTimers();
-        }
+        } 
     }
 
     /**
@@ -273,7 +283,7 @@ class Character extends MovableObject {
     jump() {
         this.speedY = 30;
     }
-
+    
     /**
      * Checks if the character is about to fall
      * @returns {boolean} - True if the character is about to fall, otherwise false
