@@ -134,7 +134,6 @@ class Character extends MovableObject {
                     this.noSoundCharacterIsHurt = false;
                 }
             } else if (this.isAboveGround()) {
-                this.jumpingAnimation();
                 this.playAnimation(this.imagesJumping);
             } else if (this.world.keyboard.right || this.world.keyboard.left) {
                 this.playAnimation(this.imagesWalking);
@@ -142,7 +141,11 @@ class Character extends MovableObject {
         }, 50);  
     }
 
+    /**
+     * Handles jumping animation
+     */
     jumpingAnimation() {
+        setInterval(() => {
         if (this.speedY > 0) {
             if (this.currentImage < 4) {
                 this.currentImage = 4; 
@@ -150,10 +153,12 @@ class Character extends MovableObject {
                 this.currentImage = 6; 
             }
         } else if (this.speedY < 0) {
-            if (this.currentImage < 7) {
-                this.currentImage = 7;
+            if (this.currentImage < 9) {
+                this.currentImage = 9;
             }
         }
+        console.log("Interval function is running every 200 ms");
+    }, 200); 
     }
 
     /**
@@ -216,7 +221,7 @@ class Character extends MovableObject {
     characterJump() {
         if (this.world.keyboard.space && !this.isAboveGround()) {
             this.jump();
-            // this.playJumpingAnimation();
+            this.jumpingAnimation();
             this.resetIdleTimers();
         }
     }

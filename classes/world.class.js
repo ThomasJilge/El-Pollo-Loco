@@ -97,7 +97,7 @@ class World {
     checkCollisionEnemies() {
         this.level.enemies.forEach((enemy) => {
             if (!enemy.enemyDeath && (enemy instanceof Chicken || enemy instanceof ChickenSmall) && this.character.isColliding(enemy)) {
-                if (this.character.isAboveGround()) {
+                if (this.character.isAboveGround() && this.character.speedY < 0) {
                     this.setTimeOutEnemyDeath(enemy);
                 } else {
                     this.character.hit();
