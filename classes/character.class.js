@@ -151,7 +151,7 @@ class Character extends MovableObject {
             } else {
                 clearInterval(this.jumpingAnimationInterval);
             }
-        }, 420);
+        }, 350);
     }
 
     /**

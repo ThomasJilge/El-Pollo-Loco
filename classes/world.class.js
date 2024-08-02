@@ -87,6 +87,8 @@ class World {
             this.throwableObjects.push(new ThrowableObject(this.character.x + offset, this.character.y + 100, this.statusBarBottles, direction));
             this.character.resetIdleTimers();
             this.throwingBottle = true;
+            this.collectedBottles--; 
+            this.statusBarBottles.setPercentageBottle(this.collectedBottles * 20);
             this.lastThrowTime = currentTime;
         }
     }
@@ -135,14 +137,6 @@ class World {
         }, 500);
         this.character.jump();
     }
-
-    // setTimeOutEnemyDeath(enemy) {
-    //     enemy.enemyDeath = true;
-    //     setTimeout(() => {
-    //         this.level.enemies.splice(this.level.enemies.indexOf(enemy), 1);
-    //     }, 500);
-    //     this.character.jump();
-    // }
 
     /**
      * Checks for collisions between the character and the endboss
@@ -224,7 +218,7 @@ class World {
                 if (this.noSoundBottles) this.collectedBottlesSound.play();
                 this.level.bottles.splice(i, 1);
                 this.collectedBottles += 1;
-                this.statusBarBottles.setPercentageBottle(this.statusBarBottles.percentage + 20);
+                this.statusBarBottles.setPercentageBottle(this.collectedBottles * 20);
             }
         });
     }
