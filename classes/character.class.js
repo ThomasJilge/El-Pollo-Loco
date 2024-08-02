@@ -150,13 +150,14 @@ class Character extends MovableObject {
             } else {
                 clearInterval(this.jumpingAnimationInterval);
             }
-        }, 300);
+        }, 420);
     }
 
     /**
      * Handles jumping animation
      */
     jumpingAnimation() {
+        this.currentImage = 0;
         if (this.speedY > 0) {
             if (this.currentImage < 4) {
                 this.currentImage = 4; 

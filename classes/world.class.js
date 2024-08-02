@@ -94,14 +94,31 @@ class World {
     /**
      * Checks for collisions between the character and enemies
      */
+    // checkCollisionEnemies() {
+    //     this.level.enemies.forEach((enemy) => {
+    //         if (!enemy.enemyDeath && (enemy instanceof Chicken || enemy instanceof ChickenSmall) && this.character.isColliding(enemy)) {
+    //             if (this.character.isAboveGround() && this.character.speedY < 0) {
+    //                 this.setTimeOutEnemyDeath(enemy);
+    //             } else {
+    //                 this.character.hit();
+    //                 this.statusBar.setPercentage(this.character.energy);
+    //             }
+    //         }
+    //     });
+    // }
+
     checkCollisionEnemies() {
         this.level.enemies.forEach((enemy) => {
-            if (!enemy.enemyDeath && (enemy instanceof Chicken || enemy instanceof ChickenSmall) && this.character.isColliding(enemy)) {
-                if (this.character.isAboveGround() && this.character.speedY < 0) {
-                    this.setTimeOutEnemyDeath(enemy);
-                } else {
-                    this.character.hit();
-                    this.statusBar.setPercentage(this.character.energy);
+            if (!enemy.enemyDeath && (enemy instanceof Chicken || enemy instanceof ChickenSmall)) {
+                if (this.character.isColliding(enemy)) {
+                    if (this.character.isAboveGround() && this.character.speedY < 0) {
+                        console.log('Enemy hit from above');
+                        this.setTimeOutEnemyDeath(enemy);
+                    } else {
+                        console.log('Character hit by enemy');
+                        this.character.hit();
+                        this.statusBar.setPercentage(this.character.energy);
+                    }
                 }
             }
         });
