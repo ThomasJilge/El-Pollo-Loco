@@ -134,6 +134,7 @@ class Character extends MovableObject {
                     this.CharacterIsHurt_sound.play();
                     this.noSoundCharacterIsHurt = false;
                 }
+                } else if (this.isAboveGround()) {
             } else if (this.world.keyboard.right || this.world.keyboard.left) {
                 this.playAnimation(this.imagesWalking);
             } 
