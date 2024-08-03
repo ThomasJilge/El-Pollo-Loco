@@ -96,36 +96,31 @@ class World {
     /**
      * Checks for collisions between the character and enemies
      */
-    // checkCollisionEnemies() {
-    //     this.level.enemies.forEach((enemy) => {
-    //         if (!enemy.enemyDeath && (enemy instanceof Chicken || enemy instanceof ChickenSmall) && this.character.isColliding(enemy)) {
-    //             if (this.character.isAboveGround() && this.character.speedY < 0) {
-    //                 this.setTimeOutEnemyDeath(enemy);
-    //             } else {
-    //                 this.character.hit();
-    //                 this.statusBar.setPercentage(this.character.energy);
-    //             }
-    //         }
-    //     });
-    // }
-
     checkCollisionEnemies() {
+        let hitted = false;
         this.level.enemies.forEach((enemy) => {
             if (!enemy.enemyDeath && (enemy instanceof Chicken || enemy instanceof ChickenSmall)) {
                 if (this.character.isColliding(enemy)) {
-                    if (this.character.isAboveGround() && this.character.speedY < 0) {
-                        console.log('Enemy hit from above');
-                        this.setTimeOutEnemyDeath(enemy);
+                    if (this.character.isAboveGround() && this.character.speedY <= 0) {
+                        if (!hitted) {
+                            this.setTimeOutEnemyDeath(enemy);
+                            hitted = true;
+                        }
                     } else {
-                        console.log('Character hit by enemy');
-                        this.character.hit();
-                        this.statusBar.setPercentage(this.character.energy);
+                        if (!hitted) {
+                            this.character.hit();
+                            this.statusBar.setPercentage(this.character.energy);
+                            hitted = true;
+                        }
                     }
                 }
             }
         });
+        if (hitted) {
+            this.character.jump();
+        }
     }
-
+    
     /**
     * Handles the logic when an enemy is killed
     * @param {Object} enemy - The enemy object that was killed
