@@ -107,12 +107,10 @@ class World {
                             hitted = true;
                         }
                     } else {
-                        if (!hitted) {
-                            this.character.hit();
+                        this.character.hit();
                             this.statusBar.setPercentage(this.character.energy);
-                            hitted = true;
-                        }
-                    }
+                            // hitted = true;
+                    }    
                 }
             }
         });
