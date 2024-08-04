@@ -30,7 +30,7 @@ class StatusBarBottles extends DrawableObject {
         let path = this.images[this.resolveImageIndex()];
         this.img = this.imageCache[path];
     }
-
+    
     /**
      * Resolves the image index based on the current percentage of bottles collected
      * @returns {number} The index of the image to display

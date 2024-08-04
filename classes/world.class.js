@@ -108,8 +108,7 @@ class World {
                         }
                     } else {
                         this.character.hit();
-                            this.statusBar.setPercentage(this.character.energy);
-                            // hitted = true;
+                        this.statusBar.setPercentage(this.character.energy);
                     }    
                 }
             }
@@ -118,6 +117,9 @@ class World {
             this.character.jump();
         }
     }
+
+
+    
     
     /**
     * Handles the logic when an enemy is killed
@@ -128,7 +130,6 @@ class World {
         setTimeout(() => {
             this.level.enemies.splice(this.level.enemies.indexOf(enemy), 1);
         }, 500);
-        this.character.jump();
     }
 
     /**
