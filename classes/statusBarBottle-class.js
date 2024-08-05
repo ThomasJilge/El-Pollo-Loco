@@ -22,33 +22,13 @@ class StatusBarBottles extends DrawableObject {
     }
 
     /**
-     * Sets the percentage of bottles collected and updates the displayed image
-     * @param {number} percentage - The percentage of bottles collected
+     * Sets the percentage of bottles collected and updates the status bar image
+     * 
+     * @param {number} percentage - The new percentage of bottles collected (0 to 100)
      */
     setPercentageBottle(percentage) {
-        this.percentage = percentage;   
-        let path = this.images[this.resolveImageIndex()];
-        this.img = this.imageCache[path];
-    }
-    
-    /**
-     * Resolves the image index based on the current percentage of bottles collected
-     * @returns {number} The index of the image to display
-     */
-    resolveImageIndex() {
-        if(this.percentage == 0) {
-            return 0;
-        } else if (this.percentage <= 20) {
-            return 1;
-        } else if (this.percentage <= 40) {
-            return 2;
-        } else if (this.percentage <= 60) {
-            return 3;
-        } else if (this.percentage <= 80) {
-            return 4;
-        } else {
-            return 5;
-        }
+        let throwableObject = new ThrowableObject(); 
+        throwableObject.setPercentage(this, percentage);
     }
   
 }

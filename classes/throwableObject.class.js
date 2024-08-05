@@ -66,6 +66,40 @@ class ThrowableObject extends MovableObject {
             this.statusBar.setPercentageBottle(this.statusBar.percentage - 20);
         } 
     }
+
+    /**
+     * Sets the percentage and updates the corresponding image for the given status bar
+     * 
+     * @param {DrawableObject} statusBar - The status bar instance to update
+     * @param {number} percentage - The new percentage value (0 to 100)
+     */
+    setPercentage(statusBar, percentage) {
+        statusBar.percentage = percentage;
+        let path = statusBar.images[this.resolveImageIndex(percentage)];
+        statusBar.img = statusBar.imageCache[path];
+    }
+
+    /**
+     * Resolves the image index based on the percentage
+     * 
+     * @param {number} percentage - The percentage to resolve the image index for
+     * @returns {number} - The index of the image corresponding to the given percentage
+     */
+    resolveImageIndex(percentage) {
+        if (percentage == 100) {
+            return 5;
+        } else if (percentage >= 80) {
+            return 4;
+        } else if (percentage >= 60) {
+            return 3;
+        } else if (percentage >= 40) {
+            return 2;
+        } else if (percentage >= 20) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
 }
 
     

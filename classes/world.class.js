@@ -100,7 +100,7 @@ class World {
         let hitted = false;
         this.level.enemies.forEach((enemy) => {
             if (!enemy.enemyDeath && (enemy instanceof Chicken || enemy instanceof ChickenSmall)) {
-                hitted = this.checkAndHandleCollision(enemy, hitted);
+                hitted = this.checkAndHandleCollisionEnemies(enemy, hitted);
             }
         });
         if (hitted) {
@@ -109,13 +109,13 @@ class World {
     }
 
     /**
-     * Handles collisions between the character and an enemy.
+     * Handles collisions between the character and an enemy
      *
      * @param {Object} enemy - The enemy with which the character collides.
-     * @param {boolean} hitted - Indicates whether the character has already been hit.
-     * @returns {boolean} - `true` if the character was hit, otherwise `false`.
+     * @param {boolean} hitted - Indicates whether the character has already been hit
+     * @returns {boolean} - true if the character was hit, otherwise false
      */
-    checkAndHandleCollision(enemy, hitted) {
+    checkAndHandleCollisionEnemies(enemy, hitted) {
         if (this.character.isColliding(enemy)) {
             if (this.character.isAboveGround() && this.character.speedY <= 0) {
                 if (!hitted) {
