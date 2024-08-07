@@ -2,8 +2,8 @@ let canvas;
 let world;
 let keyboard = new Keyboard();
 
-background_sound = new Audio('audio/backgroundSound.mp3'); 
-background_sound.volume = 0.1;
+// background_sound = new Audio('audio/backgroundSound.mp3'); 
+// background_sound.volume = 0.1;
 
 /**
  * Initializes the game environment by setting up the canvas
@@ -150,7 +150,10 @@ function startGame() {
         document.getElementById('userInfoContainer').classList.add('d-none');
     } 
     
-    background_sound.play();
+    // background_sound.play();
+    // background_sound.volume = 0.1;
+    soundManagement.startSound('backgroundSound');
+    soundManagement.soundOn();
 }
 
 /**
@@ -188,7 +191,6 @@ function fullscreen() {
  * Requests fullscreen mode for a given element
  * @param {HTMLElement} element - The element to display in fullscreen
  */
-
 function enterFullscreen(element) {
     if(element.requestFullscreen) {
       element.requestFullscreen();
@@ -200,38 +202,13 @@ function enterFullscreen(element) {
 }
 
 /**
- * Enables the background sound
- */
-
-function soundOn() {
-    if (background_sound) {
-        background_sound.play();
-        world.soundEnabled = true;
-    }
-}
-
-/**
- * Disables the background sound and stops the character's snoring sound if active
- */
-
-function soundOff() {
-    if (background_sound) {
-        background_sound.pause();
-        if (world && world.character && world.character.snoring_sound) {
-            world.character.snoring_sound.pause();
-        }
-    }
-    world.soundEnabled = false;
-}
-
-/**
  * Loops the background sound when it ends
  */
 
-background_sound.addEventListener('ended', function() {
-    this.currentTime = 0;
-    this.play();
-}, false);
+// background_sound.addEventListener('ended', function() {
+//     this.currentTime = 0;
+//     this.play();
+// }, false);
 
 /**
  * Reloads the game to start a new game

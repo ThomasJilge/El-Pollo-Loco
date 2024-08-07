@@ -7,7 +7,7 @@ class Character extends MovableObject {
     characterLongIdle = false;
     idleTimer;
     longIdleTimer;
-    CharacterIsHurt_sound = new Audio('audio/characterHurt.mp3');
+    characterIsHurt_sound = new Audio('audio/characterHurt.mp3');
     noSoundCharacterIsHurt = true;
     jumpingAnimationInterval;
 

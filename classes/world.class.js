@@ -35,7 +35,23 @@ class World {
         this.setWorld();
         this.run();
         this.endboss = null;
+        // this.collectedCoinsSound = new Audio('audio/collectedCoinsSound.mp3');
+        // this.collectedBottlesSound = new Audio('audio/collectedBottlesSound.mp3');
     }
+
+        toggleSound(action) {
+        const audioObjects = [
+            background_sound,
+            this.collectedCoinsSound,
+            this.collectedBottlesSound
+        ];
+        audioObjects.forEach(audio => {
+            if (audio) {
+                audio[action]();
+            }
+        });
+    }
+
 
     /**
      * Sets the world property of the character to this instance of the World
