@@ -62,7 +62,7 @@ class soundManagement {
      *
      * @param {string} soundName - The key name of the sound in the `allSounds` object to be paused
      */
-    static pauseSound(soundName) {
+    static soundPause(soundName) {
         const sound = this.allSounds[soundName];
         if (sound) {
             sound.pause();
@@ -88,11 +88,11 @@ class soundManagement {
      * 
      * @param {number} volume - Volume level
      */
-        static setBackgroundVolume(volume) {
-            const backgroundSound = this.allSounds['background_sound'];
-            if (backgroundSound) {
-                backgroundSound.volume = volume;
-            }
+    static setBackgroundVolume(volume) {
+        const backgroundSound = this.allSounds['background_sound'];
+        if (backgroundSound) {
+            backgroundSound.volume = volume;
         }
+    }
 }
 

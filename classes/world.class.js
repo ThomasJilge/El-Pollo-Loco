@@ -326,10 +326,10 @@ class World {
     gameOver() {
         let gameIsOver = document.getElementById('gameOver');
         gameIsOver.classList.toggle('d-none', this.character.energy > 0);
-        soundManagement.pauseSound('background_sound');
+        soundManagement.soundPause('background_sound');
         this.clearIntervals();
-        soundManagement.pauseSound('snoring_sound');
-        soundManagement.pauseSound('walking_sound');
+        soundManagement.soundPause('snoring_sound');
+        soundManagement.soundPause('walking_sound');
     }
 
     /**
@@ -353,7 +353,7 @@ class World {
                 gameIsWon.classList.remove('d-none');
                 this.displayGameWon = true;
                 this.clearIntervals();
-                soundManagement.pauseSound('snoring_sound');
+                soundManagement.soundPause('snoring_sound');
             } else {
                 gameIsWon.classList.add('d-none');
                 this.displayGameWon = false;

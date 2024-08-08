@@ -116,7 +116,7 @@ class Endboss extends MovableObject {
             soundManagement.startSound('endbossDeadSound');
             this.noSoundEndbossDead = false;
         }
-        soundManagement.pauseSound('background_sound');
+        soundManagement.soundPause('background_sound');
     }
 
     /**

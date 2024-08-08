@@ -108,7 +108,7 @@ class Character extends MovableObject {
      */
     characterMovement() {
         setInterval(() => {
-            soundManagement.pauseSound('walking_sound');
+            soundManagement.soundPause('walking_sound');
             this.world.camera_x = -this.x + 100;
             this.characterMoveRight();
             this.characterMoveLeft();
@@ -190,7 +190,7 @@ class Character extends MovableObject {
                     soundManagement.startSound('snoring_sound');
                 }
             } else {
-                soundManagement.pauseSound('snoring_sound');
+                soundManagement.soundPause('snoring_sound');
             }
         }, 200);
     }
