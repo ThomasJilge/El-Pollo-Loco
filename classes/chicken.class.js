@@ -3,9 +3,10 @@ class Chicken extends MovableObject {
     height = 80;
     width = 70;
     y = 350;
-    chickenHitSound = new Audio ('audio/chicken1.mp3');
+    // chickenHitSound = new Audio ('audio/chicken1.mp3');
     noSoundChickenHit = true;
     enemyDeath = false;
+    // chickenHitSound;
 
     offset = {
         top: -5,
@@ -31,6 +32,7 @@ class Chicken extends MovableObject {
         this.x = 500 + Math.random() * 1500;
         this.speed = 0.15 + Math.random() * 0.5;
         this.animateChicken();
+        // this.chickenHitSound = soundManagement.allSounds.chickenHitSound;
     }
 
     /**
@@ -46,7 +48,8 @@ class Chicken extends MovableObject {
             if (this.enemyDeath) {
                 this.playAnimation(this.imagesDead);
                 if (this.noSoundChickenHit) {
-                    this.chickenHitSound.play();
+                    // this.chickenHitSound.play();
+                    soundManagement.startSound('chickenHitSound');
                     this.noSoundChickenHit = false;
                 }
             } else {

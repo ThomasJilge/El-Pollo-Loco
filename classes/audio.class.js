@@ -19,7 +19,7 @@ class soundManagement {
     static startSound(soundName) {
         const sound = this.allSounds[soundName];
         if (sound) {
-            sound.volume = 0.1;
+            sound.volume = 1.0;
             sound.play();
         } 
     }
@@ -33,6 +33,7 @@ class soundManagement {
         if (this.allSounds.background_sound.paused) {
             this.allSounds.background_sound.play(); 
         }
+        console.log('sound on');
     }
   
     /**
@@ -43,6 +44,14 @@ class soundManagement {
         this.allSounds.background_sound.muted = true;
         if (!this.allSounds.background_sound.paused) {
             this.allSounds.background_sound.pause();
+        }
+        console.log('sound off');
+    }
+
+    static pauseSound(soundName) {
+        const sound = this.allSounds[soundName];
+        if (sound) {
+            sound.pause();
         }
     }
 

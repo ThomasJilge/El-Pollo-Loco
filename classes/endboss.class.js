@@ -1,8 +1,8 @@
 class Endboss extends MovableObject {
 
-    endbossDeadSound = new Audio ('audio/endbossDead.mp3');
+    // endbossDeadSound = new Audio ('audio/endbossDead.mp3');
     noSoundEndbossDead = true;
-    endBossIsHurt = new Audio ('audio/endbossHurt.mp3');
+    // endBossIsHurt = new Audio ('audio/endbossHurt.mp3');
     noSoundEndbossIsHurt = true;
     alertDone = false;
     walkingDone = false;
@@ -10,6 +10,8 @@ class Endboss extends MovableObject {
     isAttack = false;
     isNotAttack = true;
     enemyDeath = false;
+    // endbossDeadSound;
+    // endBossIsHurt;
 
     height = 400;
     width = 250;
@@ -72,6 +74,8 @@ class Endboss extends MovableObject {
         this.x = 2500;
         this.speed = 7.5;
         this.animateEndboss();
+        // this.endbossDeadSound = soundManagement.allSounds.endbossDeadSound;
+        // this.endBossIsHurt = soundManagement.allSounds.endBossIsHurt;
     }
 
     /** 
@@ -114,10 +118,11 @@ class Endboss extends MovableObject {
     animateDeath() {
         this.playAnimation(this.imagesDead);
         if (this.noSoundEndbossDead) {
-            this.endbossDeadSound.play();
+            // this.endbossDeadSound.play();
+            soundManagement.startSound('endbossDeadSound');
             this.noSoundEndbossDead = false;
         }
-        background_sound.pause();
+        soundManagement.pauseSound('background_sound');
     }
 
     /**
@@ -126,7 +131,8 @@ class Endboss extends MovableObject {
     animateHurt() {
         this.playAnimation(this.imagesHurt);
         if (this.noSoundEndbossIsHurt) {
-            this.endBossIsHurt.play();
+            // this.endBossIsHurt.play();
+            soundManagement.startSound('endBossIsHurt');
             this.noSoundEndbossIsHurt = false;
         }
     }
