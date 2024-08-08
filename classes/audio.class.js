@@ -16,12 +16,16 @@ class soundManagement {
 
     static isMuted = false;
 
+    /**
+     * Plays the sound from the beginning and sets its volume to 1.0
+     */
     static startSound(soundName) {
         const sound = this.allSounds[soundName];
         if (sound) {
+            sound.currentTime = 0; 
             sound.volume = 1.0;
             sound.play();
-        } 
+        }
     }
 
     /**
