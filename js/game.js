@@ -2,9 +2,6 @@ let canvas;
 let world;
 let keyboard = new Keyboard();
 
-// background_sound = new Audio('audio/backgroundSound.mp3'); 
-// background_sound.volume = 0.1;
-
 /**
  * Initializes the game environment by setting up the canvas
  */
@@ -150,10 +147,7 @@ function startGame() {
         document.getElementById('userInfoContainer').classList.add('d-none');
     } 
     
-    // background_sound.play();
-    // background_sound.volume = 0.1;
-    soundManagement.startSound('backgroundSound');
-    soundManagement.soundOn();
+    soundManagement.soundOn('backgroundSound');
 }
 
 /**
@@ -200,15 +194,6 @@ function enterFullscreen(element) {
       element.webkitRequestFullscreen();
     }
 }
-
-/**
- * Loops the background sound when it ends
- */
-
-// background_sound.addEventListener('ended', function() {
-//     this.currentTime = 0;
-//     this.play();
-// }, false);
 
 /**
  * Reloads the game to start a new game

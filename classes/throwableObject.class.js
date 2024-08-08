@@ -1,9 +1,7 @@
 class ThrowableObject extends MovableObject {
 
     floor = 350;
-    // brokenBottleSound = new Audio ('audio/brokenBottle.mp3');
     noSoundBrokenBottle = true;
-    // brokenBottleSound;
 
     throwBottleRotation = [
         'img/6_salsa_bottle/bottle_rotation/1_bottle_rotation.png',
@@ -33,7 +31,6 @@ class ThrowableObject extends MovableObject {
         this.direction = direction; 
         this.throw();
         this.animateThrowable();
-        // this.brokenBottleSound = soundManagement.allSounds.brokenBottleSound;
     }
 
     /**
@@ -46,7 +43,6 @@ class ThrowableObject extends MovableObject {
             } else if (this.y >= this.floor) {
                 this.playAnimation(this.throwBottleSplash);
                 if (this.noSoundBrokenBottle == true) {
-                    // this.brokenBottleSound.play();
                     soundManagement.startSound('brokenBottleSound');
                 }
                 setTimeout(() => {

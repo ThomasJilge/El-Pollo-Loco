@@ -16,8 +16,6 @@ class World {
     statusBarBottles = new StatusBarBottles();
     statusBarEndboss = new StatusBarEndboss();
     throwableObjects = [];
-    // collectedCoinsSound = new Audio ('audio/collectedCoinsSound.mp3');
-    // collectedBottlesSound = new Audio ('audio/collectedBottlesSound.mp3');
     noSoundCoins = true;
     noSoundBottles = true;
     displayGameOver = false;
@@ -26,8 +24,6 @@ class World {
     enemyDeath = false;
     soundEnabled = true;
     lastThrowTime = 0;
-    // collectedCoinsSound;
-    // collectedBottlesSound;
 
     constructor(canvas, keyboard) {
         this.ctx = canvas.getContext('2d');
@@ -37,23 +33,7 @@ class World {
         this.setWorld();
         this.run();
         this.endboss = null;
-        // this.collectedCoinsSound = soundManagement.allSounds.collectedCoinsSound;
-        // this.collectedBottlesSound = soundManagement.allSounds.collectedBottlesSound;
     }
-
-    //     toggleSound(action) {
-    //     const audioObjects = [
-    //         background_sound,
-    //         this.collectedCoinsSound,
-    //         this.collectedBottlesSound
-    //     ];
-    //     audioObjects.forEach(audio => {
-    //         if (audio) {
-    //             audio[action]();
-    //         }
-    //     });
-    // }
-
 
     /**
      * Sets the world property of the character to this instance of the World
@@ -68,7 +48,6 @@ class World {
     run() {
         setInterval(() => {
             this.checkCollisions();
-            // this.updateEndbossAndStatusBar();
             this.updateStatusBar();
         }, 50);
     }
@@ -84,7 +63,6 @@ class World {
         this.bottleCollision();
         this.coinCollision();
         this.characterIsDead();
-        // this.endbossIsDead();
     }
 
     /**
@@ -236,7 +214,6 @@ class World {
         this.level.bottles.forEach((bottle, i) => {
             if (this.character.isColliding(bottle)) {
                 this.character.collectingBottles();
-                // if (this.noSoundBottles) this.collectedBottlesSound.play();
                 if (this.noSoundBottles) soundManagement.startSound('collectedBottlesSound');
                 this.level.bottles.splice(i, 1);
                 this.collectedBottles += 1;
@@ -252,7 +229,6 @@ class World {
         this.level.coins.forEach((coin, i) => {
             if (this.character.isColliding(coin)) {
                 this.character.collectingCoins();
-                // if (this.noSoundCoins) this.collectedCoinsSound.play();
                 if (this.noSoundCoins) soundManagement.startSound('collectedCoinsSound');
                 this.level.coins.splice(i, 1);
                 this.statusBarCoins.setPercentageCoins(this.character.quantityCoins);
@@ -350,12 +326,9 @@ class World {
     gameOver() {
         let gameIsOver = document.getElementById('gameOver');
         gameIsOver.classList.toggle('d-none', this.character.energy > 0);
-        // background_sound.pause();
         soundManagement.pauseSound('background_sound');
         this.clearIntervals();
-        // this.character.snoring_sound.pause();
         soundManagement.pauseSound('snoring_sound');
-        // this.character.walking_sound.pause();
         soundManagement.pauseSound('walking_sound');
     }
 
@@ -380,7 +353,6 @@ class World {
                 gameIsWon.classList.remove('d-none');
                 this.displayGameWon = true;
                 this.clearIntervals();
-                // this.character.snoring_sound.pause();
                 soundManagement.pauseSound('snoring_sound');
             } else {
                 gameIsWon.classList.add('d-none');

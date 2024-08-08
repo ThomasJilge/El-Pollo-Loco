@@ -25,29 +25,39 @@ class soundManagement {
     }
 
     /**
-     * Turns on all sounds.
+     * Turns on all sounds
      */
     static soundOn() {
         this.isMuted = false;
-        this.allSounds.background_sound.muted = false; 
-        if (this.allSounds.background_sound.paused) {
-            this.allSounds.background_sound.play(); 
+        for (let soundName in this.allSounds) {
+            let sound = this.allSounds[soundName];
+            sound.muted = false;
+            if (soundName === 'background_sound' && sound.paused) {
+                sound.play(); 
+            }
+            this.setBackgroundVolume(0.1);
         }
-        console.log('sound on');
     }
-  
+
     /**
-     * Turns off all sounds.
+     * Turns off all sounds
      */
     static soundOff() {
         this.isMuted = true;
-        this.allSounds.background_sound.muted = true;
-        if (!this.allSounds.background_sound.paused) {
-            this.allSounds.background_sound.pause();
+        for (let soundName in this.allSounds) {
+            let sound = this.allSounds[soundName];
+            sound.muted = true;
+            if (!sound.paused) {
+                sound.pause();
+            }
         }
-        console.log('sound off');
     }
 
+    /**
+     * Pauses the sound if it is currently playing
+     *
+     * @param {string} soundName - The key name of the sound in the `allSounds` object to be paused
+     */
     static pauseSound(soundName) {
         const sound = this.allSounds[soundName];
         if (sound) {
@@ -55,6 +65,12 @@ class soundManagement {
         }
     }
 
+    /**
+     * Applies the current mute state to all sounds
+     * 
+     * If the `isMuted` flag is true, all sounds are muted and the background sound is paused
+     * Otherwise, all sounds are unmuted and the background sound is resumed if it was paused
+     */
     static applyMuteState() {
         if (this.isMuted) {
             this.soundOff();
@@ -62,5 +78,17 @@ class soundManagement {
             this.soundOn();
         }
     }
+
+        /**
+     * Sets the volume of the background sound (0.0 to 1.0)
+     * 
+     * @param {number} volume - Volume level
+     */
+        static setBackgroundVolume(volume) {
+            const backgroundSound = this.allSounds['background_sound'];
+            if (backgroundSound) {
+                backgroundSound.volume = volume;
+            }
+        }
 }
 
