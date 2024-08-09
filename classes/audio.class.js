@@ -22,11 +22,17 @@ class soundManagement {
     static startSound(soundName) {
         const sound = this.allSounds[soundName];
         if (sound) {
-            sound.currentTime = 0; 
-            sound.volume = 1.0;
-            sound.play();
+            if (soundName !== 'snoring_sound' || !sound.playing) {
+                sound.currentTime = 0;
+                sound.volume = 1.0;
+                sound.play();
+                if (soundName === 'snoring_sound') {
+                    sound.playing = true;
+                }
+            }
         }
     }
+
 
     /**
      * Turns on all sounds
@@ -65,7 +71,12 @@ class soundManagement {
     static soundPause(soundName) {
         const sound = this.allSounds[soundName];
         if (sound) {
-            sound.pause();
+            if (soundName !== 'snoring_sound' || sound.playing) {
+                sound.pause();
+                if (soundName === 'snoring_sound') {
+                    sound.playing = false;
+                }
+            }
         }
     }
 
