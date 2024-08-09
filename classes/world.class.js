@@ -354,6 +354,7 @@ class World {
                 this.displayGameWon = true;
                 this.clearIntervals();
                 soundManagement.soundPause('snoring_sound');
+                soundManagement.soundPause('walking_sound');
             } else {
                 gameIsWon.classList.add('d-none');
                 this.displayGameWon = false;
