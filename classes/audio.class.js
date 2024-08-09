@@ -92,6 +92,7 @@ class soundManagement {
         const backgroundSound = this.allSounds['background_sound'];
         if (backgroundSound) {
             backgroundSound.volume = volume;
+            backgroundSound.loop = true;
         }
     }
 }
